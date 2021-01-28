@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(registrationPage));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -68,13 +68,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -135,16 +135,6 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(537, 66);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(23, 14);
-            this.label21.TabIndex = 30;
-            this.label21.Text = "----";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label27);
@@ -161,6 +151,16 @@
             this.panel2.Size = new System.Drawing.Size(782, 389);
             this.panel2.TabIndex = 29;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(545, 101);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(23, 14);
+            this.label27.TabIndex = 34;
+            this.label27.Text = "----";
             // 
             // linkLabel1
             // 
@@ -552,10 +552,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Sign Up";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -575,6 +571,16 @@
             this.label23.Size = new System.Drawing.Size(23, 14);
             this.label23.TabIndex = 32;
             this.label23.Text = "----";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(537, 66);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(23, 14);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "----";
             // 
             // label24
             // 
@@ -606,15 +612,9 @@
             this.label26.TabIndex = 35;
             this.label26.Text = "----";
             // 
-            // label27
+            // timer1
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(545, 101);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 14);
-            this.label27.TabIndex = 34;
-            this.label27.Text = "----";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // registrationPage
             // 

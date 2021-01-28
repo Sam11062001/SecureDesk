@@ -9,16 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Globalization;
+//using SecureDesk.ClientRegistration;
 
 namespace SecureDesk
 {
     public partial class registrationPage : Form
     {
         Regex regex;
+        string[] Questions;
+        ClientRegistrationService.RegistrationServiceClient clientRegistration = null; 
         public registrationPage()
         {
             InitializeComponent();
             panel2.Hide();
+            clientRegistration = new ClientRegistrationService.RegistrationServiceClient();
+            Questions = clientRegistration.getQuestions();
+            foreach( string question in Questions )
+            {
+                comboBox1.Items.Add(question);
+            }
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -48,14 +59,26 @@ namespace SecureDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string email = textBox1.Text , firstName = textBox4.Text, lastName = textBox5.Text , date = textBox2.Text , password = textBox3.Text , cPassword = textBox6.Text , answer = textBox8.Text;
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(date) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(cPassword) || string.IsNullOrEmpty(answer))
+            string questionSelected=comboBox1.SelectedText, email = textBox1.Text , firstName = textBox4.Text, lastName = textBox5.Text , date = textBox2.Text , password = textBox3.Text , cPassword = textBox6.Text , answer = textBox8.Text;
+            if ( string.IsNullOrEmpty(email) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(date) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(cPassword) || string.IsNullOrEmpty(answer))
             {
                 label26.Text = "Enter all details.";
                 label26.ForeColor = System.Drawing.Color.Red;
+                return;
             }
-            else
-                panel2.Show();
+            ClientRegistrationService.UserRegister userRegister = new ClientRegistrationService.UserRegister()
+            {
+                Email_Address = email,
+                First_Name = firstName,
+                Last_Name = lastName,
+                Date_Of_Birth = date,
+                Question_Number_Selected = comboBox1.SelectedIndex,
+                Question_Answered = answer,
+                Password = password
+
+            };
+            clientRegistration.registerNewUser(userRegister);
+            panel2.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
