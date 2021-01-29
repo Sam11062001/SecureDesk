@@ -16,7 +16,7 @@ namespace SecureDesk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new registrationPage());
+            Application.Run(new login());
         }
     }
 }

@@ -24,6 +24,7 @@ namespace SecureDesk
             panel2.Hide();
             panel3.Hide();
             panel4.Hide();
+            invalidLabel.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,9 +39,32 @@ namespace SecureDesk
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            Dashboard d1 = new Dashboard();
-            d1.Show();
+            //instance of service procy
+            AuthenticateClient.IAuthService serviceProcy = new AuthenticateClient.AuthServiceClient();
+           
+            //creating the instance of the userCredential object required for validating the client
+            AuthenticateClient.UserCredentials userCredentials = new AuthenticateClient.UserCredentials();
+           
+            //user email address
+            userCredentials.User_Auth_Email = emailTextBox.Text;
+           
+            //user password
+            userCredentials.User_Auth_Password = passwordTextBox.Text;
+            
+            //result obtained from the Service
+            bool auth_result = serviceProcy.validateLogin(userCredentials);
+            if (auth_result)
+            {
+                this.Hide();
+                Dashboard d1 = new Dashboard();
+                d1.Show();
+            }
+            else
+            {
+                invalidLabel.Show();
+                invalidLabel.Text = "Incorrect Credentials";
+            }
+            
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -51,9 +75,10 @@ namespace SecureDesk
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (textBox1.Text != null)
+            invalidLabel.Hide();
+            if (!String.IsNullOrEmpty(emailTextBox.Text))
             {
-                emailAddress = textBox1.Text;
+                emailAddress = emailTextBox.Text;
 
                 richTextBox1.Text = clientRegistration.getUserQuestion(emailAddress);
 
@@ -62,8 +87,9 @@ namespace SecureDesk
             }
             else
             {
-                label12.Text = "Enter email address";
-                label12.ForeColor = System.Drawing.Color.Red;
+                invalidLabel.Show();
+                invalidLabel.Text = "Enter email address";
+                invalidLabel.ForeColor = System.Drawing.Color.Red;
             }
         }
 
@@ -77,6 +103,7 @@ namespace SecureDesk
 
         private void button2_Click(object sender, EventArgs e)
         {
+            invalidLabel.Hide();
             Regex regex = new Regex(@"^[0-9]{6}$");
             string code = textBox9.Text;
             Match match = regex.Match(code);
@@ -221,17 +248,27 @@ namespace SecureDesk
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            emailTextBox.Text = "";
 
 
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            textBox2.Text = "";
+            passwordTextBox.Text = "";
         }
 
         private void linkLabel2_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }
