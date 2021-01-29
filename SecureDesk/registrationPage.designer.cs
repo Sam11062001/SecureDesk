@@ -158,9 +158,8 @@
             this.label27.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(545, 101);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 14);
+            this.label27.Size = new System.Drawing.Size(0, 14);
             this.label27.TabIndex = 34;
-            this.label27.Text = "----";
             // 
             // linkLabel1
             // 
@@ -416,6 +415,7 @@
             this.textBox2.TabIndex = 14;
             this.textBox2.Text = "MM/DD/YYYY";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label9
@@ -558,9 +558,8 @@
             this.label22.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(537, 140);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(23, 14);
+            this.label22.Size = new System.Drawing.Size(0, 14);
             this.label22.TabIndex = 31;
-            this.label22.Text = "----";
             // 
             // label23
             // 
@@ -568,9 +567,8 @@
             this.label23.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(537, 166);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(23, 14);
+            this.label23.Size = new System.Drawing.Size(0, 14);
             this.label23.TabIndex = 32;
-            this.label23.Text = "----";
             // 
             // label21
             // 
@@ -578,9 +576,8 @@
             this.label21.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(537, 66);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(23, 14);
+            this.label21.Size = new System.Drawing.Size(0, 14);
             this.label21.TabIndex = 30;
-            this.label21.Text = "----";
             // 
             // label24
             // 
@@ -588,9 +585,8 @@
             this.label24.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(537, 222);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(23, 14);
+            this.label24.Size = new System.Drawing.Size(0, 14);
             this.label24.TabIndex = 33;
-            this.label24.Text = "----";
             // 
             // label25
             // 
@@ -598,9 +594,8 @@
             this.label25.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(299, 324);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(23, 14);
+            this.label25.Size = new System.Drawing.Size(0, 14);
             this.label25.TabIndex = 34;
-            this.label25.Text = "----";
             // 
             // label26
             // 
@@ -608,9 +603,8 @@
             this.label26.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(299, 350);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(23, 14);
+            this.label26.Size = new System.Drawing.Size(0, 14);
             this.label26.TabIndex = 35;
-            this.label26.Text = "----";
             // 
             // timer1
             // 
