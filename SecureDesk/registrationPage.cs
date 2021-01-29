@@ -224,7 +224,7 @@ namespace SecureDesk
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            regex = new Regex(@"^[1-9][0-9]{5}$");
+            regex = new Regex(@"^[0-9]{6}$");
             string code = textBox9.Text;
             Match match = regex.Match(code);
             if (!match.Success)
@@ -246,7 +246,7 @@ namespace SecureDesk
 
         private void button2_Click(object sender, EventArgs e)
         {
-            regex = new Regex(@"^[1-9][0-9]{5}$");
+            regex = new Regex(@"^[0-9]{6}$");
             string code = textBox9.Text;
             Match match = regex.Match(code);
             if (!match.Success)
