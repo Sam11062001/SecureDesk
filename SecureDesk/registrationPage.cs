@@ -15,6 +15,7 @@ namespace SecureDesk
 {
     public partial class registrationPage : Form
     {
+        string emailAddress;
         Regex regex;
         string[] Questions;
         ClientRegistrationService.RegistrationServiceClient clientRegistration = null; 
@@ -78,6 +79,8 @@ namespace SecureDesk
 
             };
             clientRegistration.registerNewUser(userRegister);
+            
+            emailAddress = email;
             panel2.Show();
         }
 
@@ -261,9 +264,29 @@ namespace SecureDesk
             }
             else
             {
-                this.Hide();
-                Dashboard d1 = new Dashboard();
-                d1.Show();
+                
+                ClientRegistrationService.UserOtpVerification userOtpVerification = new ClientRegistrationService.UserOtpVerification()
+                {
+                    OneTimePasswordforVerification = Int32.Parse(code),
+                    User_Email_Address = emailAddress
+                   
+                };
+                //userOtpVerification.OneTimePasswordforVerification,userOtpVerification.User_Email_Address
+                //Int32.Parse(code),emailAddress
+                //ClientRegistrationService.OTP_Verified otpVerified = clientRegistration.verifyUser(userOtpVerification.OneTimePasswordforVerification,userOtpVerification.User_Email_Address);      
+                Boolean result = clientRegistration.verifyUser(userOtpVerification.OneTimePasswordforVerification, userOtpVerification.User_Email_Address);
+                if (result)
+                {
+                    this.Hide();
+                    Dashboard d1 = new Dashboard();
+                    d1.Show();
+                }
+                else
+                {
+                    label27.Text = "Invalid OTP code";
+                    label27.ForeColor = System.Drawing.Color.Red;
+                }
+                
             }
         }
     }

@@ -4,10 +4,16 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="RegistrationService_getQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getQuestions" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_getQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getQuestionsResponse" />
+  </wsdl:message>
   <wsdl:message name="RegistrationService_connectToFirebase_InputMessage">
     <wsdl:part name="parameters" element="tns:connectToFirebase" />
   </wsdl:message>
@@ -45,13 +51,29 @@
   <wsdl:message name="RegistrationService_getSecurePin_OutputMessage">
     <wsdl:part name="parameters" element="tns:getSecurePinResponse" />
   </wsdl:message>
-  <wsdl:message name="RegistrationService_getQuestions_InputMessage">
-    <wsdl:part name="parameters" element="tns:getQuestions" />
+  <wsdl:message name="RegistrationService_getUserQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserQuestion" />
   </wsdl:message>
-  <wsdl:message name="RegistrationService_getQuestions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getQuestionsResponse" />
+  <wsdl:message name="RegistrationService_getUserQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_verifyAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:verifyAnswer" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_verifyAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verifyAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_resetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:resetPassword" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_resetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:resetPasswordResponse" />
   </wsdl:message>
   <wsdl:portType name="RegistrationService">
+    <wsdl:operation name="getQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getQuestions" message="tns:RegistrationService_getQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getQuestionsResponse" message="tns:RegistrationService_getQuestions_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="connectToFirebase">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/connectToFirebase" message="tns:RegistrationService_connectToFirebase_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/connectToFirebaseResponse" message="tns:RegistrationService_connectToFirebase_OutputMessage" />
@@ -72,13 +94,30 @@
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getSecurePin" message="tns:RegistrationService_getSecurePin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getSecurePinResponse" message="tns:RegistrationService_getSecurePin_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getQuestions">
-      <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getQuestions" message="tns:RegistrationService_getQuestions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getQuestionsResponse" message="tns:RegistrationService_getQuestions_OutputMessage" />
+    <wsdl:operation name="getUserQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getUserQuestion" message="tns:RegistrationService_getUserQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getUserQuestionResponse" message="tns:RegistrationService_getUserQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/verifyAnswer" message="tns:RegistrationService_verifyAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/verifyAnswerResponse" message="tns:RegistrationService_verifyAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/resetPassword" message="tns:RegistrationService_resetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/resetPasswordResponse" message="tns:RegistrationService_resetPassword_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_RegistrationService" type="tns:RegistrationService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getQuestions">
+      <soap:operation soapAction="http://tempuri.org/RegistrationService/getQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="connectToFirebase">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/connectToFirebase" style="document" />
       <wsdl:input>
@@ -127,8 +166,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getQuestions">
-      <soap:operation soapAction="http://tempuri.org/RegistrationService/getQuestions" style="document" />
+    <wsdl:operation name="getUserQuestion">
+      <soap:operation soapAction="http://tempuri.org/RegistrationService/getUserQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyAnswer">
+      <soap:operation soapAction="http://tempuri.org/RegistrationService/verifyAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <soap:operation soapAction="http://tempuri.org/RegistrationService/resetPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

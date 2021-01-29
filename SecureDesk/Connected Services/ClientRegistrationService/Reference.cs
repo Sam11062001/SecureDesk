@@ -158,6 +158,12 @@ namespace SecureDesk.ClientRegistrationService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ClientRegistrationService.RegistrationService")]
     public interface RegistrationService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
+        string[] getQuestions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
+        System.Threading.Tasks.Task<string[]> getQuestionsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/connectToFirebase", ReplyAction="http://tempuri.org/RegistrationService/connectToFirebaseResponse")]
         bool connectToFirebase();
         
@@ -189,11 +195,23 @@ namespace SecureDesk.ClientRegistrationService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getSecurePin", ReplyAction="http://tempuri.org/RegistrationService/getSecurePinResponse")]
         System.Threading.Tasks.Task<int> getSecurePinAsync(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
-        string[] getQuestions();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getUserQuestion", ReplyAction="http://tempuri.org/RegistrationService/getUserQuestionResponse")]
+        string getUserQuestion(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
-        System.Threading.Tasks.Task<string[]> getQuestionsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getUserQuestion", ReplyAction="http://tempuri.org/RegistrationService/getUserQuestionResponse")]
+        System.Threading.Tasks.Task<string> getUserQuestionAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyAnswer", ReplyAction="http://tempuri.org/RegistrationService/verifyAnswerResponse")]
+        bool verifyAnswer(string email, string userAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyAnswer", ReplyAction="http://tempuri.org/RegistrationService/verifyAnswerResponse")]
+        System.Threading.Tasks.Task<bool> verifyAnswerAsync(string email, string userAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/resetPassword", ReplyAction="http://tempuri.org/RegistrationService/resetPasswordResponse")]
+        void resetPassword(string email, string newPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/resetPassword", ReplyAction="http://tempuri.org/RegistrationService/resetPasswordResponse")]
+        System.Threading.Tasks.Task resetPasswordAsync(string email, string newPassword);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -261,6 +279,14 @@ namespace SecureDesk.ClientRegistrationService {
                 base(binding, remoteAddress) {
         }
         
+        public string[] getQuestions() {
+            return base.Channel.getQuestions();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getQuestionsAsync() {
+            return base.Channel.getQuestionsAsync();
+        }
+        
         public bool connectToFirebase() {
             return base.Channel.connectToFirebase();
         }
@@ -318,12 +344,28 @@ namespace SecureDesk.ClientRegistrationService {
             return base.Channel.getSecurePinAsync(email);
         }
         
-        public string[] getQuestions() {
-            return base.Channel.getQuestions();
+        public string getUserQuestion(string email) {
+            return base.Channel.getUserQuestion(email);
         }
         
-        public System.Threading.Tasks.Task<string[]> getQuestionsAsync() {
-            return base.Channel.getQuestionsAsync();
+        public System.Threading.Tasks.Task<string> getUserQuestionAsync(string email) {
+            return base.Channel.getUserQuestionAsync(email);
+        }
+        
+        public bool verifyAnswer(string email, string userAnswer) {
+            return base.Channel.verifyAnswer(email, userAnswer);
+        }
+        
+        public System.Threading.Tasks.Task<bool> verifyAnswerAsync(string email, string userAnswer) {
+            return base.Channel.verifyAnswerAsync(email, userAnswer);
+        }
+        
+        public void resetPassword(string email, string newPassword) {
+            base.Channel.resetPassword(email, newPassword);
+        }
+        
+        public System.Threading.Tasks.Task resetPasswordAsync(string email, string newPassword) {
+            return base.Channel.resetPasswordAsync(email, newPassword);
         }
     }
 }
