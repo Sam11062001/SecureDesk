@@ -14,10 +14,13 @@ namespace SecureDesk
 {
     public partial class login : Form
     {
+        string emailAddress;
+        ClientRegistrationService.RegistrationServiceClient clientRegistration = null;
         public login()
         {
-             
+            
             InitializeComponent();
+            clientRegistration = new ClientRegistrationService.RegistrationServiceClient();
             panel2.Hide();
             panel3.Hide();
             panel4.Hide();
@@ -42,13 +45,26 @@ namespace SecureDesk
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            clientRegistration.sendOTP(emailAddress);
             panel2.Show();
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            panel2.Show();
-            panel3.Hide();
+            if (textBox1.Text != null)
+            {
+                emailAddress = textBox1.Text;
+
+                richTextBox1.Text = clientRegistration.getUserQuestion(emailAddress);
+
+                panel2.Show();
+                panel3.Hide();
+            }
+            else
+            {
+                label12.Text = "Enter email address";
+                label12.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -61,7 +77,7 @@ namespace SecureDesk
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^[1-9][0-9]{5}$");
+            Regex regex = new Regex(@"^[0-9]{6}$");
             string code = textBox9.Text;
             Match match = regex.Match(code);
             if (!match.Success)
@@ -79,7 +95,25 @@ namespace SecureDesk
             }
             else
             {
-                panel4.Show();
+                ClientRegistrationService.UserOtpVerification userOtpVerification = new ClientRegistrationService.UserOtpVerification()
+                {
+                    OneTimePasswordforVerification = Int32.Parse(code),
+                    User_Email_Address = emailAddress
+
+                };
+                Boolean result = clientRegistration.verifyUser(userOtpVerification.OneTimePasswordforVerification, userOtpVerification.User_Email_Address);
+                if (result)
+                {
+                    textBox9.Text = "";
+                    panel4.Show();
+                }
+                else
+                {
+                    label10.Text = "Invalid OTP code";
+                    textBox9.Text = "";
+                    label10.ForeColor = System.Drawing.Color.Red;
+                }
+
             }
             
         }
@@ -87,14 +121,28 @@ namespace SecureDesk
         private void button3_Click(object sender, EventArgs e)
         {
             string answer = textBox3.Text;
-            if (String.IsNullOrEmpty(answer) )
+            if (String.IsNullOrEmpty(answer))
             {
                 label27.Text = "Please enter the answer.";
                 label27.ForeColor = System.Drawing.Color.Red;
 
             }
             else
-                panel3.Show();
+            {
+                string userAnswer = textBox3.Text;
+                Boolean result = clientRegistration.verifyAnswer(emailAddress,userAnswer);
+                if (!result)
+                {
+                    label27.Text = "Invalid answer submitted.";
+                    label27.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    label27.Text = "";
+                    panel3.Show();
+                    clientRegistration.sendOTP(emailAddress);
+                }
+            }
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -125,6 +173,7 @@ namespace SecureDesk
             }
             else
             {
+                clientRegistration.resetPassword(emailAddress,password);
                 panel2.Hide();
                 panel4.Hide();
             }
@@ -137,7 +186,7 @@ namespace SecureDesk
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^[1-9][0-9]{5}$");
+            Regex regex = new Regex(@"^[0-9]{6}$");
             string code = textBox9.Text;
             Match match = regex.Match(code);
             if (!match.Success)
@@ -168,6 +217,23 @@ namespace SecureDesk
                 label24.Text = "Try to enter strong password";
                 label24.ForeColor = System.Drawing.Color.Red;
             }
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+
+
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+        }
+
+        private void linkLabel2_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

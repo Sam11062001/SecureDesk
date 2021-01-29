@@ -60,8 +60,9 @@ namespace SecureDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string questionSelected=comboBox1.SelectedText, email = textBox1.Text , firstName = textBox4.Text, lastName = textBox5.Text , date = textBox2.Text , password = textBox3.Text , cPassword = textBox6.Text , answer = textBox8.Text;
-            if ( string.IsNullOrEmpty(email) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(date) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(cPassword) || string.IsNullOrEmpty(answer))
+            
+            string questionSelected = comboBox1.Items[comboBox1.SelectedIndex].ToString(), email = textBox1.Text , firstName = textBox4.Text, lastName = textBox5.Text , date = textBox2.Text , password = textBox3.Text , cPassword = textBox6.Text , answer = textBox8.Text;
+            if (string.IsNullOrEmpty(questionSelected) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(date) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(cPassword) || string.IsNullOrEmpty(answer))
             {
                 label26.Text = "Enter all details.";
                 label26.ForeColor = System.Drawing.Color.Red;
@@ -73,7 +74,7 @@ namespace SecureDesk
                 First_Name = firstName,
                 Last_Name = lastName,
                 Date_Of_Birth = date,
-                Question_Number_Selected = comboBox1.SelectedIndex,
+                Question_Number_Selected = comboBox1.SelectedIndex +1,
                 Question_Answered = answer,
                 Password = password
 
@@ -86,6 +87,7 @@ namespace SecureDesk
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            clientRegistration.sendOTP(emailAddress);
             panel2.Show();
         }
 
@@ -288,6 +290,11 @@ namespace SecureDesk
                 }
                 
             }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
         }
     }
 }

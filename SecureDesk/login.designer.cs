@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,9 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,9 +68,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label27 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,9 +103,10 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Location = new System.Drawing.Point(50, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 412);
+            this.panel1.Size = new System.Drawing.Size(811, 412);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -113,14 +115,14 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.label27);
+            this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(811, 406);
+            this.panel2.Size = new System.Drawing.Size(805, 406);
             this.panel2.TabIndex = 30;
             // 
             // panel4
@@ -137,8 +139,17 @@
             this.panel4.Controls.Add(this.pictureBox5);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(805, 400);
+            this.panel4.Size = new System.Drawing.Size(799, 400);
             this.panel4.TabIndex = 35;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(419, 196);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(0, 14);
+            this.label24.TabIndex = 43;
             // 
             // button4
             // 
@@ -247,7 +258,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
             this.button3.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(659, 108);
+            this.button3.Location = new System.Drawing.Point(662, 119);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 27);
             this.button3.TabIndex = 34;
@@ -260,7 +271,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.textBox3.Location = new System.Drawing.Point(484, 66);
+            this.textBox3.Location = new System.Drawing.Point(484, 83);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(288, 16);
             this.textBox3.TabIndex = 30;
@@ -271,22 +282,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.label4.Location = new System.Drawing.Point(481, 70);
+            this.label4.Location = new System.Drawing.Point(481, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(294, 15);
             this.label4.TabIndex = 33;
             this.label4.Text = "_________________________________________";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.label3.Location = new System.Drawing.Point(480, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 15);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "\"Question selected\" ?";
             // 
             // label2
             // 
@@ -312,6 +312,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(326, 163);
             this.panel3.TabIndex = 30;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(17, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 14);
+            this.label10.TabIndex = 37;
             // 
             // linkLabel3
             // 
@@ -405,6 +414,15 @@
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(481, 108);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(0, 14);
+            this.label27.TabIndex = 36;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
@@ -423,13 +441,14 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Bold);
             this.linkLabel2.LinkColor = System.Drawing.Color.DarkGray;
-            this.linkLabel2.Location = new System.Drawing.Point(647, 235);
+            this.linkLabel2.Location = new System.Drawing.Point(634, 232);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(100, 14);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Forget password?";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkLabel2.Leave += new System.EventHandler(this.linkLabel2_Leave);
             // 
             // label1
             // 
@@ -465,6 +484,7 @@
             this.textBox2.TabIndex = 3;
             this.textBox2.Text = "Password";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             // 
             // textBox1
             // 
@@ -477,13 +497,14 @@
             this.textBox1.Size = new System.Drawing.Size(193, 15);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Email Address";
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(437, 42);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(380, 323);
+            this.pictureBox3.Size = new System.Drawing.Size(371, 323);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
@@ -498,35 +519,24 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label27
+            // label12
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(481, 108);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 14);
-            this.label27.TabIndex = 36;
-            this.label27.Text = "----";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(693, 246);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 32;
             // 
-            // label10
+            // richTextBox1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(17, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 14);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "----";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(419, 196);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(23, 14);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "----";
+            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
+            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.richTextBox1.Location = new System.Drawing.Point(483, 38);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(289, 39);
+            this.richTextBox1.TabIndex = 37;
+            this.richTextBox1.Text = "";
             // 
             // login
             // 
@@ -581,7 +591,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel4;
@@ -597,5 +606,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
