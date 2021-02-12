@@ -16,7 +16,8 @@ namespace SecureDesk
         public Dashboard()
         {
             InitializeComponent();
-            
+            //documnetDialog.Hide();
+            addDocument1.Hide();
             timer1.Start();
         }
        
@@ -27,8 +28,7 @@ namespace SecureDesk
         private void moveImageBox(object sender)
         {
             Guna2Button b = (Guna2Button)sender;
-            imageSlide.Location = new Point(b.Location.X + 121, b.Location.Y - 30);
-            imageSlide.SendToBack();
+           
         }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -55,6 +55,22 @@ namespace SecureDesk
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNewDocumentBtn_Click(object sender, EventArgs e)
+        {
+            //documnetDialog.Show();
+            addDocument1.Show();
         }
     }
 }

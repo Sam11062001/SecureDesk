@@ -93,11 +93,11 @@
     <Compile Include="SplashScreen.designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\addDocumentFileUserControl.cs">
+    <Compile Include="UserControls\AddDocument.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\addDocumentFileUserControl.designer.cs">
-      <DependentUpon>addDocumentFileUserControl.cs</DependentUpon>
+    <Compile Include="UserControls\AddDocument.Designer.cs">
+      <DependentUpon>AddDocument.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -113,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="registrationPage.resx">
       <DependentUpon>registrationPage.cs</DependentUpon>
@@ -120,8 +121,8 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\addDocumentFileUserControl.resx">
-      <DependentUpon>addDocumentFileUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AddDocument.resx">
+      <DependentUpon>AddDocument.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\AuthenticateClient\AuthService.wsdl" />
     <None Include="Connected Services\AuthenticateClient\AuthService.xsd">
@@ -205,6 +206,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddButton.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documnetUpload.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
