@@ -44,28 +44,30 @@ namespace SecureDesk
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.outerPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.documentPanel = new System.Windows.Forms.Panel();
-            this.documentAddbtn = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.addNewDocumentBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.documentPanel = new System.Windows.Forms.Panel();
+            this.diaryPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.diaryAddPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAddNewDiary = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.documentAddbtn = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.addNewDocumentBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.addDocument1 = new SecureDesk.UserControls.AddDocument();
+            this.addDiaryPanel = new SecureDesk.UserControls.AddDiary();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.outerPanel.SuspendLayout();
-            this.documentPanel.SuspendLayout();
-            this.documentAddbtn.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.searchPanel.SuspendLayout();
+            this.documentPanel.SuspendLayout();
+            this.diaryPanel.SuspendLayout();
+            this.diaryAddPanel.SuspendLayout();
+            this.documentAddbtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,6 +231,7 @@ namespace SecureDesk
             this.guna2Button4.Text = "My Diary";
             this.guna2Button4.UseTransparentBackground = true;
             this.guna2Button4.CheckedChanged += new System.EventHandler(this.guna2Button1_Click);
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2Button3
             // 
@@ -317,9 +320,8 @@ namespace SecureDesk
             // outerPanel
             // 
             this.outerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
-            this.outerPanel.Controls.Add(this.documentAddbtn);
-            this.outerPanel.Controls.Add(this.documentPanel);
             this.outerPanel.Controls.Add(this.guna2Panel1);
+            this.outerPanel.Controls.Add(this.documentPanel);
             this.outerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.outerPanel.Location = new System.Drawing.Point(0, 0);
             this.outerPanel.Name = "outerPanel";
@@ -327,60 +329,16 @@ namespace SecureDesk
             this.outerPanel.Size = new System.Drawing.Size(1315, 843);
             this.outerPanel.TabIndex = 0;
             // 
-            // documentPanel
-            // 
-            this.documentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.documentPanel.Controls.Add(this.addDocument1);
-            this.documentPanel.Location = new System.Drawing.Point(18, 179);
-            this.documentPanel.Name = "documentPanel";
-            this.documentPanel.Size = new System.Drawing.Size(1285, 652);
-            this.documentPanel.TabIndex = 5;
-            // 
-            // documentAddbtn
-            // 
-            this.documentAddbtn.BorderRadius = 5;
-            this.documentAddbtn.Controls.Add(this.addNewDocumentBtn);
-            this.documentAddbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.documentAddbtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.documentAddbtn.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.documentAddbtn.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.documentAddbtn.Location = new System.Drawing.Point(18, 93);
-            this.documentAddbtn.Name = "documentAddbtn";
-            this.documentAddbtn.ShadowDecoration.Parent = this.documentAddbtn;
-            this.documentAddbtn.Size = new System.Drawing.Size(1285, 75);
-            this.documentAddbtn.TabIndex = 4;
-            // 
-            // addNewDocumentBtn
-            // 
-            this.addNewDocumentBtn.Animated = true;
-            this.addNewDocumentBtn.AnimatedGIF = true;
-            this.addNewDocumentBtn.AutoRoundedCorners = true;
-            this.addNewDocumentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.addNewDocumentBtn.BorderRadius = 22;
-            this.addNewDocumentBtn.CheckedState.Parent = this.addNewDocumentBtn;
-            this.addNewDocumentBtn.CustomImages.Parent = this.addNewDocumentBtn;
-            this.addNewDocumentBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addNewDocumentBtn.ForeColor = System.Drawing.Color.White;
-            this.addNewDocumentBtn.HoverState.Parent = this.addNewDocumentBtn;
-            this.addNewDocumentBtn.Location = new System.Drawing.Point(17, 12);
-            this.addNewDocumentBtn.Name = "addNewDocumentBtn";
-            this.addNewDocumentBtn.ShadowDecoration.Parent = this.addNewDocumentBtn;
-            this.addNewDocumentBtn.Size = new System.Drawing.Size(140, 46);
-            this.addNewDocumentBtn.TabIndex = 0;
-            this.addNewDocumentBtn.Text = " New Document";
-            this.addNewDocumentBtn.Click += new System.EventHandler(this.addNewDocumentBtn_Click);
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.searchPanel);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1315, 72);
+            this.guna2Panel1.Size = new System.Drawing.Size(1315, 58);
             this.guna2Panel1.TabIndex = 0;
             // 
             // label3
@@ -413,49 +371,88 @@ namespace SecureDesk
             this.label1.Size = new System.Drawing.Size(0, 38);
             this.label1.TabIndex = 2;
             // 
-            // searchPanel
+            // documentPanel
             // 
-            this.searchPanel.Controls.Add(this.searchBox);
-            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.searchPanel.Location = new System.Drawing.Point(0, 0);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.ShadowDecoration.Parent = this.searchPanel;
-            this.searchPanel.Size = new System.Drawing.Size(600, 72);
-            this.searchPanel.TabIndex = 1;
-            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchPanel_Paint);
+            this.documentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.documentPanel.Controls.Add(this.diaryPanel);
+            this.documentPanel.Controls.Add(this.documentAddbtn);
+            this.documentPanel.Location = new System.Drawing.Point(18, 91);
+            this.documentPanel.Name = "documentPanel";
+            this.documentPanel.Size = new System.Drawing.Size(1285, 740);
+            this.documentPanel.TabIndex = 5;
             // 
-            // searchBox
+            // diaryPanel
             // 
-            this.searchBox.Animated = true;
-            this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.searchBox.AutoRoundedCorners = true;
-            this.searchBox.AutoSize = true;
-            this.searchBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchBox.BorderRadius = 12;
-            this.searchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.searchBox.DefaultText = "";
-            this.searchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.searchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.searchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.DisabledState.Parent = this.searchBox;
-            this.searchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.FocusedState.Parent = this.searchBox;
-            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.searchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.HoverState.FillColor = System.Drawing.SystemColors.ButtonFace;
-            this.searchBox.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.searchBox.HoverState.Parent = this.searchBox;
-            this.searchBox.HoverState.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.searchBox.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchBox.IconLeft")));
-            this.searchBox.Location = new System.Drawing.Point(18, 12);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.PasswordChar = '\0';
-            this.searchBox.PlaceholderText = "";
-            this.searchBox.SelectedText = "";
-            this.searchBox.ShadowDecoration.Parent = this.searchBox;
-            this.searchBox.Size = new System.Drawing.Size(275, 26);
-            this.searchBox.TabIndex = 0;
+            this.diaryPanel.Controls.Add(this.addDiaryPanel);
+            this.diaryPanel.Controls.Add(this.diaryAddPanel);
+            this.diaryPanel.Location = new System.Drawing.Point(3, 3);
+            this.diaryPanel.Name = "diaryPanel";
+            this.diaryPanel.ShadowDecoration.Parent = this.diaryPanel;
+            this.diaryPanel.Size = new System.Drawing.Size(1279, 734);
+            this.diaryPanel.TabIndex = 5;
+            this.diaryPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint_1);
+            // 
+            // diaryAddPanel
+            // 
+            this.diaryAddPanel.Controls.Add(this.btnAddNewDiary);
+            this.diaryAddPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.diaryAddPanel.Location = new System.Drawing.Point(0, 0);
+            this.diaryAddPanel.Name = "diaryAddPanel";
+            this.diaryAddPanel.ShadowDecoration.Parent = this.diaryAddPanel;
+            this.diaryAddPanel.Size = new System.Drawing.Size(1279, 57);
+            this.diaryAddPanel.TabIndex = 0;
+            // 
+            // btnAddNewDiary
+            // 
+            this.btnAddNewDiary.Animated = true;
+            this.btnAddNewDiary.AnimatedGIF = true;
+            this.btnAddNewDiary.BorderRadius = 15;
+            this.btnAddNewDiary.CheckedState.Parent = this.btnAddNewDiary;
+            this.btnAddNewDiary.CustomImages.Parent = this.btnAddNewDiary;
+            this.btnAddNewDiary.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddNewDiary.ForeColor = System.Drawing.Color.White;
+            this.btnAddNewDiary.HoverState.Parent = this.btnAddNewDiary;
+            this.btnAddNewDiary.Location = new System.Drawing.Point(12, 3);
+            this.btnAddNewDiary.Name = "btnAddNewDiary";
+            this.btnAddNewDiary.ShadowDecoration.Parent = this.btnAddNewDiary;
+            this.btnAddNewDiary.Size = new System.Drawing.Size(154, 45);
+            this.btnAddNewDiary.TabIndex = 0;
+            this.btnAddNewDiary.Text = "Add Diary";
+            this.btnAddNewDiary.Click += new System.EventHandler(this.btnAddNewDiary_Click);
+            // 
+            // documentAddbtn
+            // 
+            this.documentAddbtn.BorderRadius = 5;
+            this.documentAddbtn.Controls.Add(this.addNewDocumentBtn);
+            this.documentAddbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.documentAddbtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.documentAddbtn.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.documentAddbtn.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.documentAddbtn.Location = new System.Drawing.Point(12, 14);
+            this.documentAddbtn.Name = "documentAddbtn";
+            this.documentAddbtn.ShadowDecoration.Parent = this.documentAddbtn;
+            this.documentAddbtn.Size = new System.Drawing.Size(1285, 75);
+            this.documentAddbtn.TabIndex = 4;
+            // 
+            // addNewDocumentBtn
+            // 
+            this.addNewDocumentBtn.Animated = true;
+            this.addNewDocumentBtn.AnimatedGIF = true;
+            this.addNewDocumentBtn.AutoRoundedCorners = true;
+            this.addNewDocumentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.addNewDocumentBtn.BorderRadius = 22;
+            this.addNewDocumentBtn.CheckedState.Parent = this.addNewDocumentBtn;
+            this.addNewDocumentBtn.CustomImages.Parent = this.addNewDocumentBtn;
+            this.addNewDocumentBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addNewDocumentBtn.ForeColor = System.Drawing.Color.White;
+            this.addNewDocumentBtn.HoverState.Parent = this.addNewDocumentBtn;
+            this.addNewDocumentBtn.Location = new System.Drawing.Point(17, 12);
+            this.addNewDocumentBtn.Name = "addNewDocumentBtn";
+            this.addNewDocumentBtn.ShadowDecoration.Parent = this.addNewDocumentBtn;
+            this.addNewDocumentBtn.Size = new System.Drawing.Size(140, 46);
+            this.addNewDocumentBtn.TabIndex = 0;
+            this.addNewDocumentBtn.Text = " New Document";
+            this.addNewDocumentBtn.Click += new System.EventHandler(this.addNewDocumentBtn_Click);
             // 
             // guna2Elipse1
             // 
@@ -476,14 +473,15 @@ namespace SecureDesk
             this.guna2Elipse3.BorderRadius = 7;
             this.guna2Elipse3.TargetControl = this.documentPanel;
             // 
-            // addDocument1
+            // addDiaryPanel
             // 
-            this.addDocument1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.addDocument1.Location = new System.Drawing.Point(169, 51);
-            this.addDocument1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.addDocument1.Name = "addDocument1";
-            this.addDocument1.Size = new System.Drawing.Size(862, 568);
-            this.addDocument1.TabIndex = 0;
+            this.addDiaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.addDiaryPanel.Location = new System.Drawing.Point(-15, -5);
+            this.addDiaryPanel.Margin = new System.Windows.Forms.Padding(3, 80, 3, 80);
+            this.addDiaryPanel.Name = "addDiaryPanel";
+            this.addDiaryPanel.Size = new System.Drawing.Size(2891, 13068);
+            this.addDiaryPanel.TabIndex = 1;
+            this.addDiaryPanel.Load += new System.EventHandler(this.addDiaryPanel_Load);
             // 
             // Dashboard
             // 
@@ -497,17 +495,18 @@ namespace SecureDesk
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.outerPanel.ResumeLayout(false);
-            this.documentPanel.ResumeLayout(false);
-            this.documentAddbtn.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.searchPanel.ResumeLayout(false);
-            this.searchPanel.PerformLayout();
+            this.documentPanel.ResumeLayout(false);
+            this.diaryPanel.ResumeLayout(false);
+            this.diaryAddPanel.ResumeLayout(false);
+            this.documentAddbtn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -529,8 +528,6 @@ namespace SecureDesk
         private Guna.UI2.WinForms.Guna2Button guna2Button7;
         private Guna.UI2.WinForms.Guna2Button guna2Button8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel searchPanel;
-        private Guna.UI2.WinForms.Guna2TextBox searchBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
@@ -540,6 +537,9 @@ namespace SecureDesk
         private System.Windows.Forms.Panel documentPanel;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private Guna.UI2.WinForms.Guna2GradientTileButton addNewDocumentBtn;
-        private UserControls.AddDocument addDocument1;
+        private Guna.UI2.WinForms.Guna2Panel diaryPanel;
+        private Guna.UI2.WinForms.Guna2Panel diaryAddPanel;
+        private Guna.UI2.WinForms.Guna2GradientButton btnAddNewDiary;
+        private UserControls.AddDiary addDiaryPanel;
     }
 }

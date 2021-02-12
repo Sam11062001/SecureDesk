@@ -16,8 +16,16 @@ namespace SecureDesk
         public Dashboard()
         {
             InitializeComponent();
+            //Hide the Diary Panel
+            diaryPanel.Hide();
+
+
             //documnetDialog.Hide();
-            addDocument1.Hide();
+            //addDocument1.Hide();
+
+
+          
+
             timer1.Start();
         }
        
@@ -70,7 +78,34 @@ namespace SecureDesk
         private void addNewDocumentBtn_Click(object sender, EventArgs e)
         {
             //documnetDialog.Show();
-            addDocument1.Show();
+            //addDocument1.Show();
+        }
+
+        private void addDocument1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAddNewDiary_Click(object sender, EventArgs e)
+        {
+            addDiaryPanel.Show();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            addDiaryPanel.Hide();
+            diaryPanel.Show();
+
+        }
+
+        private void addDiaryPanel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
