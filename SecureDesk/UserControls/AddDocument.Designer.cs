@@ -31,7 +31,7 @@ namespace SecureDesk.UserControls
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.userFileName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,32 +57,32 @@ namespace SecureDesk.UserControls
             this.label1.Text = "Insert Document Using Secure Desk";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // guna2TextBox1
+            // userFileName
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(185, 17);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(455, 33);
-            this.guna2TextBox1.TabIndex = 1;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.userFileName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.userFileName.DefaultText = "";
+            this.userFileName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.userFileName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.userFileName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.userFileName.DisabledState.Parent = this.userFileName;
+            this.userFileName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.userFileName.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.userFileName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userFileName.FocusedState.Parent = this.userFileName;
+            this.userFileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userFileName.ForeColor = System.Drawing.Color.Black;
+            this.userFileName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userFileName.HoverState.Parent = this.userFileName;
+            this.userFileName.Location = new System.Drawing.Point(185, 17);
+            this.userFileName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.userFileName.Name = "userFileName";
+            this.userFileName.PasswordChar = '\0';
+            this.userFileName.PlaceholderText = "";
+            this.userFileName.SelectedText = "";
+            this.userFileName.ShadowDecoration.Parent = this.userFileName;
+            this.userFileName.Size = new System.Drawing.Size(455, 33);
+            this.userFileName.TabIndex = 1;
+            this.userFileName.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // label2
             // 
@@ -98,14 +98,14 @@ namespace SecureDesk.UserControls
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 10;
-            this.guna2Elipse1.TargetControl = this.guna2TextBox1;
+            this.guna2Elipse1.TargetControl = this.userFileName;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SecureDesk.Properties.Resources.documnetUpload;
-            this.pictureBox1.Location = new System.Drawing.Point(-384, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-384, -6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1565, 394);
+            this.pictureBox1.Size = new System.Drawing.Size(1553, 400);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -156,6 +156,7 @@ namespace SecureDesk.UserControls
             this.documentUpload.Size = new System.Drawing.Size(106, 35);
             this.documentUpload.TabIndex = 5;
             this.documentUpload.Text = "Upload";
+            this.documentUpload.Click += new System.EventHandler(this.documentUpload_Click);
             // 
             // fileLocationLabel
             // 
@@ -246,10 +247,10 @@ namespace SecureDesk.UserControls
             this.Controls.Add(this.browseBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.userFileName);
             this.Controls.Add(this.label1);
             this.Name = "AddDocument";
-            this.Size = new System.Drawing.Size(793, 397);
+            this.Size = new System.Drawing.Size(845, 464);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,7 +260,7 @@ namespace SecureDesk.UserControls
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox userFileName;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.PictureBox pictureBox1;

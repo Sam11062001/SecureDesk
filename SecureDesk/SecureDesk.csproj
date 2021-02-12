@@ -62,6 +62,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ClientDocument\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ClientRegistrationService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,12 @@
     <Compile Include="SplashScreen.designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddDiary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddDiary.Designer.cs">
+      <DependentUpon>AddDiary.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddDocument.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +132,9 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddDiary.resx">
+      <DependentUpon>AddDiary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddDocument.resx">
       <DependentUpon>AddDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +146,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AuthenticateClient\AuthService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ClientDocument\DocumentService.wsdl" />
+    <None Include="Connected Services\ClientDocument\DocumentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ClientDocument\DocumentService1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.xsd">
@@ -175,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AuthenticateClient\" />
+    <WCFMetadataStorage Include="Connected Services\ClientDocument\" />
     <WCFMetadataStorage Include="Connected Services\ClientRegistrationService\" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +234,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\documnetUpload.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\DocumentService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

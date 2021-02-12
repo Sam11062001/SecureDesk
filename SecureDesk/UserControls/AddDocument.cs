@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace SecureDesk.UserControls
 {
     public partial class AddDocument : UserControl
     {
 
+        FileStream fs = null;
+        private static string userEnteredFileName = "";
+        private static string filePath = "";
         public AddDocument()
         {
             InitializeComponent();
@@ -70,6 +73,10 @@ namespace SecureDesk.UserControls
                 documentUpload.Show();
                 Cancelbtn.Show();
 
+               
+                filePath = FileNametext.Text;
+                
+
             }
             
 
@@ -90,6 +97,16 @@ namespace SecureDesk.UserControls
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void documentUpload_Click(object sender, EventArgs e)
+        {
+            userEnteredFileName = userFileName.Text;
+            byte[] readFile = File.ReadAllBytes(filePath);
+
+            userEnteredFileName += ".pdf";
+            ClientDocument.DocumentServiceClient documentServiceClient = new ClientDocument.DocumentServiceClient();
+            documentServiceClient.uploadDocument(readFile, userEnteredFileName);
         }
     }
 }
