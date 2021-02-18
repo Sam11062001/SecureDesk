@@ -18,7 +18,7 @@ namespace SecureDesk
             InitializeComponent();
             //Hide the Diary Panel
             diaryPanel.Hide();
-
+            addDocument1.Hide();
 
             //documnetDialog.Hide();
             //addDocument1.Hide();
@@ -41,6 +41,9 @@ namespace SecureDesk
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             moveImageBox(sender);
+            addDiaryPanel.Hide();
+            diaryPanel.Hide();
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -77,6 +80,9 @@ namespace SecureDesk
 
         private void addNewDocumentBtn_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show("Clicked event started");
+            addDocument1.Show();
+            //MessageBox.Show("Clicked event finshed");
             //documnetDialog.Show();
             //addDocument1.Show();
         }
@@ -94,11 +100,15 @@ namespace SecureDesk
         private void btnAddNewDiary_Click(object sender, EventArgs e)
         {
             addDiaryPanel.Show();
+            
+            
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             addDiaryPanel.Hide();
+            addDocument1.Hide();
+            
             diaryPanel.Show();
 
         }

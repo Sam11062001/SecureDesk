@@ -15,10 +15,21 @@ namespace SecureDesk.UserControls
         public AddDiary()
         {
             InitializeComponent();
+            DateTextBox.Text = "";
+            guna2TextBox1.Text = "";
+            contetTextBox.Text = "";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            string date = DateTextBox.Text;
+            string title = guna2TextBox1.Text;
+            string content = contetTextBox.Text;
+
+            DiaryService.PersonalDiaryClient personalDiaryClient = new DiaryService.PersonalDiaryClient();
+            personalDiaryClient.UploadDayThought(date, title, content);
+            Console.WriteLine("Succeded.");
+
 
         }
 

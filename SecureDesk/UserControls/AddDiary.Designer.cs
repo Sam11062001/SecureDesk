@@ -33,7 +33,7 @@ namespace SecureDesk.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Date = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.contetTextBox = new System.Windows.Forms.RichTextBox();
@@ -48,9 +48,10 @@ namespace SecureDesk.UserControls
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(13, 0);
+            this.label1.Location = new System.Drawing.Point(10, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(483, 41);
+            this.label1.Size = new System.Drawing.Size(378, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Write Your Diary With Secure Desk";
             // 
@@ -59,9 +60,10 @@ namespace SecureDesk.UserControls
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(15, 65);
+            this.label2.Location = new System.Drawing.Point(11, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 29);
+            this.label2.Size = new System.Drawing.Size(47, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date";
             // 
@@ -70,38 +72,39 @@ namespace SecureDesk.UserControls
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(15, 115);
+            this.label3.Location = new System.Drawing.Point(11, 93);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 29);
+            this.label3.Size = new System.Drawing.Size(48, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Title \r\n";
             // 
-            // Date
+            // DateTextBox
             // 
-            this.Date.Animated = true;
-            this.Date.BorderRadius = 7;
-            this.Date.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Date.DefaultText = "";
-            this.Date.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Date.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Date.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Date.DisabledState.Parent = this.Date;
-            this.Date.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Date.FillColor = System.Drawing.SystemColors.ScrollBar;
-            this.Date.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Date.FocusedState.Parent = this.Date;
-            this.Date.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Italic);
-            this.Date.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.Date.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Date.HoverState.Parent = this.Date;
-            this.Date.Location = new System.Drawing.Point(101, 58);
-            this.Date.Name = "Date";
-            this.Date.PasswordChar = '\0';
-            this.Date.PlaceholderText = "";
-            this.Date.SelectedText = "";
-            this.Date.ShadowDecoration.Parent = this.Date;
-            this.Date.Size = new System.Drawing.Size(224, 26);
-            this.Date.TabIndex = 3;
+            this.DateTextBox.Animated = true;
+            this.DateTextBox.BorderRadius = 7;
+            this.DateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DateTextBox.DefaultText = "";
+            this.DateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.DateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.DateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.DateTextBox.DisabledState.Parent = this.DateTextBox;
+            this.DateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.DateTextBox.FillColor = System.Drawing.SystemColors.ScrollBar;
+            this.DateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DateTextBox.FocusedState.Parent = this.DateTextBox;
+            this.DateTextBox.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Italic);
+            this.DateTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.DateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DateTextBox.HoverState.Parent = this.DateTextBox;
+            this.DateTextBox.Location = new System.Drawing.Point(76, 47);
+            this.DateTextBox.Name = "DateTextBox";
+            this.DateTextBox.PasswordChar = '\0';
+            this.DateTextBox.PlaceholderText = "";
+            this.DateTextBox.SelectedText = "";
+            this.DateTextBox.ShadowDecoration.Parent = this.DateTextBox;
+            this.DateTextBox.Size = new System.Drawing.Size(168, 21);
+            this.DateTextBox.TabIndex = 3;
             // 
             // guna2TextBox1
             // 
@@ -121,13 +124,13 @@ namespace SecureDesk.UserControls
             this.guna2TextBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(101, 103);
+            this.guna2TextBox1.Location = new System.Drawing.Point(76, 84);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(614, 26);
+            this.guna2TextBox1.Size = new System.Drawing.Size(460, 21);
             this.guna2TextBox1.TabIndex = 4;
             // 
             // label4
@@ -135,9 +138,10 @@ namespace SecureDesk.UserControls
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label4.Location = new System.Drawing.Point(15, 179);
+            this.label4.Location = new System.Drawing.Point(11, 145);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(310, 29);
+            this.label4.Size = new System.Drawing.Size(242, 23);
             this.label4.TabIndex = 5;
             this.label4.Text = "Type The Thoughts Of Your Day";
             // 
@@ -146,9 +150,10 @@ namespace SecureDesk.UserControls
             this.contetTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.contetTextBox.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contetTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.contetTextBox.Location = new System.Drawing.Point(20, 223);
+            this.contetTextBox.Location = new System.Drawing.Point(15, 181);
+            this.contetTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.contetTextBox.Name = "contetTextBox";
-            this.contetTextBox.Size = new System.Drawing.Size(877, 194);
+            this.contetTextBox.Size = new System.Drawing.Size(659, 158);
             this.contetTextBox.TabIndex = 6;
             this.contetTextBox.Text = "";
             // 
@@ -167,10 +172,11 @@ namespace SecureDesk.UserControls
             this.SubmitBtn.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.SubmitBtn.ForeColor = System.Drawing.Color.White;
             this.SubmitBtn.HoverState.Parent = this.SubmitBtn;
-            this.SubmitBtn.Location = new System.Drawing.Point(575, 449);
+            this.SubmitBtn.Location = new System.Drawing.Point(431, 365);
+            this.SubmitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.ShadowDecoration.Parent = this.SubmitBtn;
-            this.SubmitBtn.Size = new System.Drawing.Size(156, 30);
+            this.SubmitBtn.Size = new System.Drawing.Size(117, 24);
             this.SubmitBtn.TabIndex = 7;
             this.SubmitBtn.Text = "Submit";
             this.SubmitBtn.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -185,10 +191,11 @@ namespace SecureDesk.UserControls
             this.CancelBtn.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.HoverState.Parent = this.CancelBtn;
-            this.CancelBtn.Location = new System.Drawing.Point(741, 449);
+            this.CancelBtn.Location = new System.Drawing.Point(556, 365);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.ShadowDecoration.Parent = this.CancelBtn;
-            this.CancelBtn.Size = new System.Drawing.Size(156, 30);
+            this.CancelBtn.Size = new System.Drawing.Size(117, 24);
             this.CancelBtn.TabIndex = 8;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
@@ -200,7 +207,7 @@ namespace SecureDesk.UserControls
             // 
             // AddDiary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.CancelBtn);
@@ -208,12 +215,13 @@ namespace SecureDesk.UserControls
             this.Controls.Add(this.contetTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.Date);
+            this.Controls.Add(this.DateTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddDiary";
-            this.Size = new System.Drawing.Size(926, 503);
+            this.Size = new System.Drawing.Size(694, 409);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,7 +232,7 @@ namespace SecureDesk.UserControls
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox Date;
+        private Guna.UI2.WinForms.Guna2TextBox DateTextBox;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox contetTextBox;

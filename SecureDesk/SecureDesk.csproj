@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\DiaryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +109,11 @@
     <Compile Include="UserControls\AddDiary.Designer.cs">
       <DependentUpon>AddDiary.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AddDocument.cs">
+    <Compile Include="UserControls\addDocument.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AddDocument.Designer.cs">
-      <DependentUpon>AddDocument.cs</DependentUpon>
+    <Compile Include="UserControls\addDocument.Designer.cs">
+      <DependentUpon>addDocument.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -135,8 +140,8 @@
     <EmbeddedResource Include="UserControls\AddDiary.resx">
       <DependentUpon>AddDiary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AddDocument.resx">
-      <DependentUpon>AddDocument.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\addDocument.resx">
+      <DependentUpon>addDocument.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\AuthenticateClient\AuthService.wsdl" />
     <None Include="Connected Services\AuthenticateClient\AuthService.xsd">
@@ -171,6 +176,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ClientRegistrationService\Service1.wsdl" />
+    <None Include="Connected Services\DiaryService\PersonalDiary.wsdl" />
+    <None Include="Connected Services\DiaryService\PersonalDiary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DiaryService\PersonalDiary1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,18 +210,25 @@
     <WCFMetadataStorage Include="Connected Services\AuthenticateClient\" />
     <WCFMetadataStorage Include="Connected Services\ClientDocument\" />
     <WCFMetadataStorage Include="Connected Services\ClientRegistrationService\" />
+    <WCFMetadataStorage Include="Connected Services\DiaryService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.disco" />
+    <None Include="Resources\AddButton.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\configuration91.svcinfo" />
+    <None Include="Resources\documnetUpload.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\configuration.svcinfo" />
+    <None Include="Connected Services\ClientDocument\DocumentService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\Reference.svcmap">
+    <None Include="Connected Services\ClientDocument\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ClientDocument\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -230,22 +249,31 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AddButton.gif" />
+    <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\documnetUpload.gif" />
+    <None Include="Connected Services\ClientRegistrationService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientDocument\DocumentService.disco" />
+    <None Include="Connected Services\ClientRegistrationService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientDocument\configuration91.svcinfo" />
+    <None Include="Connected Services\ClientRegistrationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientDocument\configuration.svcinfo" />
+    <None Include="Connected Services\DiaryService\PersonalDiary.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ClientDocument\Reference.svcmap">
+    <None Include="Connected Services\DiaryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DiaryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DiaryService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
