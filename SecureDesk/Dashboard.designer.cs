@@ -476,8 +476,7 @@ namespace SecureDesk
             // 
             // guna2Elipse1
             // 
-            this.guna2Elipse1.BorderRadius = 60;
-            this.guna2Elipse1.TargetControl = this.outerPanel;
+           
             // 
             // timer1
             // 
@@ -485,13 +484,10 @@ namespace SecureDesk
             // 
             // guna2Elipse2
             // 
-            this.guna2Elipse2.BorderRadius = 10;
-            this.guna2Elipse2.TargetControl = this.documentAddbtn;
-            // 
+           
             // guna2Elipse3
             // 
-            this.guna2Elipse3.BorderRadius = 7;
-            this.guna2Elipse3.TargetControl = this.documentPanel;
+            
             // 
             // Dashboard
             // 
