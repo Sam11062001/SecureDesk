@@ -7,18 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using SecureDesk.DocumentService;
 
 namespace SecureDesk.UserControls
 {
     public partial class addDocument : UserControl
     {
         private static string filePath = "";
+        
         public addDocument()
         {
             InitializeComponent();
             fileNameTextBox.Text = "";
             filePathTextBox.Text = "";
             filePathTextBox.Hide();
+            guna2PictureBox1.Show();
+            browseBtn.Show();
         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
@@ -57,6 +62,11 @@ namespace SecureDesk.UserControls
         {
             string fileName = fileNameTextBox.Text;
             fileName = fileName + ".pdf";
+            byte[] readFile = File.ReadAllBytes(filePath);
+            DocumentService.DocumentServiceClient documentServiceClient = new DocumentService.DocumentServiceClient();
+            documentServiceClient.uploadDocument( readFile, fileName);
+            MessageBox.Show("Document Uploaded");
+            this.Hide();
 
 
 

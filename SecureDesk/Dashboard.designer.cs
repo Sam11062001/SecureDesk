@@ -31,6 +31,12 @@ namespace SecureDesk
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
@@ -50,16 +56,30 @@ namespace SecureDesk
             this.label1 = new System.Windows.Forms.Label();
             this.documentPanel = new System.Windows.Forms.Panel();
             this.diaryPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.addDocument1 = new SecureDesk.UserControls.addDocument();
+            this.diaryDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.diaryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addDiaryPanel = new SecureDesk.UserControls.AddDiary();
             this.diaryAddPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnAddNewDiary = new Guna.UI2.WinForms.Guna2GradientButton();
             this.documentAddbtn = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2GradientTileButton1 = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.addNewDocumentBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.addDocument1 = new SecureDesk.UserControls.addDocument();
+            this.documentDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.documentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewPdf = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.sharePdf = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deletePdf = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -67,8 +87,13 @@ namespace SecureDesk
             this.guna2Panel1.SuspendLayout();
             this.documentPanel.SuspendLayout();
             this.diaryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diaryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaryDataBindingSource)).BeginInit();
             this.diaryAddPanel.SuspendLayout();
             this.documentAddbtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -378,49 +403,152 @@ namespace SecureDesk
             this.documentPanel.Controls.Add(this.diaryPanel);
             this.documentPanel.Controls.Add(this.documentAddbtn);
             this.documentPanel.Controls.Add(this.addDocument1);
-            this.documentPanel.Location = new System.Drawing.Point(18, 91);
+            this.documentPanel.Controls.Add(this.documentDataGridView);
+            this.documentPanel.Controls.Add(this.axAcroPDF1);
+            this.documentPanel.Location = new System.Drawing.Point(6, 91);
             this.documentPanel.Name = "documentPanel";
-            this.documentPanel.Size = new System.Drawing.Size(1285, 740);
+            this.documentPanel.Size = new System.Drawing.Size(1297, 740);
             this.documentPanel.TabIndex = 5;
             // 
             // diaryPanel
             // 
+            this.diaryPanel.Controls.Add(this.diaryDataGridView);
             this.diaryPanel.Controls.Add(this.addDiaryPanel);
             this.diaryPanel.Controls.Add(this.diaryAddPanel);
-            this.diaryPanel.Location = new System.Drawing.Point(0, 0);
+            this.diaryPanel.Location = new System.Drawing.Point(18, 26);
             this.diaryPanel.Name = "diaryPanel";
             this.diaryPanel.ShadowDecoration.Parent = this.diaryPanel;
-            this.diaryPanel.Size = new System.Drawing.Size(1282, 737);
+            this.diaryPanel.Size = new System.Drawing.Size(1234, 632);
             this.diaryPanel.TabIndex = 5;
             this.diaryPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint_1);
             // 
-            // addDocument1
+            // diaryDataGridView
             // 
-            this.addDocument1.Location = new System.Drawing.Point(12, 98);
-            this.addDocument1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.addDocument1.Name = "addDocument1";
-            this.addDocument1.Size = new System.Drawing.Size(650, 498);
-            this.addDocument1.TabIndex = 2;
+            this.diaryDataGridView.AllowUserToAddRows = false;
+            this.diaryDataGridView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.diaryDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.diaryDataGridView.AutoGenerateColumns = false;
+            this.diaryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.diaryDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.diaryDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.diaryDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.diaryDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.diaryDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.diaryDataGridView.ColumnHeadersHeight = 21;
+            this.diaryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.view});
+            this.diaryDataGridView.DataSource = this.diaryDataBindingSource;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.diaryDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            this.diaryDataGridView.EnableHeadersVisualStyles = false;
+            this.diaryDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.diaryDataGridView.Location = new System.Drawing.Point(20, 63);
+            this.diaryDataGridView.Name = "diaryDataGridView";
+            this.diaryDataGridView.RowHeadersVisible = false;
+            this.diaryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.diaryDataGridView.Size = new System.Drawing.Size(1114, 197);
+            this.diaryDataGridView.TabIndex = 2;
+            this.diaryDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.diaryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.diaryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.diaryDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.diaryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.diaryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.diaryDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.diaryDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.diaryDataGridView.ThemeStyle.HeaderStyle.Height = 21;
+            this.diaryDataGridView.ThemeStyle.ReadOnly = false;
+            this.diaryDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.diaryDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.diaryDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diaryDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.diaryDataGridView.ThemeStyle.RowsStyle.Height = 22;
+            this.diaryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.diaryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.diaryDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.diaryDataGridView_CellContentClick);
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // view
+            // 
+            this.view.DataPropertyName = "date";
+            this.view.HeaderText = "view";
+            this.view.Name = "view";
+            this.view.Text = "view";
+            // 
+            // diaryDataBindingSource
+            // 
+            this.diaryDataBindingSource.DataSource = typeof(SecureDesk.DiaryService.DiaryData);
             // 
             // addDiaryPanel
             // 
             this.addDiaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.addDiaryPanel.Location = new System.Drawing.Point(12, 65);
-            this.addDiaryPanel.Margin = new System.Windows.Forms.Padding(12, 533, 12, 533);
+            this.addDiaryPanel.Location = new System.Drawing.Point(12, 59);
+            this.addDiaryPanel.Margin = new System.Windows.Forms.Padding(155, 16226, 155, 16226);
             this.addDiaryPanel.Name = "addDiaryPanel";
-            this.addDiaryPanel.Size = new System.Drawing.Size(12139, 65462);
+            this.addDiaryPanel.Size = new System.Drawing.Size(65535, 65535);
             this.addDiaryPanel.TabIndex = 1;
             this.addDiaryPanel.Load += new System.EventHandler(this.addDiaryPanel_Load);
             // 
             // diaryAddPanel
             // 
+            this.diaryAddPanel.Controls.Add(this.guna2GradientButton1);
             this.diaryAddPanel.Controls.Add(this.btnAddNewDiary);
             this.diaryAddPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.diaryAddPanel.Location = new System.Drawing.Point(0, 0);
             this.diaryAddPanel.Name = "diaryAddPanel";
             this.diaryAddPanel.ShadowDecoration.Parent = this.diaryAddPanel;
-            this.diaryAddPanel.Size = new System.Drawing.Size(1282, 57);
+            this.diaryAddPanel.Size = new System.Drawing.Size(1234, 57);
             this.diaryAddPanel.TabIndex = 0;
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.AnimatedGIF = true;
+            this.guna2GradientButton1.BorderRadius = 15;
+            this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.Location = new System.Drawing.Point(175, 3);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.Size = new System.Drawing.Size(154, 45);
+            this.guna2GradientButton1.TabIndex = 1;
+            this.guna2GradientButton1.Text = "Get Diary List";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // btnAddNewDiary
             // 
@@ -443,6 +571,7 @@ namespace SecureDesk
             // documentAddbtn
             // 
             this.documentAddbtn.BorderRadius = 5;
+            this.documentAddbtn.Controls.Add(this.guna2GradientTileButton1);
             this.documentAddbtn.Controls.Add(this.addNewDocumentBtn);
             this.documentAddbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.documentAddbtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
@@ -453,6 +582,26 @@ namespace SecureDesk
             this.documentAddbtn.ShadowDecoration.Parent = this.documentAddbtn;
             this.documentAddbtn.Size = new System.Drawing.Size(1285, 75);
             this.documentAddbtn.TabIndex = 4;
+            // 
+            // guna2GradientTileButton1
+            // 
+            this.guna2GradientTileButton1.Animated = true;
+            this.guna2GradientTileButton1.AnimatedGIF = true;
+            this.guna2GradientTileButton1.AutoRoundedCorners = true;
+            this.guna2GradientTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.guna2GradientTileButton1.BorderRadius = 22;
+            this.guna2GradientTileButton1.CheckedState.Parent = this.guna2GradientTileButton1;
+            this.guna2GradientTileButton1.CustomImages.Parent = this.guna2GradientTileButton1;
+            this.guna2GradientTileButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientTileButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientTileButton1.HoverState.Parent = this.guna2GradientTileButton1;
+            this.guna2GradientTileButton1.Location = new System.Drawing.Point(167, 12);
+            this.guna2GradientTileButton1.Name = "guna2GradientTileButton1";
+            this.guna2GradientTileButton1.ShadowDecoration.Parent = this.guna2GradientTileButton1;
+            this.guna2GradientTileButton1.Size = new System.Drawing.Size(140, 46);
+            this.guna2GradientTileButton1.TabIndex = 1;
+            this.guna2GradientTileButton1.Text = "Get All Documents";
+            this.guna2GradientTileButton1.Click += new System.EventHandler(this.guna2GradientTileButton1_Click);
             // 
             // addNewDocumentBtn
             // 
@@ -474,6 +623,92 @@ namespace SecureDesk
             this.addNewDocumentBtn.Text = " New Document";
             this.addNewDocumentBtn.Click += new System.EventHandler(this.addNewDocumentBtn_Click);
             // 
+            // addDocument1
+            // 
+            this.addDocument1.Location = new System.Drawing.Point(12, 98);
+            this.addDocument1.Margin = new System.Windows.Forms.Padding(65, 189, 65, 189);
+            this.addDocument1.Name = "addDocument1";
+            this.addDocument1.Size = new System.Drawing.Size(8669, 15155);
+            this.addDocument1.TabIndex = 2;
+            // 
+            // documentDataGridView
+            // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.documentDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.documentDataGridView.AutoGenerateColumns = false;
+            this.documentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.documentDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.documentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.documentDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.documentDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.documentDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.documentDataGridView.ColumnHeadersHeight = 21;
+            this.documentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fileNameDataGridViewTextBoxColumn,
+            this.viewPdf,
+            this.sharePdf,
+            this.deletePdf});
+            this.documentDataGridView.DataSource = this.documentDataBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.documentDataGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.documentDataGridView.EnableHeadersVisualStyles = false;
+            this.documentDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.documentDataGridView.Location = new System.Drawing.Point(18, 123);
+            this.documentDataGridView.Name = "documentDataGridView";
+            this.documentDataGridView.RowHeadersVisible = false;
+            this.documentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.documentDataGridView.Size = new System.Drawing.Size(1133, 150);
+            this.documentDataGridView.TabIndex = 6;
+            this.documentDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.documentDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.documentDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.documentDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.documentDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.documentDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.documentDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.documentDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.documentDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.documentDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.documentDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documentDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.documentDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.documentDataGridView.ThemeStyle.HeaderStyle.Height = 21;
+            this.documentDataGridView.ThemeStyle.ReadOnly = false;
+            this.documentDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.documentDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.documentDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documentDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.documentDataGridView.ThemeStyle.RowsStyle.Height = 22;
+            this.documentDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.documentDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.documentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.documentDataGridView_CellContentClick);
+            // 
+            // documentDataBindingSource
+            // 
+            this.documentDataBindingSource.DataSource = typeof(SecureDesk.DocumentService.DocumentData);
+            // 
+            // axAcroPDF1
+            // 
+            this.axAcroPDF1.Enabled = true;
+            this.axAcroPDF1.Location = new System.Drawing.Point(18, 327);
+            this.axAcroPDF1.Name = "axAcroPDF1";
+            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
+            this.axAcroPDF1.Size = new System.Drawing.Size(1133, 306);
+            this.axAcroPDF1.TabIndex = 7;
+            // 
             // guna2Elipse1
             // 
            
@@ -488,6 +723,33 @@ namespace SecureDesk
             // guna2Elipse3
             // 
             
+            // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "fileName";
+            this.fileNameDataGridViewTextBoxColumn.HeaderText = "fileName";
+            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            // 
+            // viewPdf
+            // 
+            this.viewPdf.DataPropertyName = "fileLink";
+            this.viewPdf.HeaderText = "view pdf";
+            this.viewPdf.Name = "viewPdf";
+            this.viewPdf.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewPdf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.viewPdf.Text = "view pdf";
+            // 
+            // sharePdf
+            // 
+            this.sharePdf.HeaderText = "share pdf";
+            this.sharePdf.Name = "sharePdf";
+            this.sharePdf.Text = "share pdf";
+            // 
+            // deletePdf
+            // 
+            this.deletePdf.HeaderText = "delete pdf";
+            this.deletePdf.Name = "deletePdf";
+            this.deletePdf.Text = "delete pdf";
             // 
             // Dashboard
             // 
@@ -511,8 +773,13 @@ namespace SecureDesk
             this.guna2Panel1.PerformLayout();
             this.documentPanel.ResumeLayout(false);
             this.diaryPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.diaryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diaryDataBindingSource)).EndInit();
             this.diaryAddPanel.ResumeLayout(false);
             this.documentAddbtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.documentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,5 +815,19 @@ namespace SecureDesk
         private Guna.UI2.WinForms.Guna2GradientButton btnAddNewDiary;
         private UserControls.AddDiary addDiaryPanel;
         private UserControls.addDocument addDocument1;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2DataGridView diaryDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn view;
+        private System.Windows.Forms.BindingSource diaryDataBindingSource;
+        private Guna.UI2.WinForms.Guna2GradientTileButton guna2GradientTileButton1;
+        private Guna.UI2.WinForms.Guna2DataGridView documentDataGridView;
+        private System.Windows.Forms.BindingSource documentDataBindingSource;
+        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn viewPdf;
+        private System.Windows.Forms.DataGridViewButtonColumn sharePdf;
+        private System.Windows.Forms.DataGridViewButtonColumn deletePdf;
     }
 }

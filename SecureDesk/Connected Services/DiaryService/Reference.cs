@@ -9,17 +9,126 @@
 //------------------------------------------------------------------------------
 
 namespace SecureDesk.DiaryService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiaryData", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
+    [System.SerializableAttribute()]
+    public partial class DiaryData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fileLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string titleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string date {
+            get {
+                return this.dateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dateField, value) != true)) {
+                    this.dateField = value;
+                    this.RaisePropertyChanged("date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fileLink {
+            get {
+                return this.fileLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fileLinkField, value) != true)) {
+                    this.fileLinkField = value;
+                    this.RaisePropertyChanged("fileLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string title {
+            get {
+                return this.titleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.titleField, value) != true)) {
+                    this.titleField = value;
+                    this.RaisePropertyChanged("title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DiaryService.IPersonalDiary")]
     public interface IPersonalDiary {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/UploadDayThought", ReplyAction="http://tempuri.org/IPersonalDiary/UploadDayThoughtResponse")]
-        string UploadDayThought(string date, string title, string content);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/connectToFirebase", ReplyAction="http://tempuri.org/IPersonalDiary/connectToFirebaseResponse")]
+        bool connectToFirebase();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/connectToFirebase", ReplyAction="http://tempuri.org/IPersonalDiary/connectToFirebaseResponse")]
+        System.Threading.Tasks.Task<bool> connectToFirebaseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/UploadDayThought", ReplyAction="http://tempuri.org/IPersonalDiary/UploadDayThoughtResponse")]
-        System.Threading.Tasks.Task<string> UploadDayThoughtAsync(string date, string title, string content);
+        void UploadDayThought(string date, string title, string content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/UploadDayThought", ReplyAction="http://tempuri.org/IPersonalDiary/UploadDayThoughtResponse")]
+        System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/addDiary", ReplyAction="http://tempuri.org/IPersonalDiary/addDiaryResponse")]
+        void addDiary(string link, string date, string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/addDiary", ReplyAction="http://tempuri.org/IPersonalDiary/addDiaryResponse")]
+        System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getDiary", ReplyAction="http://tempuri.org/IPersonalDiary/getDiaryResponse")]
+        void getDiary(string link);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getDiary", ReplyAction="http://tempuri.org/IPersonalDiary/getDiaryResponse")]
+        System.Threading.Tasks.Task getDiaryAsync(string link);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getDiaryDocumentCount", ReplyAction="http://tempuri.org/IPersonalDiary/getDiaryDocumentCountResponse")]
+        int getDiaryDocumentCount(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getDiaryDocumentCount", ReplyAction="http://tempuri.org/IPersonalDiary/getDiaryDocumentCountResponse")]
+        System.Threading.Tasks.Task<int> getDiaryDocumentCountAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getAllDiaryData", ReplyAction="http://tempuri.org/IPersonalDiary/getAllDiaryDataResponse")]
+        SecureDesk.DiaryService.DiaryData[] getAllDiaryData(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getAllDiaryData", ReplyAction="http://tempuri.org/IPersonalDiary/getAllDiaryDataResponse")]
+        System.Threading.Tasks.Task<SecureDesk.DiaryService.DiaryData[]> getAllDiaryDataAsync(string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +158,52 @@ namespace SecureDesk.DiaryService {
                 base(binding, remoteAddress) {
         }
         
-        public string UploadDayThought(string date, string title, string content) {
-            return base.Channel.UploadDayThought(date, title, content);
+        public bool connectToFirebase() {
+            return base.Channel.connectToFirebase();
         }
         
-        public System.Threading.Tasks.Task<string> UploadDayThoughtAsync(string date, string title, string content) {
+        public System.Threading.Tasks.Task<bool> connectToFirebaseAsync() {
+            return base.Channel.connectToFirebaseAsync();
+        }
+        
+        public void UploadDayThought(string date, string title, string content) {
+            base.Channel.UploadDayThought(date, title, content);
+        }
+        
+        public System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content) {
             return base.Channel.UploadDayThoughtAsync(date, title, content);
+        }
+        
+        public void addDiary(string link, string date, string title) {
+            base.Channel.addDiary(link, date, title);
+        }
+        
+        public System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title) {
+            return base.Channel.addDiaryAsync(link, date, title);
+        }
+        
+        public void getDiary(string link) {
+            base.Channel.getDiary(link);
+        }
+        
+        public System.Threading.Tasks.Task getDiaryAsync(string link) {
+            return base.Channel.getDiaryAsync(link);
+        }
+        
+        public int getDiaryDocumentCount(string email) {
+            return base.Channel.getDiaryDocumentCount(email);
+        }
+        
+        public System.Threading.Tasks.Task<int> getDiaryDocumentCountAsync(string email) {
+            return base.Channel.getDiaryDocumentCountAsync(email);
+        }
+        
+        public SecureDesk.DiaryService.DiaryData[] getAllDiaryData(string email) {
+            return base.Channel.getAllDiaryData(email);
+        }
+        
+        public System.Threading.Tasks.Task<SecureDesk.DiaryService.DiaryData[]> getAllDiaryDataAsync(string email) {
+            return base.Channel.getAllDiaryDataAsync(email);
         }
     }
 }
