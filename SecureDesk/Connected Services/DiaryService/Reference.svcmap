@@ -23,6 +23,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="PersonalDiary.xsd" MetadataType="Schema" ID="0d79e8e0-4f5a-4347-8c43-d31dde5dca90" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonalDiary2.xsd" MetadataType="Schema" ID="b73ab800-2bdb-4dc1-a1d2-bc52af0ecb32" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd2" />
     <MetadataFile FileName="PersonalDiary.wsdl" MetadataType="Wsdl" ID="2f9f1ad8-48ea-464c-96ca-ebbbdb9b3357" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?wsdl" />
     <MetadataFile FileName="PersonalDiary.disco" MetadataType="Disco" ID="e913c932-aa06-4904-9661-28f0ff69218e" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?disco" />
     <MetadataFile FileName="PersonalDiary1.xsd" MetadataType="Schema" ID="05d25f8d-7c5c-497a-bb20-68368d05d919" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd0" />

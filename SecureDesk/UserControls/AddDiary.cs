@@ -28,7 +28,8 @@ namespace SecureDesk.UserControls
 
             DiaryService.PersonalDiaryClient personalDiaryClient = new DiaryService.PersonalDiaryClient();
             personalDiaryClient.UploadDayThought(date, title, content);
-            Console.WriteLine("Succeded.");
+            MessageBox.Show("Diary saved.");
+            this.Hide();
 
 
         }
