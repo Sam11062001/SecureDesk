@@ -72,12 +72,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\AuthenticateClient\Reference.cs">
+    <Compile Include="Algorithms\PasswordGenerator.cs" />
+    <Compile Include="Connected Services\AccountService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ClientDocument\Reference.cs">
+    <Compile Include="Connected Services\AuthenticateClient\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -93,6 +94,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\DocumentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SharingService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -123,6 +129,13 @@
     <Compile Include="SplashScreen.designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaticInfo\UserConfiguration.cs" />
+    <Compile Include="UserControls\addAccounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\addAccounts.designer.cs">
+      <DependentUpon>addAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddDiary.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +147,12 @@
     </Compile>
     <Compile Include="UserControls\addDocument.Designer.cs">
       <DependentUpon>addDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\shareDocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\shareDocument.Designer.cs">
+      <DependentUpon>shareDocument.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -157,12 +176,31 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\addAccounts.resx">
+      <DependentUpon>addAccounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddDiary.resx">
       <DependentUpon>AddDiary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\addDocument.resx">
       <DependentUpon>addDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\shareDocument.resx">
+      <DependentUpon>shareDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\AccountService\AccountService.wsdl" />
+    <None Include="Connected Services\AccountService\AccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\AccountService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\AccountService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\SecureDesk.AccountService.UserAccountData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AuthenticateClient\AuthService.wsdl" />
     <None Include="Connected Services\AuthenticateClient\AuthService.xsd">
       <SubType>Designer</SubType>
@@ -171,13 +209,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AuthenticateClient\AuthService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ClientDocument\DocumentService.wsdl" />
-    <None Include="Connected Services\ClientDocument\DocumentService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ClientDocument\DocumentService1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.xsd">
@@ -222,6 +253,19 @@
     <None Include="Connected Services\DocumentService\SecureDesk.DocumentService.DocumentData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SharingService\SecureDesk.SharingService.SharedDocumentData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SharingService\SharingService.wsdl" />
+    <None Include="Connected Services\SharingService\SharingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SharingService\SharingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SharingService\SharingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -248,32 +292,18 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AccountService\" />
     <WCFMetadataStorage Include="Connected Services\AuthenticateClient\" />
-    <WCFMetadataStorage Include="Connected Services\ClientDocument\" />
     <WCFMetadataStorage Include="Connected Services\ClientRegistrationService\" />
     <WCFMetadataStorage Include="Connected Services\DiaryService\" />
     <WCFMetadataStorage Include="Connected Services\DocumentService\" />
+    <WCFMetadataStorage Include="Connected Services\SharingService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddButton.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\documnetUpload.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientDocument\DocumentService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientDocument\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientDocument\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientDocument\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AuthenticateClient\AuthService.disco" />
@@ -353,6 +383,36 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SharingService\SharingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SharingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SharingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SharingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\AccountService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

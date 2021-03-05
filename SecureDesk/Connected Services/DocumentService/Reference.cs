@@ -28,6 +28,9 @@ namespace SecureDesk.DocumentService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string fileNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sharedByField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -64,6 +67,19 @@ namespace SecureDesk.DocumentService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sharedBy {
+            get {
+                return this.sharedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sharedByField, value) != true)) {
+                    this.sharedByField = value;
+                    this.RaisePropertyChanged("sharedBy");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -91,22 +107,28 @@ namespace SecureDesk.DocumentService {
         System.Threading.Tasks.Task<bool> connectToFirebaseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/uploadDocument", ReplyAction="http://tempuri.org/IDocumentService/uploadDocumentResponse")]
-        void uploadDocument(byte[] fileByte, string fileName);
+        void uploadDocument(byte[] fileByte, string fileName, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/uploadDocument", ReplyAction="http://tempuri.org/IDocumentService/uploadDocumentResponse")]
-        System.Threading.Tasks.Task uploadDocumentAsync(byte[] fileByte, string fileName);
+        System.Threading.Tasks.Task uploadDocumentAsync(byte[] fileByte, string fileName, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/addDocument", ReplyAction="http://tempuri.org/IDocumentService/addDocumentResponse")]
-        void addDocument(string link, string fileName);
+        void addDocument(string link, string fileName, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/addDocument", ReplyAction="http://tempuri.org/IDocumentService/addDocumentResponse")]
-        System.Threading.Tasks.Task addDocumentAsync(string link, string fileName);
+        System.Threading.Tasks.Task addDocumentAsync(string link, string fileName, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/getAllDocumnetData", ReplyAction="http://tempuri.org/IDocumentService/getAllDocumnetDataResponse")]
         SecureDesk.DocumentService.DocumentData[] getAllDocumnetData(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/getAllDocumnetData", ReplyAction="http://tempuri.org/IDocumentService/getAllDocumnetDataResponse")]
         System.Threading.Tasks.Task<SecureDesk.DocumentService.DocumentData[]> getAllDocumnetDataAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/deleteDocument", ReplyAction="http://tempuri.org/IDocumentService/deleteDocumentResponse")]
+        void deleteDocument(string email, string fileName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentService/deleteDocument", ReplyAction="http://tempuri.org/IDocumentService/deleteDocumentResponse")]
+        System.Threading.Tasks.Task deleteDocumentAsync(string email, string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -152,20 +174,20 @@ namespace SecureDesk.DocumentService {
             return base.Channel.connectToFirebaseAsync();
         }
         
-        public void uploadDocument(byte[] fileByte, string fileName) {
-            base.Channel.uploadDocument(fileByte, fileName);
+        public void uploadDocument(byte[] fileByte, string fileName, string email) {
+            base.Channel.uploadDocument(fileByte, fileName, email);
         }
         
-        public System.Threading.Tasks.Task uploadDocumentAsync(byte[] fileByte, string fileName) {
-            return base.Channel.uploadDocumentAsync(fileByte, fileName);
+        public System.Threading.Tasks.Task uploadDocumentAsync(byte[] fileByte, string fileName, string email) {
+            return base.Channel.uploadDocumentAsync(fileByte, fileName, email);
         }
         
-        public void addDocument(string link, string fileName) {
-            base.Channel.addDocument(link, fileName);
+        public void addDocument(string link, string fileName, string email) {
+            base.Channel.addDocument(link, fileName, email);
         }
         
-        public System.Threading.Tasks.Task addDocumentAsync(string link, string fileName) {
-            return base.Channel.addDocumentAsync(link, fileName);
+        public System.Threading.Tasks.Task addDocumentAsync(string link, string fileName, string email) {
+            return base.Channel.addDocumentAsync(link, fileName, email);
         }
         
         public SecureDesk.DocumentService.DocumentData[] getAllDocumnetData(string email) {
@@ -174,6 +196,14 @@ namespace SecureDesk.DocumentService {
         
         public System.Threading.Tasks.Task<SecureDesk.DocumentService.DocumentData[]> getAllDocumnetDataAsync(string email) {
             return base.Channel.getAllDocumnetDataAsync(email);
+        }
+        
+        public void deleteDocument(string email, string fileName) {
+            base.Channel.deleteDocument(email, fileName);
+        }
+        
+        public System.Threading.Tasks.Task deleteDocumentAsync(string email, string fileName) {
+            return base.Channel.deleteDocumentAsync(email, fileName);
         }
     }
 }

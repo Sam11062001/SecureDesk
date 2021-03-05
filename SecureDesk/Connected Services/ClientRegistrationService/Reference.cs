@@ -15,6 +15,67 @@ namespace SecureDesk.ClientRegistrationService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
+    [System.SerializableAttribute()]
+    public partial class CustomException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string errorMessageToUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string errorTitleNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string errorMessageToUser {
+            get {
+                return this.errorMessageToUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.errorMessageToUserField, value) != true)) {
+                    this.errorMessageToUserField = value;
+                    this.RaisePropertyChanged("errorMessageToUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string errorTitleName {
+            get {
+                return this.errorTitleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.errorTitleNameField, value) != true)) {
+                    this.errorTitleNameField = value;
+                    this.RaisePropertyChanged("errorTitleName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User Register", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
     [System.SerializableAttribute()]
     public partial class UserRegister : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -159,24 +220,28 @@ namespace SecureDesk.ClientRegistrationService {
     public interface RegistrationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/getQuestionsCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         string[] getQuestions();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getQuestions", ReplyAction="http://tempuri.org/RegistrationService/getQuestionsResponse")]
         System.Threading.Tasks.Task<string[]> getQuestionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/connectToFirebase", ReplyAction="http://tempuri.org/RegistrationService/connectToFirebaseResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/connectToFirebaseCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         bool connectToFirebase();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/connectToFirebase", ReplyAction="http://tempuri.org/RegistrationService/connectToFirebaseResponse")]
         System.Threading.Tasks.Task<bool> connectToFirebaseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/registerNewUser", ReplyAction="http://tempuri.org/RegistrationService/registerNewUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/registerNewUserCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         void registerNewUser(SecureDesk.ClientRegistrationService.UserRegister user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/registerNewUser", ReplyAction="http://tempuri.org/RegistrationService/registerNewUserResponse")]
         System.Threading.Tasks.Task registerNewUserAsync(SecureDesk.ClientRegistrationService.UserRegister user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/sendOTP", ReplyAction="http://tempuri.org/RegistrationService/sendOTPResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/sendOTPCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         void sendOTP(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/sendOTP", ReplyAction="http://tempuri.org/RegistrationService/sendOTPResponse")]
@@ -184,30 +249,35 @@ namespace SecureDesk.ClientRegistrationService {
         
         // CODEGEN: Generating message contract since the wrapper name (UserOtpVerification) of message UserOtpVerification does not match the default value (verifyUser)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyUser", ReplyAction="http://tempuri.org/RegistrationService/verifyUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/verifyUserCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         SecureDesk.ClientRegistrationService.OTP_Verified verifyUser(SecureDesk.ClientRegistrationService.UserOtpVerification request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyUser", ReplyAction="http://tempuri.org/RegistrationService/verifyUserResponse")]
         System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyUserAsync(SecureDesk.ClientRegistrationService.UserOtpVerification request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getSecurePin", ReplyAction="http://tempuri.org/RegistrationService/getSecurePinResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/getSecurePinCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         int getSecurePin(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getSecurePin", ReplyAction="http://tempuri.org/RegistrationService/getSecurePinResponse")]
         System.Threading.Tasks.Task<int> getSecurePinAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getUserQuestion", ReplyAction="http://tempuri.org/RegistrationService/getUserQuestionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/getUserQuestionCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         string getUserQuestion(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getUserQuestion", ReplyAction="http://tempuri.org/RegistrationService/getUserQuestionResponse")]
         System.Threading.Tasks.Task<string> getUserQuestionAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyAnswer", ReplyAction="http://tempuri.org/RegistrationService/verifyAnswerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/verifyAnswerCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         bool verifyAnswer(string email, string userAnswer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyAnswer", ReplyAction="http://tempuri.org/RegistrationService/verifyAnswerResponse")]
         System.Threading.Tasks.Task<bool> verifyAnswerAsync(string email, string userAnswer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/resetPassword", ReplyAction="http://tempuri.org/RegistrationService/resetPasswordResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/resetPasswordCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         void resetPassword(string email, string newPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/resetPassword", ReplyAction="http://tempuri.org/RegistrationService/resetPasswordResponse")]

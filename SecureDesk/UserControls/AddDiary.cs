@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SecureDesk.StaticInfo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,16 +28,16 @@ namespace SecureDesk.UserControls
             string content = contetTextBox.Text;
 
             DiaryService.PersonalDiaryClient personalDiaryClient = new DiaryService.PersonalDiaryClient();
-            personalDiaryClient.UploadDayThought(date, title, content);
+            personalDiaryClient.UploadDayThought(date, title, content, UserConfiguration.strUserEmail);
             MessageBox.Show("Diary saved.");
-            this.Hide();
+            this.Visible = false;
 
 
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Visible = false;
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SecureDesk.DocumentService;
+using SecureDesk.StaticInfo;
 
 namespace SecureDesk.UserControls
 {
@@ -21,9 +22,12 @@ namespace SecureDesk.UserControls
             InitializeComponent();
             fileNameTextBox.Text = "";
             filePathTextBox.Text = "";
-            filePathTextBox.Hide();
-            guna2PictureBox1.Show();
-            browseBtn.Show();
+            //filePathTextBox.Hide();
+            filePathTextBox.Visible = false;
+            //guna2PictureBox1.Show();
+            guna2PictureBox1.Visible = true;
+            //browseBtn.Show();
+            browseBtn.Visible = true;
         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
@@ -40,10 +44,13 @@ namespace SecureDesk.UserControls
             if (openFileDialog1.ShowDialog() == DialogResult.OK )
             {
                 filePath = openFileDialog1.FileName;
-                guna2PictureBox1.Hide();
-                browseBtn.Hide();
+                //guna2PictureBox1.Hide();
+                guna2PictureBox1.Visible = false;
+                //browseBtn.Hide();
+                browseBtn.Visible = false;
                 filePathTextBox.Text = filePath;
-                filePathTextBox.Show();
+                //filePathTextBox.Show();
+                filePathTextBox.Visible = true;
             }
             
         }
@@ -55,7 +62,7 @@ namespace SecureDesk.UserControls
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Visible = false;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -64,9 +71,9 @@ namespace SecureDesk.UserControls
             fileName = fileName + ".pdf";
             byte[] readFile = File.ReadAllBytes(filePath);
             DocumentService.DocumentServiceClient documentServiceClient = new DocumentService.DocumentServiceClient();
-            documentServiceClient.uploadDocument( readFile, fileName);
+            documentServiceClient.uploadDocument( readFile, fileName, UserConfiguration.strUserEmail);
             MessageBox.Show("Document Uploaded");
-            this.Hide();
+            this.Visible = false;
 
 
 

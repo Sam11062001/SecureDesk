@@ -98,6 +98,7 @@ namespace SecureDesk.UserControls
             this.DateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.DateTextBox.HoverState.Parent = this.DateTextBox;
             this.DateTextBox.Location = new System.Drawing.Point(76, 47);
+            this.DateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DateTextBox.Name = "DateTextBox";
             this.DateTextBox.PasswordChar = '\0';
             this.DateTextBox.PlaceholderText = "";
@@ -125,6 +126,7 @@ namespace SecureDesk.UserControls
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
             this.guna2TextBox1.Location = new System.Drawing.Point(76, 84);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
@@ -151,9 +153,9 @@ namespace SecureDesk.UserControls
             this.contetTextBox.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contetTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
             this.contetTextBox.Location = new System.Drawing.Point(15, 181);
-            this.contetTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contetTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.contetTextBox.Name = "contetTextBox";
-            this.contetTextBox.Size = new System.Drawing.Size(659, 158);
+            this.contetTextBox.Size = new System.Drawing.Size(521, 142);
             this.contetTextBox.TabIndex = 6;
             this.contetTextBox.Text = "";
             // 
@@ -171,8 +173,8 @@ namespace SecureDesk.UserControls
             this.SubmitBtn.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.SubmitBtn.ForeColor = System.Drawing.Color.White;
             this.SubmitBtn.HoverState.Parent = this.SubmitBtn;
-            this.SubmitBtn.Location = new System.Drawing.Point(431, 365);
-            this.SubmitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitBtn.Location = new System.Drawing.Point(280, 342);
+            this.SubmitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.ShadowDecoration.Parent = this.SubmitBtn;
             this.SubmitBtn.Size = new System.Drawing.Size(117, 24);
@@ -190,8 +192,8 @@ namespace SecureDesk.UserControls
             this.CancelBtn.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.HoverState.Parent = this.CancelBtn;
-            this.CancelBtn.Location = new System.Drawing.Point(556, 365);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelBtn.Location = new System.Drawing.Point(419, 342);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(2);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.ShadowDecoration.Parent = this.CancelBtn;
             this.CancelBtn.Size = new System.Drawing.Size(117, 24);
@@ -216,9 +218,9 @@ namespace SecureDesk.UserControls
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddDiary";
-            this.Size = new System.Drawing.Size(694, 409);
+            this.Size = new System.Drawing.Size(555, 381);
             this.ResumeLayout(false);
             this.PerformLayout();
 
