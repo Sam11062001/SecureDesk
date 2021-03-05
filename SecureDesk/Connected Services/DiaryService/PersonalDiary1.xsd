@@ -19,6 +19,7 @@
         <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,6 +34,7 @@
         <xs:element minOccurs="0" name="link" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

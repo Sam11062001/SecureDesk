@@ -280,8 +280,8 @@ namespace SecureDesk
                 if (result)
                 {
                     this.Hide();
-                    Dashboard d1 = new Dashboard();
-                    d1.Show();
+                    login l1 = new login();
+                    l1.Show();
                 }
                 else
                 {

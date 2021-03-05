@@ -101,16 +101,16 @@ namespace SecureDesk.DiaryService {
         System.Threading.Tasks.Task<bool> connectToFirebaseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/UploadDayThought", ReplyAction="http://tempuri.org/IPersonalDiary/UploadDayThoughtResponse")]
-        void UploadDayThought(string date, string title, string content);
+        void UploadDayThought(string date, string title, string content, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/UploadDayThought", ReplyAction="http://tempuri.org/IPersonalDiary/UploadDayThoughtResponse")]
-        System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content);
+        System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/addDiary", ReplyAction="http://tempuri.org/IPersonalDiary/addDiaryResponse")]
-        void addDiary(string link, string date, string title);
+        void addDiary(string link, string date, string title, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/addDiary", ReplyAction="http://tempuri.org/IPersonalDiary/addDiaryResponse")]
-        System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title);
+        System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonalDiary/getDiary", ReplyAction="http://tempuri.org/IPersonalDiary/getDiaryResponse")]
         void getDiary(string link);
@@ -166,20 +166,20 @@ namespace SecureDesk.DiaryService {
             return base.Channel.connectToFirebaseAsync();
         }
         
-        public void UploadDayThought(string date, string title, string content) {
-            base.Channel.UploadDayThought(date, title, content);
+        public void UploadDayThought(string date, string title, string content, string email) {
+            base.Channel.UploadDayThought(date, title, content, email);
         }
         
-        public System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content) {
-            return base.Channel.UploadDayThoughtAsync(date, title, content);
+        public System.Threading.Tasks.Task UploadDayThoughtAsync(string date, string title, string content, string email) {
+            return base.Channel.UploadDayThoughtAsync(date, title, content, email);
         }
         
-        public void addDiary(string link, string date, string title) {
-            base.Channel.addDiary(link, date, title);
+        public void addDiary(string link, string date, string title, string email) {
+            base.Channel.addDiary(link, date, title, email);
         }
         
-        public System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title) {
-            return base.Channel.addDiaryAsync(link, date, title);
+        public System.Threading.Tasks.Task addDiaryAsync(string link, string date, string title, string email) {
+            return base.Channel.addDiaryAsync(link, date, title, email);
         }
         
         public void getDiary(string link) {

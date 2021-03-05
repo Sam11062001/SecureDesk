@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9e71711d-caee-455a-9320-2bfb1866e69c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63532/ServiceClass/SharingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SharingService.xsd" MetadataType="Schema" ID="9c7187c1-5db6-4240-846d-cf1a4f1d4427" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SharingService.disco" MetadataType="Disco" ID="311191ec-1e5a-4a30-808b-c1f6abdf110d" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?disco" />
+    <MetadataFile FileName="SharingService1.xsd" MetadataType="Schema" ID="4c602591-256e-4f6e-81c0-c961d1afbee1" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SharingService.wsdl" MetadataType="Wsdl" ID="246abb6d-6015-4796-b3d7-85ed717db56f" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?wsdl" />
+    <MetadataFile FileName="SharingService2.xsd" MetadataType="Schema" ID="849a35ef-f210-4a55-8734-bb997f340f30" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

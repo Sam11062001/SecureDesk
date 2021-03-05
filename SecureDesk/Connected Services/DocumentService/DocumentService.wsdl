@@ -44,6 +44,12 @@
   <wsdl:message name="IDocumentService_getAllDocumnetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllDocumnetDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IDocumentService_deleteDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_deleteDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDocumentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDocumentService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/DoWork" message="tns:IDocumentService_DoWork_InputMessage" />
@@ -64,6 +70,10 @@
     <wsdl:operation name="getAllDocumnetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/getAllDocumnetData" message="tns:IDocumentService_getAllDocumnetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/getAllDocumnetDataResponse" message="tns:IDocumentService_getAllDocumnetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/deleteDocument" message="tns:IDocumentService_deleteDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/deleteDocumentResponse" message="tns:IDocumentService_deleteDocument_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDocumentService" type="tns:IDocumentService">
@@ -107,6 +117,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllDocumnetData">
       <soap:operation soapAction="http://tempuri.org/IDocumentService/getAllDocumnetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDocument">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/deleteDocument" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

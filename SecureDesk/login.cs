@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using SecureDesk.StaticInfo;
 
 namespace SecureDesk
 {
@@ -39,6 +40,7 @@ namespace SecureDesk
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            button1.Enabled = false;
             //instance of service procy
             AuthenticateClient.IAuthService serviceProcy = new AuthenticateClient.AuthServiceClient();
            
@@ -46,7 +48,7 @@ namespace SecureDesk
             AuthenticateClient.UserCredentials userCredentials = new AuthenticateClient.UserCredentials();
            
             //user email address
-            userCredentials.User_Auth_Email = emailTextBox.Text;
+            userCredentials.User_Auth_Email = emailTB.Text;
            
             //user password
             userCredentials.User_Auth_Password = passwordTextBox.Text;
@@ -55,6 +57,7 @@ namespace SecureDesk
             bool auth_result = serviceProcy.validateLogin(userCredentials);
             if (auth_result)
             {
+                UserConfiguration.strUserEmail = userCredentials.User_Auth_Email;
                 this.Hide();
                 Dashboard d1 = new Dashboard();
                 d1.Show();
@@ -63,6 +66,7 @@ namespace SecureDesk
             {
                 invalidLabel.Show();
                 invalidLabel.Text = "Incorrect Credentials";
+                button1.Enabled = true;
             }
             
         }
@@ -76,9 +80,9 @@ namespace SecureDesk
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             invalidLabel.Hide();
-            if (!String.IsNullOrEmpty(emailTextBox.Text))
+            if (!String.IsNullOrEmpty(emailTB.Text))
             {
-                emailAddress = emailTextBox.Text;
+                emailAddress = emailTB.Text;
 
                 richTextBox1.Text = clientRegistration.getUserQuestion(emailAddress);
 
@@ -248,7 +252,7 @@ namespace SecureDesk
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            emailTextBox.Text = "";
+            emailTB.Text = "";
 
 
         }
@@ -272,5 +276,7 @@ namespace SecureDesk
         {
 
         }
+
+        
     }
 }

@@ -10,6 +10,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="fileLink" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sharedBy" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DocumentData" nillable="true" type="tns:DocumentData" />

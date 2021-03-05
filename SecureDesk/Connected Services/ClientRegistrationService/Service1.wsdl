@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_RegistrationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
       <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="RegistrationService_getQuestions_InputMessage">
@@ -14,11 +21,17 @@
   <wsdl:message name="RegistrationService_getQuestions_OutputMessage">
     <wsdl:part name="parameters" element="tns:getQuestionsResponse" />
   </wsdl:message>
+  <wsdl:message name="RegistrationService_getQuestions_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q1:CustomException" />
+  </wsdl:message>
   <wsdl:message name="RegistrationService_connectToFirebase_InputMessage">
     <wsdl:part name="parameters" element="tns:connectToFirebase" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_connectToFirebase_OutputMessage">
     <wsdl:part name="parameters" element="tns:connectToFirebaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_connectToFirebase_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q2:CustomException" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_registerNewUser_InputMessage">
     <wsdl:part name="parameters" element="tns:registerNewUser" />
@@ -26,11 +39,17 @@
   <wsdl:message name="RegistrationService_registerNewUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:registerNewUserResponse" />
   </wsdl:message>
+  <wsdl:message name="RegistrationService_registerNewUser_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q3:CustomException" />
+  </wsdl:message>
   <wsdl:message name="RegistrationService_sendOTP_InputMessage">
     <wsdl:part name="parameters" element="tns:sendOTP" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_sendOTP_OutputMessage">
     <wsdl:part name="parameters" element="tns:sendOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_sendOTP_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q4:CustomException" />
   </wsdl:message>
   <wsdl:message name="UserOtpVerification">
     <wsdl:part name="parameters" element="tns:UserOtpVerification" />
@@ -45,11 +64,17 @@
   <wsdl:message name="OTP_Verified_Headers">
     <wsdl:part name="Verification_Result" element="tns:User_x0020_OTP_x0020_Verification_x0020_Result" />
   </wsdl:message>
+  <wsdl:message name="RegistrationService_verifyUser_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q5:CustomException" />
+  </wsdl:message>
   <wsdl:message name="RegistrationService_getSecurePin_InputMessage">
     <wsdl:part name="parameters" element="tns:getSecurePin" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_getSecurePin_OutputMessage">
     <wsdl:part name="parameters" element="tns:getSecurePinResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_getSecurePin_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q6:CustomException" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_getUserQuestion_InputMessage">
     <wsdl:part name="parameters" element="tns:getUserQuestion" />
@@ -57,11 +82,17 @@
   <wsdl:message name="RegistrationService_getUserQuestion_OutputMessage">
     <wsdl:part name="parameters" element="tns:getUserQuestionResponse" />
   </wsdl:message>
+  <wsdl:message name="RegistrationService_getUserQuestion_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q7:CustomException" />
+  </wsdl:message>
   <wsdl:message name="RegistrationService_verifyAnswer_InputMessage">
     <wsdl:part name="parameters" element="tns:verifyAnswer" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_verifyAnswer_OutputMessage">
     <wsdl:part name="parameters" element="tns:verifyAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrationService_verifyAnswer_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q8:CustomException" />
   </wsdl:message>
   <wsdl:message name="RegistrationService_resetPassword_InputMessage">
     <wsdl:part name="parameters" element="tns:resetPassword" />
@@ -69,45 +100,58 @@
   <wsdl:message name="RegistrationService_resetPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:resetPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="RegistrationService_resetPassword_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q9:CustomException" />
+  </wsdl:message>
   <wsdl:portType name="RegistrationService">
     <wsdl:operation name="getQuestions">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getQuestions" message="tns:RegistrationService_getQuestions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getQuestionsResponse" message="tns:RegistrationService_getQuestions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/getQuestionsCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_getQuestions_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="connectToFirebase">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/connectToFirebase" message="tns:RegistrationService_connectToFirebase_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/connectToFirebaseResponse" message="tns:RegistrationService_connectToFirebase_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/connectToFirebaseCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_connectToFirebase_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="registerNewUser">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/registerNewUser" message="tns:RegistrationService_registerNewUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/registerNewUserResponse" message="tns:RegistrationService_registerNewUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/registerNewUserCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_registerNewUser_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="sendOTP">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/sendOTP" message="tns:RegistrationService_sendOTP_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/sendOTPResponse" message="tns:RegistrationService_sendOTP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/sendOTPCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_sendOTP_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="verifyUser">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/verifyUser" name="UserOtpVerification" message="tns:UserOtpVerification" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/verifyUserResponse" name="OTP_Verified" message="tns:OTP_Verified" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/verifyUserCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_verifyUser_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="getSecurePin">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getSecurePin" message="tns:RegistrationService_getSecurePin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getSecurePinResponse" message="tns:RegistrationService_getSecurePin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/getSecurePinCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_getSecurePin_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="getUserQuestion">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/getUserQuestion" message="tns:RegistrationService_getUserQuestion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/getUserQuestionResponse" message="tns:RegistrationService_getUserQuestion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/getUserQuestionCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_getUserQuestion_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="verifyAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/verifyAnswer" message="tns:RegistrationService_verifyAnswer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/verifyAnswerResponse" message="tns:RegistrationService_verifyAnswer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/verifyAnswerCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_verifyAnswer_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="resetPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/RegistrationService/resetPassword" message="tns:RegistrationService_resetPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/RegistrationService/resetPasswordResponse" message="tns:RegistrationService_resetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/RegistrationService/resetPasswordCustomExceptionFault" name="CustomExceptionFault" message="tns:RegistrationService_resetPassword_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_RegistrationService" type="tns:RegistrationService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_RegistrationService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getQuestions">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/getQuestions" style="document" />
@@ -117,6 +161,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="connectToFirebase">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/connectToFirebase" style="document" />
@@ -126,6 +173,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="registerNewUser">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/registerNewUser" style="document" />
@@ -135,6 +185,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="sendOTP">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/sendOTP" style="document" />
@@ -144,6 +197,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="verifyUser">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/verifyUser" style="document" />
@@ -156,6 +212,9 @@
         <soap:header message="tns:OTP_Verified_Headers" part="Verification_Result" use="literal" />
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getSecurePin">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/getSecurePin" style="document" />
@@ -165,6 +224,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getUserQuestion">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/getUserQuestion" style="document" />
@@ -174,6 +236,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="verifyAnswer">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/verifyAnswer" style="document" />
@@ -183,6 +248,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="resetPassword">
       <soap:operation soapAction="http://tempuri.org/RegistrationService/resetPassword" style="document" />
@@ -192,6 +260,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
