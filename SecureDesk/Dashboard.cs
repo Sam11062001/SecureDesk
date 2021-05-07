@@ -15,107 +15,13 @@ using SecureDesk.SharingService;
 using System.IO;
 using SecureDesk.StaticInfo;
 using SecureDesk.Algorithms;
+using SecureDesk.UserControls;
 
 namespace SecureDesk
 {
     public partial class Dashboard : Form
     {
-        private bool Drag;
-        private int MouseX;
-        private int MouseY;
-
-        private const int WM_NCHITTEST = 0x84;
-        private const int HTCLIENT = 0x1;
-        private const int HTCAPTION = 0x2;
-
-        private bool m_aeroEnabled;
-
-        private const int CS_DROPSHADOW = 0x00020000;
-        private const int WM_NCPAINT = 0x0085;
-        private const int WM_ACTIVATEAPP = 0x001C;
-
-        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
-        public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
-        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
-        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
-        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
-
-        public static extern int DwmIsCompositionEnabled(ref int pfEnabled);
-        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-            );
-
-        public struct MARGINS
-        {
-            public int leftWidth;
-            public int rightWidth;
-            public int topHeight;
-            public int bottomHeight;
-        }
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                m_aeroEnabled = CheckAeroEnabled();
-                CreateParams cp = base.CreateParams;
-                if (!m_aeroEnabled)
-                    cp.ClassStyle |= CS_DROPSHADOW; return cp;
-            }
-        }
-        private bool CheckAeroEnabled()
-        {
-            if (Environment.OSVersion.Version.Major >= 6)
-            {
-                int enabled = 0; DwmIsCompositionEnabled(ref enabled);
-                return (enabled == 1) ? true : false;
-            }
-            return false;
-        }
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case WM_NCPAINT:
-                    if (m_aeroEnabled)
-                    {
-                        var v = 2;
-                        DwmSetWindowAttribute(this.Handle, 2, ref v, 4);
-                        MARGINS margins = new MARGINS()
-                        {
-                            bottomHeight = 1,
-                            leftWidth = 0,
-                            rightWidth = 0,
-                            topHeight = 0
-                        }; DwmExtendFrameIntoClientArea(this.Handle, ref margins);
-                    }
-                    break;
-                default: break;
-            }
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
-        }
-        private void PanelMove_MouseDown(object sender, MouseEventArgs e)
-        {
-            Drag = true;
-            MouseX = Cursor.Position.X - this.Left;
-            MouseY = Cursor.Position.Y - this.Top;
-        }
-        private void PanelMove_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (Drag)
-            {
-                this.Top = Cursor.Position.Y - MouseY;
-                this.Left = Cursor.Position.X - MouseX;
-            }
-        }
-        private void PanelMove_MouseUp(object sender, MouseEventArgs e) { Drag = false; }
-
+        public static string emailAddress = "";
         public static string updateAccountName = "";
         public static string filePath = "";
         public static string currentlyOpenedFile ="";
@@ -141,8 +47,10 @@ namespace SecureDesk
         {
             InitializeComponent();
 
-
-            UserConfiguration.strUserEmail = "kamaniyash813@gmail.com";
+            guna2Button3.Visible = false;
+            guna2Button6.Visible = false;
+            guna2Button7.Visible = false;
+            //UserConfiguration.strUserEmail = "kamaniyash813@gmail.com";
             //documentPanel.Show();
             documentPanel.Visible = true;
             //diaryPanel.Hide();
@@ -161,7 +69,7 @@ namespace SecureDesk
 
             documentDataGridView.Visible = true;
 
-            documentServiceClient = new DocumentService.DocumentServiceClient();
+            documentServiceClient = new DocumentService.DocumentServiceClient("BasicHttpBinding_IDocumentService");
             documents = documentServiceClient.getAllDocumnetData(UserConfiguration.strUserEmail);
 
 
@@ -210,7 +118,7 @@ namespace SecureDesk
             
 
 
-            sharingServiceClient = new SharingService.SharingServiceClient();
+            sharingServiceClient = new SharingService.SharingServiceClient("BasicHttpsBinding_ISharingService");
             sharedDocments = sharingServiceClient.getSharedDocument(UserConfiguration.strUserEmail);
 
             
@@ -276,7 +184,7 @@ namespace SecureDesk
 
             updateAccountPanel.Visible = false;
 
-            accountServiceClient = new AccountService.AccountServiceClient();
+            accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
             userAccountData = accountServiceClient.getAllAccounts(UserConfiguration.strUserEmail);
 
             accountDataGirdView.Rows.Clear();
@@ -330,7 +238,7 @@ namespace SecureDesk
 
         private void btnAddNewDiary_Click(object sender, EventArgs e)
         {
-            diaryDataGridView.Visible = false;
+            //diaryDataGridView.Visible = false;
             //addDiaryUC1.Visible = true;
             addDiaryPanel1.Visible = true;
             addDiaryDateTextBox.Text = "";
@@ -353,7 +261,16 @@ namespace SecureDesk
             //addDiaryUC1.Visible = false;
             addDiaryPanel1.Visible = false;
             //diaryDataGridView.Hide();
-            diaryDataGridView.Visible = false;
+            diaryDataGridView.Visible = true;
+            personalDiaryClient = new DiaryService.PersonalDiaryClient("BasicHttpsBinding_IPersonalDiary");
+            diaries = personalDiaryClient.getAllDiaryData(UserConfiguration.strUserEmail);
+
+            diaryDataGridView.Rows.Clear();
+            for (int i = 0; i < diaries.Length; i++)
+            {
+
+                diaryDataBindingSource.Add(new DiaryData() { date = diaries[i].date, title = diaries[i].title });
+            }
 
         }
 
@@ -367,7 +284,7 @@ namespace SecureDesk
             //addDiaryUC1.Visible = false;
             addDiaryPanel1.Visible = false;
              diaryDataGridView.Visible = true ;
-             personalDiaryClient = new DiaryService.PersonalDiaryClient();
+             personalDiaryClient = new DiaryService.PersonalDiaryClient("BasicHttpsBinding_IPersonalDiary");
              diaries = personalDiaryClient.getAllDiaryData(UserConfiguration.strUserEmail);
 
             diaryDataGridView.Rows.Clear();
@@ -406,7 +323,7 @@ namespace SecureDesk
             //documentDataGridView.Show();
             documentDataGridView.Visible = true;
             
-             documentServiceClient = new DocumentService.DocumentServiceClient();
+             documentServiceClient = new DocumentService.DocumentServiceClient("BasicHttpBinding_IDocumentService");
              documents = documentServiceClient.getAllDocumnetData(UserConfiguration.strUserEmail);
 
             
@@ -423,48 +340,75 @@ namespace SecureDesk
         {
             if (documentDataGridView.Columns[e.ColumnIndex].Name == "viewPdf")
             {
-                currentlyOpenedFile = documents[e.RowIndex].fileName;
-                axAcroPDF1.src = documents[e.RowIndex].fileLink;
-                //axAcroPDF1.Show();
-                axAcroPDF1.Visible = true;
-                //addDocument1.Hide();
-                MessageBox.Show(documents[e.RowIndex].fileName + " opening...");
+
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
+
+                if (AccessPin.isAutorized)
+                {
+                    AccessPin.isAutorized = false;
+                    currentlyOpenedFile = documents[e.RowIndex].fileName;
+                    axAcroPDF1.src = documents[e.RowIndex].fileLink;
+                    
+                    axAcroPDF1.Visible = true;
+                    
+                    MessageBox.Show(documents[e.RowIndex].fileName + " opening...");
+                }
+
+                
             }
 
             if (documentDataGridView.Columns[e.ColumnIndex].Name == "sharePdf")
             {
-                //addDocument1.Hide();
-                sharedBy = UserConfiguration.strUserEmail;
-                documentData = new SharingService.DocumentData();
-                documentData.fileName = documents[e.RowIndex].fileName;
-                documentData.fileLink = documents[e.RowIndex].fileLink;
 
-                documentSharingPanel.Visible = true;
-                sharedToTextBox.Text = "";
-                //documentSharingUC1.Visible = true;
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
+
+                if (AccessPin.isAutorized)
+                {
+                    AccessPin.isAutorized = false;
+                    sharedBy = UserConfiguration.strUserEmail;
+                    documentData = new SharingService.DocumentData();
+                    documentData.fileName = documents[e.RowIndex].fileName;
+                    documentData.fileLink = documents[e.RowIndex].fileLink;
+
+                    documentSharingPanel.Visible = true;
+                    sharedToTextBox.Text = "";
+                }
+
+               
             }
 
             if (documentDataGridView.Columns[e.ColumnIndex].Name == "deletePdf")
             {
-                //addDocument1.Hide();
-                documentServiceClient = new DocumentService.DocumentServiceClient();
 
-                documentServiceClient.deleteDocument(UserConfiguration.strUserEmail, documents[e.RowIndex].fileName);
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
 
-                MessageBox.Show(documents[e.RowIndex].fileName + " deleted.");
-
-                if (currentlyOpenedFile == documents[e.RowIndex].fileName)
+                if (AccessPin.isAutorized)
                 {
-                    axAcroPDF1.Visible = false;
-                }
-                documents = documentServiceClient.getAllDocumnetData(UserConfiguration.strUserEmail);
+                    AccessPin.isAutorized = false;
+                    documentServiceClient = new DocumentService.DocumentServiceClient("BasicHttpBinding_IDocumentService");
 
-                documentDataGridView.Rows.Clear();
-                for (int i = 0; i < documents.Length; i++)
-                {
+                    documentServiceClient.deleteDocument(UserConfiguration.strUserEmail, documents[e.RowIndex].fileName);
 
-                    documentDataBindingSource.Add(new DocumentService.DocumentData() { fileName = documents[i].fileName });
+                    MessageBox.Show(documents[e.RowIndex].fileName + " deleted.");
+
+                    if (currentlyOpenedFile == documents[e.RowIndex].fileName)
+                    {
+                        axAcroPDF1.Visible = false;
+                    }
+                    documents = documentServiceClient.getAllDocumnetData(UserConfiguration.strUserEmail);
+
+                    documentDataGridView.Rows.Clear();
+                    for (int i = 0; i < documents.Length; i++)
+                    {
+
+                        documentDataBindingSource.Add(new DocumentService.DocumentData() { fileName = documents[i].fileName });
+                    }
                 }
+
+                               
                 
                 
             }
@@ -484,58 +428,88 @@ namespace SecureDesk
         {
             if ( sharedDocumentDataGridView.Columns[e.ColumnIndex].Name == "viewSharedPdf")
             {
-                currentlyOpenedSharedFile = sharedDocments[e.RowIndex].fileName;
-                sharedDocumentViewer.src = sharedDocments[e.RowIndex].fileLink;
-                //sharedDocumentViewer.Show();
-                sharedDocumentViewer.Visible = true;
+
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
+
+                if (AccessPin.isAutorized)
+                {
+                    AccessPin.isAutorized = false;
+                    currentlyOpenedSharedFile = sharedDocments[e.RowIndex].fileName;
+                    sharedDocumentViewer.src = sharedDocments[e.RowIndex].fileLink;
+                    
+                    sharedDocumentViewer.Visible = true;
 
 
-                MessageBox.Show(sharedDocments[e.RowIndex].fileName + " opening...");
+                    MessageBox.Show(sharedDocments[e.RowIndex].fileName + " opening...");
+                }
+
+                
             }
 
             if ( sharedDocumentDataGridView.Columns[e.ColumnIndex].Name == "shareSharedPdf")
             {
 
-                sharedBy = UserConfiguration.strUserEmail;
-                documentData = new SharingService.DocumentData();
-                documentData.fileName = sharedDocments[e.RowIndex].fileName;
-                documentData.fileLink = sharedDocments[e.RowIndex].fileLink;
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
+
+                if (AccessPin.isAutorized)
+                {
+                    AccessPin.isAutorized = false;
+                    sharedBy = UserConfiguration.strUserEmail;
+                    documentData = new SharingService.DocumentData();
+                    documentData.fileName = sharedDocments[e.RowIndex].fileName;
+                    documentData.fileLink = sharedDocments[e.RowIndex].fileLink;
 
 
-                //sharedDocumentSharingUC2.Visible = true;
-                sharedDocumentSharingPanel.Visible = true;
-                sharedDocSharingTextBox.Text = "";
+                    
+                    sharedDocumentSharingPanel.Visible = true;
+                    sharedDocSharingTextBox.Text = "";
+                }
+
+                
             }
 
             if (sharedDocumentDataGridView.Columns[e.ColumnIndex].Name == "deleteSharedPdf")
             {
-                sharedTo = UserConfiguration.strUserEmail;
-                sharedDocumentData = new SharedDocumentData();
-                sharedDocumentData.fileName = sharedDocments[e.RowIndex].fileName;
-                sharedDocumentData.fileLink = sharedDocments[e.RowIndex].fileLink;
-                sharedDocumentData.sharedBy = sharedDocments[e.RowIndex].sharedBy;
 
-                sharingServiceClient = new SharingServiceClient();
-                sharingServiceClient.deleteSharedDocument( sharedDocumentData , sharedTo);
-                
+                AccessPin ap1 = new AccessPin();
+                ap1.ShowDialog();
 
-                MessageBox.Show(sharedDocments[e.RowIndex].fileName + " deleted.");
-
-                if (currentlyOpenedSharedFile == sharedDocments[e.RowIndex].fileName)
+                if (AccessPin.isAutorized)
                 {
-                    sharedDocumentViewer.Visible = false;
+                    AccessPin.isAutorized = false;
+
+                    sharedTo = UserConfiguration.strUserEmail;
+                    sharedDocumentData = new SharedDocumentData();
+                    sharedDocumentData.fileName = sharedDocments[e.RowIndex].fileName;
+                    sharedDocumentData.fileLink = sharedDocments[e.RowIndex].fileLink;
+                    sharedDocumentData.sharedBy = sharedDocments[e.RowIndex].sharedBy;
+
+                    sharingServiceClient = new SharingServiceClient("BasicHttpsBinding_ISharingService");
+                    sharingServiceClient.deleteSharedDocument(sharedDocumentData, sharedTo);
+
+
+                    MessageBox.Show(sharedDocments[e.RowIndex].fileName + " deleted.");
+
+                    if (currentlyOpenedSharedFile == sharedDocments[e.RowIndex].fileName)
+                    {
+                        sharedDocumentViewer.Visible = false;
+                    }
+
+                    sharingServiceClient = new SharingService.SharingServiceClient("BasicHttpsBinding_ISharingService");
+                    sharedDocments = sharingServiceClient.getSharedDocument(UserConfiguration.strUserEmail);
+
+
+                    sharedDocumentDataGridView.Rows.Clear();
+                    for (int i = 0; i < sharedDocments.Length; i++)
+                    {
+
+                        sharedDocumentDataBindingSource.Add(new SharedDocumentData() { fileName = sharedDocments[i].fileName, sharedBy = sharedDocments[i].sharedBy });
+                    }
                 }
 
-                sharingServiceClient = new SharingService.SharingServiceClient();
-                sharedDocments = sharingServiceClient.getSharedDocument(UserConfiguration.strUserEmail);
-
                 
-                sharedDocumentDataGridView.Rows.Clear();
-                for (int i = 0; i < sharedDocments.Length; i++)
-                {
-
-                    sharedDocumentDataBindingSource.Add(new SharedDocumentData() { fileName = sharedDocments[i].fileName, sharedBy = sharedDocments[i].sharedBy });
-                }
                 
 
                 
@@ -571,7 +545,7 @@ namespace SecureDesk
 
         private void docSharingPanelShareBtn_Click(object sender, EventArgs e)
         {
-            sharingServiceClient = new SharingServiceClient();
+            sharingServiceClient = new SharingServiceClient("BasicHttpsBinding_ISharingService");
             sharingServiceClient.shareDocument(documentData,  sharedBy, sharedToTextBox.Text);
             documentSharingPanel.Visible = false;
             MessageBox.Show("Document shared to " + sharedToTextBox.Text);
@@ -587,7 +561,7 @@ namespace SecureDesk
             string fileName = addDocfileNameTextBox.Text;
             fileName = fileName + ".pdf";
             byte[] readFile = File.ReadAllBytes(filePath);
-            documentServiceClient = new DocumentService.DocumentServiceClient();
+            documentServiceClient = new DocumentService.DocumentServiceClient("BasicHttpBinding_IDocumentService");
             documentServiceClient.uploadDocument(readFile, fileName, UserConfiguration.strUserEmail);
             MessageBox.Show("Document Uploaded");
             addDocumentPanel.Visible = false;
@@ -628,7 +602,7 @@ namespace SecureDesk
             string title = addDiaryTitleTextBox.Text;
             string content = addDiaryContetTextBox.Text;
 
-            personalDiaryClient = new DiaryService.PersonalDiaryClient();
+            personalDiaryClient = new DiaryService.PersonalDiaryClient("BasicHttpsBinding_IPersonalDiary");
             personalDiaryClient.UploadDayThought(date, title, content, UserConfiguration.strUserEmail);
             MessageBox.Show("Diary saved.");
             addDiaryPanel1.Visible = false;
@@ -647,7 +621,7 @@ namespace SecureDesk
         private void sharedDocSharingShareBtn_Click(object sender, EventArgs e)
         {
             string sharedTo = sharedDocSharingTextBox.Text;
-            sharingServiceClient = new SharingService.SharingServiceClient();
+            sharingServiceClient = new SharingService.SharingServiceClient("BasicHttpsBinding_ISharingService");
             sharingServiceClient.shareDocument(documentData, sharedBy, sharedTo);
             sharedDocumentSharingPanel.Visible = false;
             MessageBox.Show("Document shared to " + sharedTo);
@@ -657,6 +631,7 @@ namespace SecureDesk
         {
             UserConfiguration.strUserEmail = "";
             this.Close();
+            Environment.Exit(0);
         }
 
         private void addAccCancelBtn_Click(object sender, EventArgs e)
@@ -683,9 +658,12 @@ namespace SecureDesk
                 userAccountData.UserName = userAccountUserName;
                 userAccountData.Password = userAccountPassowrd;
                 userAccountData.userEmail = UserConfiguration.strUserEmail;
-                accountServiceClient = new AccountService.AccountServiceClient();
+                accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
                 accountServiceClient.addAccount(userAccountData);
-                MessageBox.Show("Account added.");
+                SDMessageBox messageBox = new SDMessageBox();
+                messageBox.setLabelMessage("Your Account is Successfully Added.");
+                System.Media.SystemSounds.Exclamation.Play();
+                messageBox.ShowDialog();
                 addAccountPanel.Visible = false;
             }
             
@@ -753,9 +731,12 @@ namespace SecureDesk
                 userAccountData.UserName = userAccountUserName;
                 userAccountData.Password = userAccountPassowrd;
                 userAccountData.userEmail = UserConfiguration.strUserEmail;
-                accountServiceClient = new AccountService.AccountServiceClient();
+                accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
                 accountServiceClient.updateAccount(userAccountData);
-                MessageBox.Show("Account updated.");
+                SDMessageBox messageBox = new SDMessageBox();
+                messageBox.setLabelMessage("Your Account is Successfully Updated.");
+                System.Media.SystemSounds.Exclamation.Play();
+                messageBox.ShowDialog();
                 updateAccountPanel.Visible = false;
             }
         }
@@ -772,45 +753,77 @@ namespace SecureDesk
                 //MessageBox.Show(accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString() +" : "+ accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString());
                 if (accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString() == "View Account")
                 {
-                    accountServiceClient = new AccountService.AccountServiceClient();
-                    AccountService.UserAccountData userAccountData = new AccountService.UserAccountData();
-                    userAccountData = accountServiceClient.requestDecryption(UserConfiguration.strUserEmail, accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString());
-                    MessageBox.Show("Account Name : "+ accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString()+"\nUsername : "+userAccountData.UserName+"\nPassword : "+userAccountData.Password);
+                    
+                    AccessPin ap1 = new AccessPin();
+                    ap1.ShowDialog();
+
+                    if(AccessPin.isAutorized)
+                    {
+                        AccessPin.isAutorized = false;
+                        accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
+                        AccountService.UserAccountData userAccountData = new AccountService.UserAccountData();
+                        userAccountData = accountServiceClient.requestDecryption(UserConfiguration.strUserEmail, accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString());
+                        MessageBox.Show("Account Name : " + accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString() + "\nUsername : " + userAccountData.UserName + "\nPassword : " + userAccountData.Password);
+                    }
+                    
                 }
                 if (accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString() == "Update Account")
                 {
                     //MessageBox.Show(accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString() + " : " + accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString());
-                    updateAccountPanel.Visible = true;
-                    updatePasswordGeneratorPanel.Visible = false;
 
-                    updateAccUserNameTextBox.Text = "";
-                    updateAccPasswordTextBox.Text = "";
+                    AccessPin ap1 = new AccessPin();
+                    ap1.ShowDialog();
 
-                    updateAccountName = accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString();
-                    updateAccLabel.Text = "Update Your " + updateAccountName + " Account ";
+                    if (AccessPin.isAutorized)
+                    {
+                        AccessPin.isAutorized = false;
+                        updateAccountPanel.Visible = true;
+                        updatePasswordGeneratorPanel.Visible = false;
+
+                        updateAccUserNameTextBox.Text = "";
+                        updateAccPasswordTextBox.Text = "";
+
+                        updateAccountName = accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString();
+                        updateAccLabel.Text = "Update Your " + updateAccountName + " Account ";
+                    }
+
+                    
                 }
                 if (accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString() == "Delete Account")
                 {
                     //MessageBox.Show(accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString() + " : " + accountDataGirdView.Rows[e.RowIndex].Cells["Task"].Value.ToString());
-                    accountServiceClient = new AccountService.AccountServiceClient();
-                    AccountService.UserAccountData userAccountData1 = new AccountService.UserAccountData();
-                    userAccountData1.userEmail = UserConfiguration.strUserEmail;
-                    userAccountData1.UserAccountName = accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString();
-                    accountServiceClient.deleteAccount(userAccountData1);
-                    MessageBox.Show("Account deleted");
 
-                    accountServiceClient = new AccountService.AccountServiceClient();
-                    userAccountData = accountServiceClient.getAllAccounts(UserConfiguration.strUserEmail);
+                    AccessPin ap1 = new AccessPin();
+                    ap1.ShowDialog();
 
-                    accountDataGirdView.Rows.Clear();
-
-
-                    for (int i = 0; i < userAccountData.Length; i++)
+                    if (AccessPin.isAutorized)
                     {
+                        AccessPin.isAutorized = false;
+                        accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
+                        AccountService.UserAccountData userAccountData1 = new AccountService.UserAccountData();
+                        userAccountData1.userEmail = UserConfiguration.strUserEmail;
+                        userAccountData1.UserAccountName = accountDataGirdView.Rows[e.RowIndex].Cells["userAccountNameDataGridViewTextBoxColumn"].Value.ToString();
+                        accountServiceClient.deleteAccount(userAccountData1);
+                        SDMessageBox messageBox = new SDMessageBox();
+                        messageBox.setLabelMessage("Your Account is Successfully Deleted.");
+                        System.Media.SystemSounds.Exclamation.Play();
+                        messageBox.ShowDialog();
 
-                        userAccountDataBindingSource.Add(new AccountService.UserAccountData() { UserAccountName = userAccountData[i].UserAccountName });
+                        accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
+                        userAccountData = accountServiceClient.getAllAccounts(UserConfiguration.strUserEmail);
 
+                        accountDataGirdView.Rows.Clear();
+
+
+                        for (int i = 0; i < userAccountData.Length; i++)
+                        {
+
+                            userAccountDataBindingSource.Add(new AccountService.UserAccountData() { UserAccountName = userAccountData[i].UserAccountName });
+
+                        }
                     }
+
+                    
                 }
             }
             
@@ -822,7 +835,7 @@ namespace SecureDesk
 
             updateAccountPanel.Visible = false;
 
-            accountServiceClient = new AccountService.AccountServiceClient();
+            accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
             userAccountData = accountServiceClient.getAllAccounts(UserConfiguration.strUserEmail);
 
             accountDataGirdView.Rows.Clear();
@@ -888,7 +901,7 @@ namespace SecureDesk
                 guna2Button4.PerformClick();
 
                 diaryDataGridView.Visible = true;
-                personalDiaryClient = new DiaryService.PersonalDiaryClient();
+                personalDiaryClient = new DiaryService.PersonalDiaryClient("BasicHttpsBinding_IPersonalDiary");
                 diaries = personalDiaryClient.getAllDiaryData(UserConfiguration.strUserEmail);
                 bool[] isMatched = new bool[diaries.Length];
 
@@ -917,7 +930,7 @@ namespace SecureDesk
 
                 documentDataGridView.Visible = true;
 
-                documentServiceClient = new DocumentService.DocumentServiceClient();
+                documentServiceClient = new DocumentService.DocumentServiceClient("BasicHttpBinding_IDocumentService");
                 documents = documentServiceClient.getAllDocumnetData(UserConfiguration.strUserEmail);
                 bool[] isMatched = new bool[documents.Length];
 
@@ -943,7 +956,7 @@ namespace SecureDesk
                 //MessageBox.Show("Search type : " + searchComboBox.Items[searchComboBox.SelectedIndex].ToString() + "\nSearch text : " + searchTextBox.Text);
                 
                 AccountsBtn.PerformClick();
-                accountServiceClient = new AccountService.AccountServiceClient();
+                accountServiceClient = new AccountService.AccountServiceClient("BasicHttpsBinding_IAccountService");
                 userAccountData = accountServiceClient.getAllAccounts(UserConfiguration.strUserEmail);
                 bool[] isMatched = new bool[userAccountData.Length];
 
@@ -975,7 +988,7 @@ namespace SecureDesk
                 guna2Button5.PerformClick();
                 
 
-                sharingServiceClient = new SharingService.SharingServiceClient();
+                sharingServiceClient = new SharingService.SharingServiceClient("BasicHttpsBinding_ISharingService");
                 sharedDocments = sharingServiceClient.getSharedDocument(UserConfiguration.strUserEmail);
                 bool[] isMatched = new bool[sharedDocments.Length];
 
@@ -1000,6 +1013,57 @@ namespace SecureDesk
                 }
             }
             
+        }
+
+        private void refreshSharedDocumentBtn_Click(object sender, EventArgs e)
+        {
+            sharedDocumentDataGridView.Visible = true;
+
+
+
+
+            sharingServiceClient = new SharingService.SharingServiceClient("BasicHttpsBinding_ISharingService");
+            sharedDocments = sharingServiceClient.getSharedDocument(UserConfiguration.strUserEmail);
+
+
+            sharedDocumentDataGridView.Rows.Clear();
+            for (int i = 0; i < sharedDocments.Length; i++)
+            {
+
+                sharedDocumentDataBindingSource.Add(new SharedDocumentData() { fileName = sharedDocments[i].fileName, sharedBy = sharedDocments[i].sharedBy });
+            }
+
+
+        }
+
+        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (searchComboBox.Items[searchComboBox.SelectedIndex].ToString() == "Diaries")
+            {
+
+                guna2Button4.PerformClick();
+
+                
+            }
+            if (searchComboBox.Items[searchComboBox.SelectedIndex].ToString() == "Documents")
+            {
+                guna2Button1.PerformClick();
+
+                
+            }
+            if (searchComboBox.Items[searchComboBox.SelectedIndex].ToString() == "Accounts")
+            {
+                
+                AccountsBtn.PerformClick();
+                
+            }
+            if (searchComboBox.Items[searchComboBox.SelectedIndex].ToString() == "Shared Documents")
+            {
+                guna2Button5.PerformClick();
+
+
+                
+            }
         }
     }
 }

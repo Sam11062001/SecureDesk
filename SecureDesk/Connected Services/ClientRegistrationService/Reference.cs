@@ -242,10 +242,10 @@ namespace SecureDesk.ClientRegistrationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/sendOTP", ReplyAction="http://tempuri.org/RegistrationService/sendOTPResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/sendOTPCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
-        void sendOTP(string email);
+        bool sendOTP(string email, string userName, bool isForgetPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/sendOTP", ReplyAction="http://tempuri.org/RegistrationService/sendOTPResponse")]
-        System.Threading.Tasks.Task sendOTPAsync(string email);
+        System.Threading.Tasks.Task<bool> sendOTPAsync(string email, string userName, bool isForgetPassword);
         
         // CODEGEN: Generating message contract since the wrapper name (UserOtpVerification) of message UserOtpVerification does not match the default value (verifyUser)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyUser", ReplyAction="http://tempuri.org/RegistrationService/verifyUserResponse")]
@@ -254,13 +254,6 @@ namespace SecureDesk.ClientRegistrationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyUser", ReplyAction="http://tempuri.org/RegistrationService/verifyUserResponse")]
         System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyUserAsync(SecureDesk.ClientRegistrationService.UserOtpVerification request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getSecurePin", ReplyAction="http://tempuri.org/RegistrationService/getSecurePinResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/getSecurePinCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
-        int getSecurePin(string email);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getSecurePin", ReplyAction="http://tempuri.org/RegistrationService/getSecurePinResponse")]
-        System.Threading.Tasks.Task<int> getSecurePinAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/getUserQuestion", ReplyAction="http://tempuri.org/RegistrationService/getUserQuestionResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/getUserQuestionCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
@@ -282,6 +275,21 @@ namespace SecureDesk.ClientRegistrationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/resetPassword", ReplyAction="http://tempuri.org/RegistrationService/resetPasswordResponse")]
         System.Threading.Tasks.Task resetPasswordAsync(string email, string newPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/isUnique", ReplyAction="http://tempuri.org/RegistrationService/isUniqueResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/isUniqueCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
+        bool isUnique(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/isUnique", ReplyAction="http://tempuri.org/RegistrationService/isUniqueResponse")]
+        System.Threading.Tasks.Task<bool> isUniqueAsync(string email);
+        
+        // CODEGEN: Generating message contract since the wrapper name (UserOtpVerification) of message UserOtpVerification does not match the default value (verifyForgetPassword)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyForgetPassword", ReplyAction="http://tempuri.org/RegistrationService/verifyForgetPasswordResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.ClientRegistrationService.CustomException), Action="http://tempuri.org/RegistrationService/verifyForgetPasswordCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
+        SecureDesk.ClientRegistrationService.OTP_Verified verifyForgetPassword(SecureDesk.ClientRegistrationService.UserOtpVerification request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistrationService/verifyForgetPassword", ReplyAction="http://tempuri.org/RegistrationService/verifyForgetPasswordResponse")]
+        System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyForgetPasswordAsync(SecureDesk.ClientRegistrationService.UserOtpVerification request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -291,7 +299,7 @@ namespace SecureDesk.ClientRegistrationService {
     public partial class UserOtpVerification {
         
         [System.ServiceModel.MessageHeaderAttribute(Name="One_x0020_Time_x0020_Password_x0020_for_x0020_Verification", Namespace="http://tempuri.org/")]
-        public int OneTimePasswordforVerification;
+        public string OneTimePasswordforVerification;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public string User_Email_Address;
@@ -299,7 +307,7 @@ namespace SecureDesk.ClientRegistrationService {
         public UserOtpVerification() {
         }
         
-        public UserOtpVerification(int OneTimePasswordforVerification, string User_Email_Address) {
+        public UserOtpVerification(string OneTimePasswordforVerification, string User_Email_Address) {
             this.OneTimePasswordforVerification = OneTimePasswordforVerification;
             this.User_Email_Address = User_Email_Address;
         }
@@ -373,12 +381,12 @@ namespace SecureDesk.ClientRegistrationService {
             return base.Channel.registerNewUserAsync(user);
         }
         
-        public void sendOTP(string email) {
-            base.Channel.sendOTP(email);
+        public bool sendOTP(string email, string userName, bool isForgetPassword) {
+            return base.Channel.sendOTP(email, userName, isForgetPassword);
         }
         
-        public System.Threading.Tasks.Task sendOTPAsync(string email) {
-            return base.Channel.sendOTPAsync(email);
+        public System.Threading.Tasks.Task<bool> sendOTPAsync(string email, string userName, bool isForgetPassword) {
+            return base.Channel.sendOTPAsync(email, userName, isForgetPassword);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -386,7 +394,7 @@ namespace SecureDesk.ClientRegistrationService {
             return base.Channel.verifyUser(request);
         }
         
-        public bool verifyUser(int OneTimePasswordforVerification, string User_Email_Address) {
+        public bool verifyUser(string OneTimePasswordforVerification, string User_Email_Address) {
             SecureDesk.ClientRegistrationService.UserOtpVerification inValue = new SecureDesk.ClientRegistrationService.UserOtpVerification();
             inValue.OneTimePasswordforVerification = OneTimePasswordforVerification;
             inValue.User_Email_Address = User_Email_Address;
@@ -399,19 +407,11 @@ namespace SecureDesk.ClientRegistrationService {
             return base.Channel.verifyUserAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyUserAsync(int OneTimePasswordforVerification, string User_Email_Address) {
+        public System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyUserAsync(string OneTimePasswordforVerification, string User_Email_Address) {
             SecureDesk.ClientRegistrationService.UserOtpVerification inValue = new SecureDesk.ClientRegistrationService.UserOtpVerification();
             inValue.OneTimePasswordforVerification = OneTimePasswordforVerification;
             inValue.User_Email_Address = User_Email_Address;
             return ((SecureDesk.ClientRegistrationService.RegistrationService)(this)).verifyUserAsync(inValue);
-        }
-        
-        public int getSecurePin(string email) {
-            return base.Channel.getSecurePin(email);
-        }
-        
-        public System.Threading.Tasks.Task<int> getSecurePinAsync(string email) {
-            return base.Channel.getSecurePinAsync(email);
         }
         
         public string getUserQuestion(string email) {
@@ -436,6 +436,39 @@ namespace SecureDesk.ClientRegistrationService {
         
         public System.Threading.Tasks.Task resetPasswordAsync(string email, string newPassword) {
             return base.Channel.resetPasswordAsync(email, newPassword);
+        }
+        
+        public bool isUnique(string email) {
+            return base.Channel.isUnique(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> isUniqueAsync(string email) {
+            return base.Channel.isUniqueAsync(email);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SecureDesk.ClientRegistrationService.OTP_Verified SecureDesk.ClientRegistrationService.RegistrationService.verifyForgetPassword(SecureDesk.ClientRegistrationService.UserOtpVerification request) {
+            return base.Channel.verifyForgetPassword(request);
+        }
+        
+        public bool verifyForgetPassword(string OneTimePasswordforVerification, string User_Email_Address) {
+            SecureDesk.ClientRegistrationService.UserOtpVerification inValue = new SecureDesk.ClientRegistrationService.UserOtpVerification();
+            inValue.OneTimePasswordforVerification = OneTimePasswordforVerification;
+            inValue.User_Email_Address = User_Email_Address;
+            SecureDesk.ClientRegistrationService.OTP_Verified retVal = ((SecureDesk.ClientRegistrationService.RegistrationService)(this)).verifyForgetPassword(inValue);
+            return retVal.UserOTPVerificationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> SecureDesk.ClientRegistrationService.RegistrationService.verifyForgetPasswordAsync(SecureDesk.ClientRegistrationService.UserOtpVerification request) {
+            return base.Channel.verifyForgetPasswordAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SecureDesk.ClientRegistrationService.OTP_Verified> verifyForgetPasswordAsync(string OneTimePasswordforVerification, string User_Email_Address) {
+            SecureDesk.ClientRegistrationService.UserOtpVerification inValue = new SecureDesk.ClientRegistrationService.UserOtpVerification();
+            inValue.OneTimePasswordforVerification = OneTimePasswordforVerification;
+            inValue.User_Email_Address = User_Email_Address;
+            return ((SecureDesk.ClientRegistrationService.RegistrationService)(this)).verifyForgetPasswordAsync(inValue);
         }
     }
 }

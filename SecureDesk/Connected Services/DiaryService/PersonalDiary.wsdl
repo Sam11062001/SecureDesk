@@ -7,11 +7,36 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IPersonalDiary_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPersonalDiary_connectToFirebase_InputMessage">
@@ -134,9 +159,70 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IPersonalDiary" type="tns:IPersonalDiary">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IPersonalDiary_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="connectToFirebase">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/connectToFirebase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDayThought">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/UploadDayThought" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDiary">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/addDiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiary">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/getDiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiaryDocumentCount">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/getDiaryDocumentCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDiaryData">
+      <soap:operation soapAction="http://tempuri.org/IPersonalDiary/getAllDiaryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="PersonalDiary">
     <wsdl:port name="BasicHttpBinding_IPersonalDiary" binding="tns:BasicHttpBinding_IPersonalDiary">
-      <soap:address location="http://localhost:63532/ServiceClass/PersonalDiary.svc" />
+      <soap:address location="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IPersonalDiary" binding="tns:BasicHttpsBinding_IPersonalDiary">
+      <soap:address location="https://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

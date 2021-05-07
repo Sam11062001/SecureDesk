@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9e71711d-caee-455a-9320-2bfb1866e69c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="742a367b-60d3-49f9-85b2-8fbeff5300a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63532/ServiceClass/SharingService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SharingService.xsd" MetadataType="Schema" ID="9c7187c1-5db6-4240-846d-cf1a4f1d4427" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd2" />
-    <MetadataFile FileName="SharingService.disco" MetadataType="Disco" ID="311191ec-1e5a-4a30-808b-c1f6abdf110d" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?disco" />
-    <MetadataFile FileName="SharingService1.xsd" MetadataType="Schema" ID="4c602591-256e-4f6e-81c0-c961d1afbee1" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd1" />
-    <MetadataFile FileName="SharingService.wsdl" MetadataType="Wsdl" ID="246abb6d-6015-4796-b3d7-85ed717db56f" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?wsdl" />
-    <MetadataFile FileName="SharingService2.xsd" MetadataType="Schema" ID="849a35ef-f210-4a55-8734-bb997f340f30" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/SharingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SharingService.wsdl" MetadataType="Wsdl" ID="23ba6864-00ba-4630-8501-a0c5cd59feac" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?wsdl" />
+    <MetadataFile FileName="SharingService.xsd" MetadataType="Schema" ID="e0a6a633-1a66-4fb0-8769-468bc5037f59" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SharingService1.xsd" MetadataType="Schema" ID="d9805842-6bbb-4778-b186-ebd687376b2e" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SharingService2.xsd" MetadataType="Schema" ID="874286e2-09ef-4226-ab71-4bbf5fe21e4e" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SharingService.disco" MetadataType="Disco" ID="ff75f3c9-83e6-4a05-b158-f052a0fbfc95" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

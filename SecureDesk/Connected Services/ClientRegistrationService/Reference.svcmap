@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="972aeebd-ff37-44bf-ba2c-c1d0f6c0a300" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e39397c-1b7b-4220-83a4-39666cdac980" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RegistrationServiceClass.disco" MetadataType="Disco" ID="c396070a-8bed-4f14-904c-ce1c4f198474" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?disco" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="20ebf790-26fc-4a98-b473-8164b92d2a4b" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?wsdl" />
-    <MetadataFile FileName="RegistrationServiceClass.xsd" MetadataType="Schema" ID="88f8ae05-b453-4bc3-9882-79560cb9ea4a" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd2" />
-    <MetadataFile FileName="RegistrationServiceClass1.xsd" MetadataType="Schema" ID="d6109ce3-719b-41e7-b2e2-af0018fa6c97" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" />
-    <MetadataFile FileName="RegistrationServiceClass2.xsd" MetadataType="Schema" ID="43cb3adb-b1f3-474f-a605-c4c6ddca94a8" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd0" />
-    <MetadataFile FileName="RegistrationServiceClass3.xsd" MetadataType="Schema" ID="aee8fc02-aa80-4a1d-b2b6-2f61cef71ed5" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/RegistrationServiceClass.svc?xsd=xsd1" />
+    <MetadataFile FileName="RegistrationServiceClass.xsd" MetadataType="Schema" ID="c50b30c8-8195-4a37-96f4-a252a96c99ae" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?xsd=xsd2" />
+    <MetadataFile FileName="RegistrationServiceClass.disco" MetadataType="Disco" ID="4ddf63ac-2bf1-4be2-8019-2e414b0d0812" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?disco" />
+    <MetadataFile FileName="RegistrationServiceClass1.xsd" MetadataType="Schema" ID="d926df18-b69f-4236-a4d7-4be4b63a73a0" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?xsd=xsd0" />
+    <MetadataFile FileName="RegistrationServiceClass2.xsd" MetadataType="Schema" ID="5db69e1b-8e43-4e04-89a8-330935862b5d" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e954d457-ae22-4cba-8fb8-3a82b392e5e1" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?wsdl" />
+    <MetadataFile FileName="RegistrationServiceClass3.xsd" MetadataType="Schema" ID="fd808365-ee8a-49da-8391-028fbf83b918" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/RegistrationServiceClass.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

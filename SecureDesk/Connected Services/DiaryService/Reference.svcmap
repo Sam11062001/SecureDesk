@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="830ff211-fde8-463c-ad98-f6f05103a097" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7a56b77-3aaa-4ca3-9fca-12d34be2666a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63532/ServiceClass/PersonalDiary.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PersonalDiary.xsd" MetadataType="Schema" ID="0d79e8e0-4f5a-4347-8c43-d31dde5dca90" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd1" />
-    <MetadataFile FileName="PersonalDiary2.xsd" MetadataType="Schema" ID="b73ab800-2bdb-4dc1-a1d2-bc52af0ecb32" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd2" />
-    <MetadataFile FileName="PersonalDiary.wsdl" MetadataType="Wsdl" ID="2f9f1ad8-48ea-464c-96ca-ebbbdb9b3357" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?wsdl" />
-    <MetadataFile FileName="PersonalDiary.disco" MetadataType="Disco" ID="e913c932-aa06-4904-9661-28f0ff69218e" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?disco" />
-    <MetadataFile FileName="PersonalDiary1.xsd" MetadataType="Schema" ID="05d25f8d-7c5c-497a-bb20-68368d05d919" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/PersonalDiary.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonalDiary.disco" MetadataType="Disco" ID="651f23c5-ee9f-4ad8-839e-845c02acbc35" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?disco" />
+    <MetadataFile FileName="PersonalDiary.xsd" MetadataType="Schema" ID="4882ae3c-3df4-4c4a-8418-dd56f99bd9c0" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonalDiary1.xsd" MetadataType="Schema" ID="55d8e5b9-9085-417e-bc92-779c61b31fdc" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonalDiary.wsdl" MetadataType="Wsdl" ID="e8c41f1f-ec12-4b99-a01f-4affc1e34ab5" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?wsdl" />
+    <MetadataFile FileName="PersonalDiary2.xsd" MetadataType="Schema" ID="dc2dc7ef-f34a-43d2-aa5e-d832270b6a9d" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/PersonalDiary.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca67c5d5-73ef-4b21-9165-b67500a5f85c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c4252f8-a598-4826-9466-a2d2a9457e65" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63532/ServiceClass/AccountService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccountService.wsdl" MetadataType="Wsdl" ID="cd87c40d-17d7-4af5-84f5-c5786afa65ac" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/AccountService.svc?wsdl" />
-    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="10ad5b9d-e75a-4840-a4fa-445f0072380a" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/AccountService.svc?xsd=xsd2" />
-    <MetadataFile FileName="AccountService1.xsd" MetadataType="Schema" ID="0f354ff6-b7ca-482d-b236-4ae217dc755b" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/AccountService.svc?xsd=xsd0" />
-    <MetadataFile FileName="AccountService.disco" MetadataType="Disco" ID="f0d7c9d3-25ef-42d5-b1c0-a78e5d7df8cc" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/AccountService.svc?disco" />
-    <MetadataFile FileName="AccountService2.xsd" MetadataType="Schema" ID="d82a5a06-9116-479f-87e1-bca60c333380" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/AccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountService.wsdl" MetadataType="Wsdl" ID="6fa4d826-754b-459b-9149-b442860830b7" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc?wsdl" />
+    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="a6cf198b-cea2-4701-abaf-bdbfdc00725d" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccountService1.xsd" MetadataType="Schema" ID="dced07ed-6ade-46cf-8187-d46077b98cca" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountService2.xsd" MetadataType="Schema" ID="14b70fd7-6674-4490-8acd-2f629da832dd" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountService.disco" MetadataType="Disco" ID="0cc19d2e-5861-410e-904f-f3677ee83523" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/AccountService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

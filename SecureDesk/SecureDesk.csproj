@@ -72,6 +72,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessPin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessPin.designer.cs">
+      <DependentUpon>AccessPin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Algorithms\PasswordGenerator.cs" />
     <Compile Include="Connected Services\AccountService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -103,11 +109,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\UserAccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="demo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="demo.designer.cs">
+      <DependentUpon>demo.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -122,6 +139,18 @@
     </Compile>
     <Compile Include="registrationPage.designer.cs">
       <DependentUpon>registrationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serviceTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serviceTest.Designer.cs">
+      <DependentUpon>serviceTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SDMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SDMessageBox.designer.cs">
+      <DependentUpon>SDMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -154,8 +183,14 @@
     <Compile Include="UserControls\shareDocument.Designer.cs">
       <DependentUpon>shareDocument.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccessPin.resx">
+      <DependentUpon>AccessPin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="demo.resx">
+      <DependentUpon>demo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -172,6 +207,12 @@
     </Compile>
     <EmbeddedResource Include="registrationPage.resx">
       <DependentUpon>registrationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serviceTest.resx">
+      <DependentUpon>serviceTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SDMessageBox.resx">
+      <DependentUpon>SDMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -266,6 +307,19 @@
     <None Include="Connected Services\SharingService\SharingService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\UserAccountService\SecureDesk.UserAccountService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserAccountService\UserAccountService.wsdl" />
+    <None Include="Connected Services\UserAccountService\UserAccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserAccountService\UserAccountService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserAccountService\UserAccountService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -298,72 +352,13 @@
     <WCFMetadataStorage Include="Connected Services\DiaryService\" />
     <WCFMetadataStorage Include="Connected Services\DocumentService\" />
     <WCFMetadataStorage Include="Connected Services\SharingService\" />
+    <WCFMetadataStorage Include="Connected Services\UserAccountService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddButton.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\documnetUpload.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthenticateClient\AuthService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthenticateClient\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthenticateClient\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthenticateClient\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ClientRegistrationService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DiaryService\PersonalDiary.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DiaryService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DiaryService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DiaryService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DocumentService\DocumentService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DocumentService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DocumentService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DocumentService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -385,34 +380,61 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SharingService\SharingService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SharingService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SharingService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SharingService\Reference.svcmap">
+    <None Include="Connected Services\AuthenticateClient\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Connected Services\AuthenticateClient\configuration.svcinfo" />
+    <None Include="Connected Services\AuthenticateClient\configuration91.svcinfo" />
+    <None Include="Connected Services\AuthenticateClient\AuthService.disco" />
+    <None Include="Connected Services\ClientRegistrationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ClientRegistrationService\configuration.svcinfo" />
+    <None Include="Connected Services\ClientRegistrationService\configuration91.svcinfo" />
+    <None Include="Connected Services\ClientRegistrationService\RegistrationServiceClass.disco" />
+    <None Include="Resources\icons8-search-account-64.png" />
+    <None Include="Resources\icons8-knowledge-sharing-40.png" />
+    <None Include="Resources\icons8-notebook-computer-64.png" />
     <None Include="Connected Services\AccountService\AccountService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\AccountService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\AccountService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\AccountService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\DiaryService\PersonalDiary.disco" />
+    <None Include="Connected Services\DiaryService\configuration91.svcinfo" />
+    <None Include="Connected Services\DiaryService\configuration.svcinfo" />
+    <None Include="Connected Services\DiaryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\SharingService\SharingService.disco" />
+    <None Include="Connected Services\SharingService\configuration91.svcinfo" />
+    <None Include="Connected Services\SharingService\configuration.svcinfo" />
+    <None Include="Connected Services\SharingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DocumentService\DocumentService.disco" />
+    <None Include="Connected Services\DocumentService\configuration91.svcinfo" />
+    <None Include="Connected Services\DocumentService\configuration.svcinfo" />
+    <None Include="Connected Services\DocumentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\UserAccountService\UserAccountService.disco" />
+    <None Include="Connected Services\UserAccountService\configuration91.svcinfo" />
+    <None Include="Connected Services\UserAccountService\configuration.svcinfo" />
+    <None Include="Connected Services\UserAccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\icons8-regular-document-64.png" />
+    <None Include="Resources\icons8-regular-document-641.png" />
+    <None Include="Resources\layer-170971.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

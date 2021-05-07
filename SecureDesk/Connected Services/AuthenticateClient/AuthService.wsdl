@@ -7,11 +7,36 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IAuthService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/AuthService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/AuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:63532/ServiceClass/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/AuthService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
+      <xsd:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/AuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthService_validateLogin_InputMessage">
@@ -20,10 +45,14 @@
   <wsdl:message name="IAuthService_validateLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:validateLoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuthService_validateLogin_CustomExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" name="detail" element="q1:CustomException" />
+  </wsdl:message>
   <wsdl:portType name="IAuthService">
     <wsdl:operation name="validateLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/validateLogin" message="tns:IAuthService_validateLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/validateLoginResponse" message="tns:IAuthService_validateLogin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthService/validateLoginCustomExceptionFault" name="CustomExceptionFault" message="tns:IAuthService_validateLogin_CustomExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthService" type="tns:IAuthService">
@@ -37,11 +66,33 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IAuthService" type="tns:IAuthService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IAuthService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validateLogin">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/validateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomExceptionFault">
+        <soap:fault use="literal" name="CustomExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AuthService">
     <wsdl:port name="BasicHttpBinding_IAuthService" binding="tns:BasicHttpBinding_IAuthService">
-      <soap:address location="http://localhost:63532/ServiceClass/AuthService.svc" />
+      <soap:address location="http://webappsecuredesk.azurewebsites.net/ServiceClass/AuthService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IAuthService" binding="tns:BasicHttpsBinding_IAuthService">
+      <soap:address location="https://webappsecuredesk.azurewebsites.net/ServiceClass/AuthService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -18,12 +18,13 @@ namespace SecureDesk
         string emailAddress;
         Regex regex;
         string[] Questions;
-        ClientRegistrationService.RegistrationServiceClient clientRegistration = null; 
+        ClientRegistrationService.RegistrationServiceClient clientRegistration = null;
+        UserAccountService.UserAccountServiceClient userAccountServiceClient;
         public registrationPage()
         {
             InitializeComponent();
             panel2.Hide();
-            clientRegistration = new ClientRegistrationService.RegistrationServiceClient();
+            clientRegistration = new ClientRegistrationService.RegistrationServiceClient("BasicHttpsBinding_RegistrationService");
             Questions = clientRegistration.getQuestions();
             foreach( string question in Questions )
             {
@@ -68,26 +69,39 @@ namespace SecureDesk
                 label26.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            ClientRegistrationService.UserRegister userRegister = new ClientRegistrationService.UserRegister()
+            if (!clientRegistration.isUnique(email))
             {
-                Email_Address = email,
-                First_Name = firstName,
-                Last_Name = lastName,
-                Date_Of_Birth = date,
-                Question_Number_Selected = comboBox1.SelectedIndex +1,
-                Question_Answered = answer,
-                Password = password
+                label25.Text = "Entered emailId is already registered on Secure Desk.";
+                label25.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                ClientRegistrationService.UserRegister userRegister = new ClientRegistrationService.UserRegister()
+                {
+                    Email_Address = email,
+                    First_Name = firstName,
+                    Last_Name = lastName,
+                    Date_Of_Birth = date,
+                    Question_Number_Selected = comboBox1.SelectedIndex + 1,
+                    Question_Answered = answer,
+                    Password = password
 
-            };
-            clientRegistration.registerNewUser(userRegister);
+                };
+                clientRegistration.registerNewUser(userRegister);
+
+                emailAddress = email;
+                panel2.Show();
+            }
             
-            emailAddress = email;
-            panel2.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            clientRegistration.sendOTP(emailAddress);
+            //clientRegistration.sendOTP(emailAddress);
+            userAccountServiceClient = new UserAccountService.UserAccountServiceClient("BasicHttpsBinding_IUserAccountService");
+            UserAccountService.User user =  userAccountServiceClient.getAccountInfo(emailAddress);
+            bool isForgetPassword = false;
+            clientRegistration.sendOTP(emailAddress, user.firstName + " " + user.lastName, isForgetPassword );
             panel2.Show();
         }
 
@@ -269,7 +283,7 @@ namespace SecureDesk
                 
                 ClientRegistrationService.UserOtpVerification userOtpVerification = new ClientRegistrationService.UserOtpVerification()
                 {
-                    OneTimePasswordforVerification = Int32.Parse(code),
+                    OneTimePasswordforVerification = code,
                     User_Email_Address = emailAddress
                    
                 };
@@ -295,6 +309,14 @@ namespace SecureDesk
         private void textBox2_Enter(object sender, EventArgs e)
         {
             textBox2.Text = "";
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            login l1 = new login();
+            l1.Show();
+            this.Hide();
+
         }
     }
 }

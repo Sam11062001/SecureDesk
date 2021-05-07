@@ -57,6 +57,9 @@ namespace SecureDesk
             this.panel2 = new System.Windows.Forms.Panel();
             this.outerPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.searchBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.searchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.searchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.accountNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -116,6 +119,9 @@ namespace SecureDesk
             this.sharedDocSharingTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.sharedDocumentSharingUC1 = new SecureDesk.UserControls.shareDocument();
+            this.sharedDocumentSharingUC = new SecureDesk.UserControls.shareDocument();
+            this.shareDocument2 = new SecureDesk.UserControls.shareDocument();
             this.refreshSharedDocumentBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.sharedDocumentViewer = new AxAcroPDFLib.AxAcroPDF();
             this.sharedDocumentDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -135,11 +141,14 @@ namespace SecureDesk
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.addDiaryUC1 = new SecureDesk.UserControls.AddDiary();
+            this.addDiaryUC = new SecureDesk.UserControls.AddDiary();
             this.diaryDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.view = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addDiaryPanel = new SecureDesk.UserControls.AddDiary();
             this.diaryAddPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnAddNewDiary = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -159,10 +168,16 @@ namespace SecureDesk
             this.sharedToTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.addDocumentUC1 = new SecureDesk.UserControls.addDocument();
+            this.documentSharingUC1 = new SecureDesk.UserControls.shareDocument();
             this.documentAddbtn = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GradientTileButton1 = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.addNewDocumentBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.addDocument1 = new SecureDesk.UserControls.addDocument();
+            this.shareDocument1 = new SecureDesk.UserControls.shareDocument();
+            this.addDocumentUC = new SecureDesk.UserControls.addDocument();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.documentSharingUC = new SecureDesk.UserControls.shareDocument();
             this.documentDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viewPdf = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -174,21 +189,6 @@ namespace SecureDesk
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.userAccountDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.searchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.searchBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.sharedDocumentSharingUC1 = new SecureDesk.UserControls.shareDocument();
-            this.sharedDocumentSharingUC = new SecureDesk.UserControls.shareDocument();
-            this.shareDocument2 = new SecureDesk.UserControls.shareDocument();
-            this.addDiaryUC1 = new SecureDesk.UserControls.AddDiary();
-            this.addDiaryUC = new SecureDesk.UserControls.AddDiary();
-            this.addDiaryPanel = new SecureDesk.UserControls.AddDiary();
-            this.addDocumentUC1 = new SecureDesk.UserControls.addDocument();
-            this.documentSharingUC1 = new SecureDesk.UserControls.shareDocument();
-            this.addDocument1 = new SecureDesk.UserControls.addDocument();
-            this.shareDocument1 = new SecureDesk.UserControls.shareDocument();
-            this.addDocumentUC = new SecureDesk.UserControls.addDocument();
-            this.documentSharingUC = new SecureDesk.UserControls.shareDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -278,7 +278,7 @@ namespace SecureDesk
             this.guna2Button7.HoverState.Parent = this.guna2Button7;
             this.guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button7.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button7.Location = new System.Drawing.Point(17, 526);
+            this.guna2Button7.Location = new System.Drawing.Point(17, 550);
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.ShadowDecoration.Parent = this.guna2Button7;
             this.guna2Button7.Size = new System.Drawing.Size(160, 43);
@@ -302,7 +302,7 @@ namespace SecureDesk
             this.guna2Button6.HoverState.Parent = this.guna2Button6;
             this.guna2Button6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button6.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button6.Location = new System.Drawing.Point(20, 459);
+            this.guna2Button6.Location = new System.Drawing.Point(20, 478);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
             this.guna2Button6.Size = new System.Drawing.Size(160, 43);
@@ -328,7 +328,7 @@ namespace SecureDesk
             this.AccountsBtn.Image = ((System.Drawing.Image)(resources.GetObject("AccountsBtn.Image")));
             this.AccountsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.AccountsBtn.ImageOffset = new System.Drawing.Point(10, 0);
-            this.AccountsBtn.Location = new System.Drawing.Point(20, 179);
+            this.AccountsBtn.Location = new System.Drawing.Point(20, 259);
             this.AccountsBtn.Name = "AccountsBtn";
             this.AccountsBtn.ShadowDecoration.Parent = this.AccountsBtn;
             this.AccountsBtn.Size = new System.Drawing.Size(160, 43);
@@ -353,7 +353,7 @@ namespace SecureDesk
             this.guna2Button5.HoverState.Parent = this.guna2Button5;
             this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(17, 392);
+            this.guna2Button5.Location = new System.Drawing.Point(17, 333);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
             this.guna2Button5.Size = new System.Drawing.Size(160, 43);
@@ -380,7 +380,7 @@ namespace SecureDesk
             this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
             this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button4.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(17, 321);
+            this.guna2Button4.Location = new System.Drawing.Point(17, 185);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
             this.guna2Button4.Size = new System.Drawing.Size(160, 43);
@@ -407,7 +407,7 @@ namespace SecureDesk
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button3.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(17, 250);
+            this.guna2Button3.Location = new System.Drawing.Point(17, 404);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
             this.guna2Button3.Size = new System.Drawing.Size(160, 43);
@@ -423,7 +423,7 @@ namespace SecureDesk
             this.SoftwareName.ForeColor = System.Drawing.Color.White;
             this.SoftwareName.Location = new System.Drawing.Point(53, 21);
             this.SoftwareName.Name = "SoftwareName";
-            this.SoftwareName.Size = new System.Drawing.Size(102, 21);
+            this.SoftwareName.Size = new System.Drawing.Size(127, 28);
             this.SoftwareName.TabIndex = 1;
             this.SoftwareName.Text = "Secure Desk";
             // 
@@ -503,6 +503,73 @@ namespace SecureDesk
             this.searchPanel.Size = new System.Drawing.Size(1181, 58);
             this.searchPanel.TabIndex = 0;
             // 
+            // searchBtn
+            // 
+            this.searchBtn.Animated = true;
+            this.searchBtn.AnimatedGIF = true;
+            this.searchBtn.BorderRadius = 15;
+            this.searchBtn.CheckedState.Parent = this.searchBtn;
+            this.searchBtn.CustomImages.Parent = this.searchBtn;
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.HoverState.Parent = this.searchBtn;
+            this.searchBtn.Location = new System.Drawing.Point(437, 7);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.ShadowDecoration.Parent = this.searchBtn;
+            this.searchBtn.Size = new System.Drawing.Size(154, 46);
+            this.searchBtn.TabIndex = 16;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // searchComboBox
+            // 
+            this.searchComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.searchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchComboBox.FocusedState.Parent = this.searchComboBox;
+            this.searchComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.searchComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.searchComboBox.HoverState.Parent = this.searchComboBox;
+            this.searchComboBox.ItemHeight = 30;
+            this.searchComboBox.ItemsAppearance.Parent = this.searchComboBox;
+            this.searchComboBox.Location = new System.Drawing.Point(15, 12);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.ShadowDecoration.Parent = this.searchComboBox;
+            this.searchComboBox.Size = new System.Drawing.Size(183, 36);
+            this.searchComboBox.TabIndex = 15;
+            this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Animated = true;
+            this.searchTextBox.BorderRadius = 7;
+            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTextBox.DefaultText = "Search here";
+            this.searchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTextBox.DisabledState.Parent = this.searchTextBox;
+            this.searchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTextBox.FocusedState.Parent = this.searchTextBox;
+            this.searchTextBox.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Italic);
+            this.searchTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.searchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTextBox.HoverState.Parent = this.searchTextBox;
+            this.searchTextBox.Location = new System.Drawing.Point(213, 10);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.PasswordChar = '\0';
+            this.searchTextBox.PlaceholderText = "";
+            this.searchTextBox.SelectedText = "";
+            this.searchTextBox.SelectionStart = 11;
+            this.searchTextBox.ShadowDecoration.Parent = this.searchTextBox;
+            this.searchTextBox.Size = new System.Drawing.Size(201, 40);
+            this.searchTextBox.TabIndex = 14;
+            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
+            // 
             // accountNameLabel
             // 
             this.accountNameLabel.BackColor = System.Drawing.Color.Black;
@@ -511,7 +578,7 @@ namespace SecureDesk
             this.accountNameLabel.ForeColor = System.Drawing.Color.White;
             this.accountNameLabel.Location = new System.Drawing.Point(810, 17);
             this.accountNameLabel.Name = "accountNameLabel";
-            this.accountNameLabel.Size = new System.Drawing.Size(125, 26);
+            this.accountNameLabel.Size = new System.Drawing.Size(151, 31);
             this.accountNameLabel.TabIndex = 4;
             this.accountNameLabel.Text = "guna2HtmlLabel1";
             // 
@@ -524,7 +591,7 @@ namespace SecureDesk
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(1025, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 22);
+            this.label3.Size = new System.Drawing.Size(66, 27);
             this.label3.TabIndex = 1;
             this.label3.Text = "label3";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -535,7 +602,7 @@ namespace SecureDesk
             this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(673, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 29);
+            this.label2.Size = new System.Drawing.Size(0, 37);
             this.label2.TabIndex = 3;
             // 
             // label1
@@ -544,7 +611,7 @@ namespace SecureDesk
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(673, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 30);
+            this.label1.Size = new System.Drawing.Size(0, 38);
             this.label1.TabIndex = 2;
             // 
             // documentPanel
@@ -673,7 +740,7 @@ namespace SecureDesk
             this.upPassGenMaxNumUD.Location = new System.Drawing.Point(185, 37);
             this.upPassGenMaxNumUD.Margin = new System.Windows.Forms.Padding(2);
             this.upPassGenMaxNumUD.Name = "upPassGenMaxNumUD";
-            this.upPassGenMaxNumUD.Size = new System.Drawing.Size(48, 20);
+            this.upPassGenMaxNumUD.Size = new System.Drawing.Size(48, 24);
             this.upPassGenMaxNumUD.TabIndex = 17;
             this.upPassGenMaxNumUD.Value = new decimal(new int[] {
             8,
@@ -689,7 +756,7 @@ namespace SecureDesk
             this.upPassGenMinNumUD.Location = new System.Drawing.Point(185, 8);
             this.upPassGenMinNumUD.Margin = new System.Windows.Forms.Padding(2);
             this.upPassGenMinNumUD.Name = "upPassGenMinNumUD";
-            this.upPassGenMinNumUD.Size = new System.Drawing.Size(51, 20);
+            this.upPassGenMinNumUD.Size = new System.Drawing.Size(51, 24);
             this.upPassGenMinNumUD.TabIndex = 16;
             this.upPassGenMinNumUD.Value = new decimal(new int[] {
             8,
@@ -799,7 +866,7 @@ namespace SecureDesk
             this.label21.Location = new System.Drawing.Point(2, 34);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(149, 23);
+            this.label21.Size = new System.Drawing.Size(189, 29);
             this.label21.TabIndex = 8;
             this.label21.Text = "Maximum Length:";
             // 
@@ -811,7 +878,7 @@ namespace SecureDesk
             this.label20.Location = new System.Drawing.Point(2, 5);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(144, 23);
+            this.label20.Size = new System.Drawing.Size(183, 29);
             this.label20.TabIndex = 5;
             this.label20.Text = "Minimum Length:";
             // 
@@ -936,7 +1003,7 @@ namespace SecureDesk
             this.label19.Location = new System.Drawing.Point(18, 85);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(86, 23);
+            this.label19.Size = new System.Drawing.Size(107, 29);
             this.label19.TabIndex = 7;
             this.label19.Text = "Password";
             // 
@@ -948,7 +1015,7 @@ namespace SecureDesk
             this.label18.Location = new System.Drawing.Point(12, 54);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(92, 23);
+            this.label18.Size = new System.Drawing.Size(115, 29);
             this.label18.TabIndex = 6;
             this.label18.Text = "UserName";
             // 
@@ -960,7 +1027,7 @@ namespace SecureDesk
             this.updateAccLabel.Location = new System.Drawing.Point(10, 7);
             this.updateAccLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.updateAccLabel.Name = "updateAccLabel";
-            this.updateAccLabel.Size = new System.Drawing.Size(184, 33);
+            this.updateAccLabel.Size = new System.Drawing.Size(235, 41);
             this.updateAccLabel.TabIndex = 3;
             this.updateAccLabel.Text = "Update account";
             // 
@@ -1009,7 +1076,7 @@ namespace SecureDesk
             this.passGenMaxNumUD.Location = new System.Drawing.Point(181, 38);
             this.passGenMaxNumUD.Margin = new System.Windows.Forms.Padding(2);
             this.passGenMaxNumUD.Name = "passGenMaxNumUD";
-            this.passGenMaxNumUD.Size = new System.Drawing.Size(48, 20);
+            this.passGenMaxNumUD.Size = new System.Drawing.Size(48, 24);
             this.passGenMaxNumUD.TabIndex = 15;
             this.passGenMaxNumUD.Value = new decimal(new int[] {
             8,
@@ -1025,7 +1092,7 @@ namespace SecureDesk
             this.passGenMinNumUD.Location = new System.Drawing.Point(181, 10);
             this.passGenMinNumUD.Margin = new System.Windows.Forms.Padding(2);
             this.passGenMinNumUD.Name = "passGenMinNumUD";
-            this.passGenMinNumUD.Size = new System.Drawing.Size(51, 20);
+            this.passGenMinNumUD.Size = new System.Drawing.Size(51, 24);
             this.passGenMinNumUD.TabIndex = 14;
             this.passGenMinNumUD.Value = new decimal(new int[] {
             8,
@@ -1107,7 +1174,7 @@ namespace SecureDesk
             this.maxLabel.Location = new System.Drawing.Point(6, 38);
             this.maxLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxLabel.Name = "maxLabel";
-            this.maxLabel.Size = new System.Drawing.Size(149, 23);
+            this.maxLabel.Size = new System.Drawing.Size(189, 29);
             this.maxLabel.TabIndex = 7;
             this.maxLabel.Text = "Maximum Length:";
             // 
@@ -1147,7 +1214,7 @@ namespace SecureDesk
             this.minLabel.Location = new System.Drawing.Point(6, 7);
             this.minLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minLabel.Name = "minLabel";
-            this.minLabel.Size = new System.Drawing.Size(144, 23);
+            this.minLabel.Size = new System.Drawing.Size(183, 29);
             this.minLabel.TabIndex = 4;
             this.minLabel.Text = "Minimum Length:";
             // 
@@ -1300,7 +1367,7 @@ namespace SecureDesk
             this.label17.Location = new System.Drawing.Point(11, 120);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 23);
+            this.label17.Size = new System.Drawing.Size(107, 29);
             this.label17.TabIndex = 6;
             this.label17.Text = "Password";
             // 
@@ -1312,7 +1379,7 @@ namespace SecureDesk
             this.label16.Location = new System.Drawing.Point(11, 87);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 23);
+            this.label16.Size = new System.Drawing.Size(115, 29);
             this.label16.TabIndex = 5;
             this.label16.Text = "UserName";
             // 
@@ -1324,7 +1391,7 @@ namespace SecureDesk
             this.label15.Location = new System.Drawing.Point(11, 51);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 23);
+            this.label15.Size = new System.Drawing.Size(71, 29);
             this.label15.TabIndex = 3;
             this.label15.Text = "Name";
             // 
@@ -1336,7 +1403,7 @@ namespace SecureDesk
             this.infoLabel.Location = new System.Drawing.Point(2, 10);
             this.infoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(463, 33);
+            this.infoLabel.Size = new System.Drawing.Size(595, 41);
             this.infoLabel.TabIndex = 2;
             this.infoLabel.Text = "Save Your Account Details On Secure Desk";
             // 
@@ -1366,7 +1433,7 @@ namespace SecureDesk
             this.accountDataGirdView.DataSource = this.userAccountDataBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -1377,6 +1444,7 @@ namespace SecureDesk
             this.accountDataGirdView.Location = new System.Drawing.Point(65, 151);
             this.accountDataGirdView.Name = "accountDataGirdView";
             this.accountDataGirdView.RowHeadersVisible = false;
+            this.accountDataGirdView.RowHeadersWidth = 51;
             this.accountDataGirdView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.accountDataGirdView.Size = new System.Drawing.Size(1021, 261);
             this.accountDataGirdView.TabIndex = 14;
@@ -1408,6 +1476,7 @@ namespace SecureDesk
             // 
             this.userAccountNameDataGridViewTextBoxColumn.DataPropertyName = "UserAccountName";
             this.userAccountNameDataGridViewTextBoxColumn.HeaderText = "Account Name";
+            this.userAccountNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.userAccountNameDataGridViewTextBoxColumn.Name = "userAccountNameDataGridViewTextBoxColumn";
             // 
             // Task
@@ -1418,6 +1487,7 @@ namespace SecureDesk
             "View Account",
             "Update Account",
             "Delete Account"});
+            this.Task.MinimumWidth = 6;
             this.Task.Name = "Task";
             this.Task.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Task.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -1426,6 +1496,7 @@ namespace SecureDesk
             // 
             this.Proceed.DataPropertyName = "Name";
             this.Proceed.HeaderText = "Proceed";
+            this.Proceed.MinimumWidth = 6;
             this.Proceed.Name = "Proceed";
             // 
             // userAccountDataBindingSource
@@ -1539,7 +1610,7 @@ namespace SecureDesk
             this.label14.Location = new System.Drawing.Point(29, 56);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 23);
+            this.label14.Size = new System.Drawing.Size(95, 29);
             this.label14.TabIndex = 3;
             this.label14.Text = "Share to";
             // 
@@ -1551,9 +1622,33 @@ namespace SecureDesk
             this.label13.Location = new System.Drawing.Point(15, 8);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(231, 33);
+            this.label13.Size = new System.Drawing.Size(295, 41);
             this.label13.TabIndex = 2;
             this.label13.Text = "Share a document...";
+            // 
+            // sharedDocumentSharingUC1
+            // 
+            this.sharedDocumentSharingUC1.Location = new System.Drawing.Point(32529, 32602);
+            this.sharedDocumentSharingUC1.Margin = new System.Windows.Forms.Padding(6518151, 738199819, 6518151, 738199819);
+            this.sharedDocumentSharingUC1.Name = "sharedDocumentSharingUC1";
+            this.sharedDocumentSharingUC1.Size = new System.Drawing.Size(65535, 65535);
+            this.sharedDocumentSharingUC1.TabIndex = 12;
+            // 
+            // sharedDocumentSharingUC
+            // 
+            this.sharedDocumentSharingUC.Location = new System.Drawing.Point(32529, 32602);
+            this.sharedDocumentSharingUC.Margin = new System.Windows.Forms.Padding(48830999, 0, 48830999, 0);
+            this.sharedDocumentSharingUC.Name = "sharedDocumentSharingUC";
+            this.sharedDocumentSharingUC.Size = new System.Drawing.Size(65535, 65535);
+            this.sharedDocumentSharingUC.TabIndex = 11;
+            // 
+            // shareDocument2
+            // 
+            this.shareDocument2.Location = new System.Drawing.Point(32529, 32602);
+            this.shareDocument2.Margin = new System.Windows.Forms.Padding(205773489, 0, 205773489, 0);
+            this.shareDocument2.Name = "shareDocument2";
+            this.shareDocument2.Size = new System.Drawing.Size(65535, 65535);
+            this.shareDocument2.TabIndex = 10;
             // 
             // refreshSharedDocumentBtn
             // 
@@ -1571,6 +1666,7 @@ namespace SecureDesk
             this.refreshSharedDocumentBtn.Size = new System.Drawing.Size(154, 45);
             this.refreshSharedDocumentBtn.TabIndex = 9;
             this.refreshSharedDocumentBtn.Text = "Refresh";
+            this.refreshSharedDocumentBtn.Click += new System.EventHandler(this.refreshSharedDocumentBtn_Click);
             // 
             // sharedDocumentViewer
             // 
@@ -1620,6 +1716,7 @@ namespace SecureDesk
             this.sharedDocumentDataGridView.Location = new System.Drawing.Point(51, 107);
             this.sharedDocumentDataGridView.Name = "sharedDocumentDataGridView";
             this.sharedDocumentDataGridView.RowHeadersVisible = false;
+            this.sharedDocumentDataGridView.RowHeadersWidth = 51;
             this.sharedDocumentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sharedDocumentDataGridView.Size = new System.Drawing.Size(1061, 150);
             this.sharedDocumentDataGridView.TabIndex = 7;
@@ -1651,6 +1748,7 @@ namespace SecureDesk
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "fileName";
             this.dataGridViewTextBoxColumn1.HeaderText = "File Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ToolTipText = "File Name";
             // 
@@ -1658,6 +1756,7 @@ namespace SecureDesk
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "sharedBy";
             this.dataGridViewTextBoxColumn2.HeaderText = "Shared by";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ToolTipText = "Shared by";
             // 
@@ -1665,6 +1764,7 @@ namespace SecureDesk
             // 
             this.viewSharedPdf.DataPropertyName = "viewSharedPdf";
             this.viewSharedPdf.HeaderText = "View pdf";
+            this.viewSharedPdf.MinimumWidth = 6;
             this.viewSharedPdf.Name = "viewSharedPdf";
             this.viewSharedPdf.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.viewSharedPdf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -1674,6 +1774,7 @@ namespace SecureDesk
             // 
             this.shareSharedPdf.DataPropertyName = "shareSharedPdf";
             this.shareSharedPdf.HeaderText = "Share pdf";
+            this.shareSharedPdf.MinimumWidth = 6;
             this.shareSharedPdf.Name = "shareSharedPdf";
             this.shareSharedPdf.Text = "Share pdf";
             // 
@@ -1681,6 +1782,7 @@ namespace SecureDesk
             // 
             this.deleteSharedPdf.DataPropertyName = "deleteSharedPdf";
             this.deleteSharedPdf.HeaderText = "Delete pdf";
+            this.deleteSharedPdf.MinimumWidth = 6;
             this.deleteSharedPdf.Name = "deleteSharedPdf";
             this.deleteSharedPdf.Text = "Delete pdf";
             // 
@@ -1820,7 +1922,7 @@ namespace SecureDesk
             this.label12.Location = new System.Drawing.Point(26, 138);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(246, 23);
+            this.label12.Size = new System.Drawing.Size(319, 29);
             this.label12.TabIndex = 6;
             this.label12.Text = "Type Your Thoughts Of Your Day";
             // 
@@ -1832,7 +1934,7 @@ namespace SecureDesk
             this.label11.Location = new System.Drawing.Point(26, 101);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 23);
+            this.label11.Size = new System.Drawing.Size(60, 29);
             this.label11.TabIndex = 3;
             this.label11.Text = "Title \r\n";
             // 
@@ -1844,7 +1946,7 @@ namespace SecureDesk
             this.label10.Location = new System.Drawing.Point(26, 64);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 23);
+            this.label10.Size = new System.Drawing.Size(60, 29);
             this.label10.TabIndex = 2;
             this.label10.Text = "Date";
             // 
@@ -1856,9 +1958,28 @@ namespace SecureDesk
             this.label9.Location = new System.Drawing.Point(24, 20);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(378, 33);
+            this.label9.Size = new System.Drawing.Size(483, 41);
             this.label9.TabIndex = 1;
             this.label9.Text = "Write Your Diary With Secure Desk";
+            // 
+            // addDiaryUC1
+            // 
+            this.addDiaryUC1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.addDiaryUC1.Location = new System.Drawing.Point(32532, 32605);
+            this.addDiaryUC1.Margin = new System.Windows.Forms.Padding(275295, 11356940, 275295, 11356940);
+            this.addDiaryUC1.Name = "addDiaryUC1";
+            this.addDiaryUC1.Size = new System.Drawing.Size(65535, 65535);
+            this.addDiaryUC1.TabIndex = 5;
+            // 
+            // addDiaryUC
+            // 
+            this.addDiaryUC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.addDiaryUC.Location = new System.Drawing.Point(32532, 32605);
+            this.addDiaryUC.Margin = new System.Windows.Forms.Padding(275295, 11356940, 275295, 11356940);
+            this.addDiaryUC.Name = "addDiaryUC";
+            this.addDiaryUC.Size = new System.Drawing.Size(65535, 65535);
+            this.addDiaryUC.TabIndex = 4;
+            this.addDiaryUC.Load += new System.EventHandler(this.addDiary1_Load);
             // 
             // diaryDataGridView
             // 
@@ -1899,6 +2020,7 @@ namespace SecureDesk
             this.diaryDataGridView.Location = new System.Drawing.Point(54, 146);
             this.diaryDataGridView.Name = "diaryDataGridView";
             this.diaryDataGridView.RowHeadersVisible = false;
+            this.diaryDataGridView.RowHeadersWidth = 51;
             this.diaryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.diaryDataGridView.Size = new System.Drawing.Size(1061, 197);
             this.diaryDataGridView.TabIndex = 2;
@@ -1930,24 +2052,37 @@ namespace SecureDesk
             // 
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
             this.titleDataGridViewTextBoxColumn.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
             this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             // 
             // view
             // 
             this.view.DataPropertyName = "date";
             this.view.HeaderText = "view";
+            this.view.MinimumWidth = 6;
             this.view.Name = "view";
             this.view.Text = "view";
             // 
             // diaryDataBindingSource
             // 
             this.diaryDataBindingSource.DataSource = typeof(SecureDesk.DiaryService.DiaryData);
+            // 
+            // addDiaryPanel
+            // 
+            this.addDiaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.addDiaryPanel.Location = new System.Drawing.Point(32532, 32605);
+            this.addDiaryPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.addDiaryPanel.Name = "addDiaryPanel";
+            this.addDiaryPanel.Size = new System.Drawing.Size(65535, 65535);
+            this.addDiaryPanel.TabIndex = 1;
+            this.addDiaryPanel.Load += new System.EventHandler(this.addDiaryPanel_Load);
             // 
             // diaryAddPanel
             // 
@@ -1967,15 +2102,15 @@ namespace SecureDesk
             this.guna2GradientButton1.BorderRadius = 15;
             this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
             this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(175, 3);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(897, 3);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
             this.guna2GradientButton1.Size = new System.Drawing.Size(154, 45);
             this.guna2GradientButton1.TabIndex = 1;
-            this.guna2GradientButton1.Text = "Get Diary List";
+            this.guna2GradientButton1.Text = "Refresh";
             this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // btnAddNewDiary
@@ -2148,7 +2283,7 @@ namespace SecureDesk
             this.label8.Location = new System.Drawing.Point(10, 92);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 23);
+            this.label8.Size = new System.Drawing.Size(110, 29);
             this.label8.TabIndex = 10;
             this.label8.Text = "Select File";
             // 
@@ -2160,7 +2295,7 @@ namespace SecureDesk
             this.label7.Location = new System.Drawing.Point(13, 63);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 23);
+            this.label7.Size = new System.Drawing.Size(105, 29);
             this.label7.TabIndex = 4;
             this.label7.Text = "File name";
             // 
@@ -2172,7 +2307,7 @@ namespace SecureDesk
             this.label6.Location = new System.Drawing.Point(11, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(422, 33);
+            this.label6.Size = new System.Drawing.Size(542, 41);
             this.label6.TabIndex = 2;
             this.label6.Text = "Add document to SecureDesk Storage ";
             // 
@@ -2264,7 +2399,7 @@ namespace SecureDesk
             this.label5.Location = new System.Drawing.Point(4, 61);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 23);
+            this.label5.Size = new System.Drawing.Size(95, 29);
             this.label5.TabIndex = 3;
             this.label5.Text = "Share to";
             // 
@@ -2276,9 +2411,25 @@ namespace SecureDesk
             this.label4.Location = new System.Drawing.Point(2, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(231, 33);
+            this.label4.Size = new System.Drawing.Size(295, 41);
             this.label4.TabIndex = 2;
             this.label4.Text = "Share a document...";
+            // 
+            // addDocumentUC1
+            // 
+            this.addDocumentUC1.Location = new System.Drawing.Point(32535, 32608);
+            this.addDocumentUC1.Margin = new System.Windows.Forms.Padding(6518151, 738199819, 6518151, 738199819);
+            this.addDocumentUC1.Name = "addDocumentUC1";
+            this.addDocumentUC1.Size = new System.Drawing.Size(65535, 65535);
+            this.addDocumentUC1.TabIndex = 15;
+            // 
+            // documentSharingUC1
+            // 
+            this.documentSharingUC1.Location = new System.Drawing.Point(32535, 32608);
+            this.documentSharingUC1.Margin = new System.Windows.Forms.Padding(6518151, 738199819, 6518151, 738199819);
+            this.documentSharingUC1.Name = "documentSharingUC1";
+            this.documentSharingUC1.Size = new System.Drawing.Size(65535, 65535);
+            this.documentSharingUC1.TabIndex = 14;
             // 
             // documentAddbtn
             // 
@@ -2335,6 +2486,31 @@ namespace SecureDesk
             this.addNewDocumentBtn.Text = " New Document";
             this.addNewDocumentBtn.Click += new System.EventHandler(this.addNewDocumentBtn_Click);
             // 
+            // addDocument1
+            // 
+            this.addDocument1.Location = new System.Drawing.Point(32535, 32608);
+            this.addDocument1.Margin = new System.Windows.Forms.Padding(0);
+            this.addDocument1.Name = "addDocument1";
+            this.addDocument1.Size = new System.Drawing.Size(65535, 65535);
+            this.addDocument1.TabIndex = 2;
+            this.addDocument1.Load += new System.EventHandler(this.addDocument1_Load_1);
+            // 
+            // shareDocument1
+            // 
+            this.shareDocument1.Location = new System.Drawing.Point(32535, 32608);
+            this.shareDocument1.Margin = new System.Windows.Forms.Padding(2055414333, 0, 2055414333, 0);
+            this.shareDocument1.Name = "shareDocument1";
+            this.shareDocument1.Size = new System.Drawing.Size(65535, 65535);
+            this.shareDocument1.TabIndex = 8;
+            // 
+            // addDocumentUC
+            // 
+            this.addDocumentUC.Location = new System.Drawing.Point(32535, 32608);
+            this.addDocumentUC.Margin = new System.Windows.Forms.Padding(48830999, 0, 48830999, 0);
+            this.addDocumentUC.Name = "addDocumentUC";
+            this.addDocumentUC.Size = new System.Drawing.Size(65535, 65535);
+            this.addDocumentUC.TabIndex = 13;
+            // 
             // axAcroPDF1
             // 
             this.axAcroPDF1.Enabled = true;
@@ -2343,6 +2519,14 @@ namespace SecureDesk
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
             this.axAcroPDF1.Size = new System.Drawing.Size(1061, 306);
             this.axAcroPDF1.TabIndex = 7;
+            // 
+            // documentSharingUC
+            // 
+            this.documentSharingUC.Location = new System.Drawing.Point(32535, 32608);
+            this.documentSharingUC.Margin = new System.Windows.Forms.Padding(65108002, 0, 65108002, 0);
+            this.documentSharingUC.Name = "documentSharingUC";
+            this.documentSharingUC.Size = new System.Drawing.Size(65535, 65535);
+            this.documentSharingUC.TabIndex = 12;
             // 
             // documentDataGridView
             // 
@@ -2382,6 +2566,7 @@ namespace SecureDesk
             this.documentDataGridView.Location = new System.Drawing.Point(57, 123);
             this.documentDataGridView.Name = "documentDataGridView";
             this.documentDataGridView.RowHeadersVisible = false;
+            this.documentDataGridView.RowHeadersWidth = 51;
             this.documentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.documentDataGridView.Size = new System.Drawing.Size(1061, 150);
             this.documentDataGridView.TabIndex = 6;
@@ -2413,12 +2598,14 @@ namespace SecureDesk
             // 
             this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "fileName";
             this.fileNameDataGridViewTextBoxColumn.HeaderText = "fileName";
+            this.fileNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
             // 
             // viewPdf
             // 
             this.viewPdf.DataPropertyName = "fileLink";
             this.viewPdf.HeaderText = "view pdf";
+            this.viewPdf.MinimumWidth = 6;
             this.viewPdf.Name = "viewPdf";
             this.viewPdf.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.viewPdf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -2427,12 +2614,14 @@ namespace SecureDesk
             // sharePdf
             // 
             this.sharePdf.HeaderText = "share pdf";
+            this.sharePdf.MinimumWidth = 6;
             this.sharePdf.Name = "sharePdf";
             this.sharePdf.Text = "share pdf";
             // 
             // deletePdf
             // 
             this.deletePdf.HeaderText = "delete pdf";
+            this.deletePdf.MinimumWidth = 6;
             this.deletePdf.Name = "deletePdf";
             this.deletePdf.Text = "delete pdf";
             // 
@@ -2442,7 +2631,8 @@ namespace SecureDesk
             // 
             // guna2Elipse1
             // 
-           
+            this.guna2Elipse1.BorderRadius = 60;
+            this.guna2Elipse1.TargetControl = this.outerPanel;
             // 
             // timer1
             // 
@@ -2450,182 +2640,17 @@ namespace SecureDesk
             // 
             // guna2Elipse2
             // 
-           
+            this.guna2Elipse2.BorderRadius = 10;
+            this.guna2Elipse2.TargetControl = this.documentAddbtn;
+            // 
             // guna2Elipse3
             // 
-            
+            this.guna2Elipse3.BorderRadius = 7;
+            this.guna2Elipse3.TargetControl = this.documentPanel;
             // 
             // userAccountDataBindingSource1
             // 
             this.userAccountDataBindingSource1.DataSource = typeof(SecureDesk.AccountService.UserAccountData);
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Animated = true;
-            this.searchTextBox.BorderRadius = 7;
-            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.searchTextBox.DefaultText = "Search here";
-            this.searchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.searchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.searchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchTextBox.DisabledState.Parent = this.searchTextBox;
-            this.searchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchTextBox.FocusedState.Parent = this.searchTextBox;
-            this.searchTextBox.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Italic);
-            this.searchTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.searchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchTextBox.HoverState.Parent = this.searchTextBox;
-            this.searchTextBox.Location = new System.Drawing.Point(213, 10);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.PasswordChar = '\0';
-            this.searchTextBox.PlaceholderText = "";
-            this.searchTextBox.SelectedText = "";
-            this.searchTextBox.SelectionStart = 11;
-            this.searchTextBox.ShadowDecoration.Parent = this.searchTextBox;
-            this.searchTextBox.Size = new System.Drawing.Size(201, 40);
-            this.searchTextBox.TabIndex = 14;
-            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
-            // 
-            // searchComboBox
-            // 
-            this.searchComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.searchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchComboBox.FocusedState.Parent = this.searchComboBox;
-            this.searchComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.searchComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.searchComboBox.HoverState.Parent = this.searchComboBox;
-            this.searchComboBox.ItemHeight = 30;
-            this.searchComboBox.ItemsAppearance.Parent = this.searchComboBox;
-            this.searchComboBox.Location = new System.Drawing.Point(15, 12);
-            this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.ShadowDecoration.Parent = this.searchComboBox;
-            this.searchComboBox.Size = new System.Drawing.Size(183, 36);
-            this.searchComboBox.TabIndex = 15;
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.Animated = true;
-            this.searchBtn.AnimatedGIF = true;
-            this.searchBtn.BorderRadius = 15;
-            this.searchBtn.CheckedState.Parent = this.searchBtn;
-            this.searchBtn.CustomImages.Parent = this.searchBtn;
-            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.HoverState.Parent = this.searchBtn;
-            this.searchBtn.Location = new System.Drawing.Point(437, 7);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.ShadowDecoration.Parent = this.searchBtn;
-            this.searchBtn.Size = new System.Drawing.Size(154, 46);
-            this.searchBtn.TabIndex = 16;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
-            // sharedDocumentSharingUC1
-            // 
-            this.sharedDocumentSharingUC1.Location = new System.Drawing.Point(32767, 32767);
-            this.sharedDocumentSharingUC1.Margin = new System.Windows.Forms.Padding(116140, 3637731, 116140, 3637731);
-            this.sharedDocumentSharingUC1.Name = "sharedDocumentSharingUC1";
-            this.sharedDocumentSharingUC1.Size = new System.Drawing.Size(65535, 65535);
-            this.sharedDocumentSharingUC1.TabIndex = 12;
-            // 
-            // sharedDocumentSharingUC
-            // 
-            this.sharedDocumentSharingUC.Location = new System.Drawing.Point(32767, 32767);
-            this.sharedDocumentSharingUC.Margin = new System.Windows.Forms.Padding(870068, 51820581, 870068, 51820581);
-            this.sharedDocumentSharingUC.Name = "sharedDocumentSharingUC";
-            this.sharedDocumentSharingUC.Size = new System.Drawing.Size(65535, 65535);
-            this.sharedDocumentSharingUC.TabIndex = 11;
-            // 
-            // shareDocument2
-            // 
-            this.shareDocument2.Location = new System.Drawing.Point(32767, 32767);
-            this.shareDocument2.Margin = new System.Windows.Forms.Padding(3666460, 345583873, 3666460, 345583873);
-            this.shareDocument2.Name = "shareDocument2";
-            this.shareDocument2.Size = new System.Drawing.Size(65535, 65535);
-            this.shareDocument2.TabIndex = 10;
-            // 
-            // addDiaryUC1
-            // 
-            this.addDiaryUC1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.addDiaryUC1.Location = new System.Drawing.Point(32767, 32767);
-            this.addDiaryUC1.Margin = new System.Windows.Forms.Padding(4905, 55965, 4905, 55965);
-            this.addDiaryUC1.Name = "addDiaryUC1";
-            this.addDiaryUC1.Size = new System.Drawing.Size(65535, 65535);
-            this.addDiaryUC1.TabIndex = 5;
-            // 
-            // addDiaryUC
-            // 
-            this.addDiaryUC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.addDiaryUC.Location = new System.Drawing.Point(32767, 32767);
-            this.addDiaryUC.Margin = new System.Windows.Forms.Padding(4905, 55965, 4905, 55965);
-            this.addDiaryUC.Name = "addDiaryUC";
-            this.addDiaryUC.Size = new System.Drawing.Size(65535, 65535);
-            this.addDiaryUC.TabIndex = 4;
-            this.addDiaryUC.Load += new System.EventHandler(this.addDiary1_Load);
-            // 
-            // addDiaryPanel
-            // 
-            this.addDiaryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.addDiaryPanel.Location = new System.Drawing.Point(32767, 32767);
-            this.addDiaryPanel.Margin = new System.Windows.Forms.Padding(1541560707, 0, 1541560707, 0);
-            this.addDiaryPanel.Name = "addDiaryPanel";
-            this.addDiaryPanel.Size = new System.Drawing.Size(65535, 65535);
-            this.addDiaryPanel.TabIndex = 1;
-            this.addDiaryPanel.Load += new System.EventHandler(this.addDiaryPanel_Load);
-            // 
-            // addDocumentUC1
-            // 
-            this.addDocumentUC1.Location = new System.Drawing.Point(32767, 32767);
-            this.addDocumentUC1.Margin = new System.Windows.Forms.Padding(116140, 3637731, 116140, 3637731);
-            this.addDocumentUC1.Name = "addDocumentUC1";
-            this.addDocumentUC1.Size = new System.Drawing.Size(65535, 65535);
-            this.addDocumentUC1.TabIndex = 15;
-            // 
-            // documentSharingUC1
-            // 
-            this.documentSharingUC1.Location = new System.Drawing.Point(32767, 32767);
-            this.documentSharingUC1.Margin = new System.Windows.Forms.Padding(116140, 3637731, 116140, 3637731);
-            this.documentSharingUC1.Name = "documentSharingUC1";
-            this.documentSharingUC1.Size = new System.Drawing.Size(65535, 65535);
-            this.documentSharingUC1.TabIndex = 14;
-            // 
-            // addDocument1
-            // 
-            this.addDocument1.Location = new System.Drawing.Point(32767, 32767);
-            this.addDocument1.Margin = new System.Windows.Forms.Padding(650345833, 0, 650345833, 0);
-            this.addDocument1.Name = "addDocument1";
-            this.addDocument1.Size = new System.Drawing.Size(65535, 65535);
-            this.addDocument1.TabIndex = 2;
-            this.addDocument1.Load += new System.EventHandler(this.addDocument1_Load_1);
-            // 
-            // shareDocument1
-            // 
-            this.shareDocument1.Location = new System.Drawing.Point(32767, 32767);
-            this.shareDocument1.Margin = new System.Windows.Forms.Padding(36623249, 0, 36623249, 0);
-            this.shareDocument1.Name = "shareDocument1";
-            this.shareDocument1.Size = new System.Drawing.Size(65535, 65535);
-            this.shareDocument1.TabIndex = 8;
-            // 
-            // addDocumentUC
-            // 
-            this.addDocumentUC.Location = new System.Drawing.Point(32767, 32767);
-            this.addDocumentUC.Margin = new System.Windows.Forms.Padding(870068, 51820581, 870068, 51820581);
-            this.addDocumentUC.Name = "addDocumentUC";
-            this.addDocumentUC.Size = new System.Drawing.Size(65535, 65535);
-            this.addDocumentUC.TabIndex = 13;
-            // 
-            // documentSharingUC
-            // 
-            this.documentSharingUC.Location = new System.Drawing.Point(32767, 32767);
-            this.documentSharingUC.Margin = new System.Windows.Forms.Padding(1160091, 75737769, 1160091, 75737769);
-            this.documentSharingUC.Name = "documentSharingUC";
-            this.documentSharingUC.Size = new System.Drawing.Size(65535, 65535);
-            this.documentSharingUC.TabIndex = 12;
             // 
             // Dashboard
             // 

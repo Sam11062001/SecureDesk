@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="53fb9367-3d38-470d-8606-281d77e232e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a9cb1c4b-a845-42ab-8045-f3e579f9860d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63532/ServiceClass/DocumentService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DocumentService.xsd" MetadataType="Schema" ID="0cfd899f-7c0f-4d33-a1ad-b27aac6159c5" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/DocumentService.svc?xsd=xsd1" />
-    <MetadataFile FileName="DocumentService.wsdl" MetadataType="Wsdl" ID="41bc43a7-645c-440c-85b6-b73d83255d6d" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/DocumentService.svc?wsdl" />
-    <MetadataFile FileName="DocumentService1.xsd" MetadataType="Schema" ID="68997267-61ea-45b3-9838-c6b9e45651f6" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/DocumentService.svc?xsd=xsd0" />
-    <MetadataFile FileName="DocumentService.disco" MetadataType="Disco" ID="6d602aa7-e86b-4c09-bf06-ece2be6927fe" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/DocumentService.svc?disco" />
-    <MetadataFile FileName="DocumentService2.xsd" MetadataType="Schema" ID="842d09d6-7bfa-4c65-88ad-1a6d0cf36b99" SourceId="1" SourceUrl="http://localhost:63532/ServiceClass/DocumentService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DocumentService.disco" MetadataType="Disco" ID="b79f1db9-ae9e-4398-8f97-6eaa42eb1397" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc?disco" />
+    <MetadataFile FileName="DocumentService.xsd" MetadataType="Schema" ID="f2dbfa77-7610-4bcd-a6c4-35202d2e5f20" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DocumentService.wsdl" MetadataType="Wsdl" ID="434f71b9-8df3-4e88-81e0-cc99b79bf944" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc?wsdl" />
+    <MetadataFile FileName="DocumentService1.xsd" MetadataType="Schema" ID="7c10a20c-8db6-4317-9fd6-ebde1844ded3" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DocumentService2.xsd" MetadataType="Schema" ID="bc3c0d83-a231-474c-aefa-75fca7859f97" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/DocumentService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -7,11 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using SecureDesk.Algorithms;
-
-
-
 namespace SecureDesk.UserControls
 {
     public partial class addAccounts : UserControl
@@ -20,7 +16,6 @@ namespace SecureDesk.UserControls
         {
             InitializeComponent();
         }
-
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
@@ -117,6 +112,5 @@ namespace SecureDesk.UserControls
 
 
         }
-
     }
 }

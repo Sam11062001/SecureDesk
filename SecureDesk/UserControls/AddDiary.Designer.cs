@@ -161,7 +161,8 @@ namespace SecureDesk.UserControls
             // 
             // guna2Elipse1
             // 
-            
+            this.guna2Elipse1.BorderRadius = 9;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // SubmitBtn
             // 
@@ -202,7 +203,9 @@ namespace SecureDesk.UserControls
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // guna2Elipse2
-            
+            // 
+            this.guna2Elipse2.BorderRadius = 7;
+            this.guna2Elipse2.TargetControl = this.contetTextBox;
             // 
             // AddDiary
             // 

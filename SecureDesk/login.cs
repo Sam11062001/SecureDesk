@@ -17,11 +17,13 @@ namespace SecureDesk
     {
         string emailAddress;
         ClientRegistrationService.RegistrationServiceClient clientRegistration = null;
+        UserAccountService.UserAccountServiceClient userAccountServiceClient;
         public login()
         {
             
             InitializeComponent();
-            clientRegistration = new ClientRegistrationService.RegistrationServiceClient();
+            clientRegistration = new ClientRegistrationService.RegistrationServiceClient("BasicHttpsBinding_RegistrationService");
+            
             panel2.Hide();
             panel3.Hide();
             panel4.Hide();
@@ -42,13 +44,13 @@ namespace SecureDesk
         {
             button1.Enabled = false;
             //instance of service procy
-            AuthenticateClient.IAuthService serviceProcy = new AuthenticateClient.AuthServiceClient();
+            AuthenticateClient.AuthServiceClient serviceProcy = new AuthenticateClient.AuthServiceClient("BasicHttpsBinding_IAuthService");
            
             //creating the instance of the userCredential object required for validating the client
             AuthenticateClient.UserCredentials userCredentials = new AuthenticateClient.UserCredentials();
            
             //user email address
-            userCredentials.User_Auth_Email = emailTB.Text;
+            userCredentials.User_Auth_Email = textBox1.Text;
            
             //user password
             userCredentials.User_Auth_Password = passwordTextBox.Text;
@@ -73,16 +75,20 @@ namespace SecureDesk
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            clientRegistration.sendOTP(emailAddress);
+            //clientRegistration.sendOTP(emailAddress);
+            userAccountServiceClient = new UserAccountService.UserAccountServiceClient("BasicHttpsBinding_IUserAccountService");
+            UserAccountService.User user = userAccountServiceClient.getAccountInfo(emailAddress);
+            bool isForgetPassword = true;
+            clientRegistration.sendOTP(emailAddress, user.firstName + " " + user.lastName, isForgetPassword);
             panel2.Show();
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             invalidLabel.Hide();
-            if (!String.IsNullOrEmpty(emailTB.Text))
+            if (!String.IsNullOrEmpty(textBox1.Text))
             {
-                emailAddress = emailTB.Text;
+                emailAddress = textBox1.Text;
 
                 richTextBox1.Text = clientRegistration.getUserQuestion(emailAddress);
 
@@ -128,11 +134,12 @@ namespace SecureDesk
             {
                 ClientRegistrationService.UserOtpVerification userOtpVerification = new ClientRegistrationService.UserOtpVerification()
                 {
-                    OneTimePasswordforVerification = Int32.Parse(code),
+                    OneTimePasswordforVerification = code,
                     User_Email_Address = emailAddress
 
                 };
-                Boolean result = clientRegistration.verifyUser(userOtpVerification.OneTimePasswordforVerification, userOtpVerification.User_Email_Address);
+                Boolean result = clientRegistration.verifyForgetPassword(userOtpVerification.OneTimePasswordforVerification, userOtpVerification.User_Email_Address);
+
                 if (result)
                 {
                     textBox9.Text = "";
@@ -171,7 +178,11 @@ namespace SecureDesk
                 {
                     label27.Text = "";
                     panel3.Show();
-                    clientRegistration.sendOTP(emailAddress);
+                    //clientRegistration.sendOTP(emailAddress);
+                    userAccountServiceClient = new UserAccountService.UserAccountServiceClient("BasicHttpsBinding_IUserAccountService");
+                    UserAccountService.User user = userAccountServiceClient.getAccountInfo(emailAddress);
+                    bool isForgetPassword = true;
+                    clientRegistration.sendOTP(emailAddress, user.firstName + " " + user.lastName, isForgetPassword);
                 }
             }
         }
@@ -252,7 +263,7 @@ namespace SecureDesk
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            emailTB.Text = "";
+            textBox1.Text = "";
 
 
         }
@@ -277,6 +288,37 @@ namespace SecureDesk
 
         }
 
-        
+        private void emailTB_Enter(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void verifyMeLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            invalidLabel.Hide();
+            if (!String.IsNullOrEmpty(textBox1.Text))
+            {
+                emailAddress = textBox1.Text;
+
+                richTextBox1.Text = clientRegistration.getUserQuestion(emailAddress);
+
+                panel2.Show();
+                panel3.Hide();
+            }
+            else
+            {
+                invalidLabel.Show();
+                invalidLabel.Text = "Enter email address";
+                invalidLabel.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            panel2.Hide();
+            panel3.Hide();
+            panel4.Hide();
+            invalidLabel.Hide();
+        }
     }
 }

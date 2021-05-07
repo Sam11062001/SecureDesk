@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="DocumentData">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fileLink" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sharedBy" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DocumentData" nillable="true" type="tns:DocumentData" />
-  <xs:complexType name="ArrayOfSharedDocumentData">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SharedDocumentData" nillable="true" type="tns:SharedDocumentData" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSharedDocumentData" nillable="true" type="tns:ArrayOfSharedDocumentData" />
-  <xs:complexType name="SharedDocumentData">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fileLink" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sharedBy" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="SharedDocumentData" nillable="true" type="tns:SharedDocumentData" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webappsecuredesk.azurewebsites.net/ServiceClass/SharingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" />
+  <xs:element name="connectToFirebase">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="connectToFirebaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="connectToFirebaseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shareDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" minOccurs="0" name="documentData" nillable="true" type="q1:DocumentData" />
+        <xs:element minOccurs="0" name="sharedBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sharedTo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shareDocumentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSharedDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSharedDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" minOccurs="0" name="getSharedDocumentResult" nillable="true" type="q2:ArrayOfSharedDocumentData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteSharedDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models" minOccurs="0" name="sharedDocumentData" nillable="true" type="q3:SharedDocumentData" />
+        <xs:element minOccurs="0" name="emailSharedTo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteSharedDocumentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

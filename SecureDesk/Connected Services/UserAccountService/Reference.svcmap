@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="682e1466-9105-4ea0-89f5-20d2848b43be" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserAccountService.wsdl" MetadataType="Wsdl" ID="bd89dba6-7cda-4b50-adad-f8e9e7a09082" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc?wsdl" />
+    <MetadataFile FileName="UserAccountService.xsd" MetadataType="Schema" ID="fb600218-4702-4547-a391-04c6a37f4c16" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserAccountService1.xsd" MetadataType="Schema" ID="a79f77f2-e612-44a1-bc3a-c9beba4f448b" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserAccountService2.xsd" MetadataType="Schema" ID="74e5aa23-5ff9-4337-9aaa-163cbbc4b44d" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserAccountService.disco" MetadataType="Disco" ID="4d9fb9b0-21f0-409a-aed6-49c114d3b205" SourceId="1" SourceUrl="http://webappsecuredesk.azurewebsites.net/ServiceClass/UserAccountService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

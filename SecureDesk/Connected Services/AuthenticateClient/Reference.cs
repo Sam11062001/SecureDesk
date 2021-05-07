@@ -74,11 +74,73 @@ namespace SecureDesk.AuthenticateClient {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
+    [System.SerializableAttribute()]
+    public partial class CustomException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string errorMessageToUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string errorTitleNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string errorMessageToUser {
+            get {
+                return this.errorMessageToUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.errorMessageToUserField, value) != true)) {
+                    this.errorMessageToUserField = value;
+                    this.RaisePropertyChanged("errorMessageToUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string errorTitleName {
+            get {
+                return this.errorTitleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.errorTitleNameField, value) != true)) {
+                    this.errorTitleNameField = value;
+                    this.RaisePropertyChanged("errorTitleName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AuthenticateClient.IAuthService")]
     public interface IAuthService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/validateLogin", ReplyAction="http://tempuri.org/IAuthService/validateLoginResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SecureDesk.AuthenticateClient.CustomException), Action="http://tempuri.org/IAuthService/validateLoginCustomExceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/SecureDesk_WCF_Service.Models")]
         bool validateLogin(SecureDesk.AuthenticateClient.UserCredentials authUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/validateLogin", ReplyAction="http://tempuri.org/IAuthService/validateLoginResponse")]
